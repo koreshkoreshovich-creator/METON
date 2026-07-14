@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Сонячні електростанції, панелі, інвертори та акумулятори | METON</title>
     <meta name="description" content="METON - сонячні електростанції під ключ, сонячні панелі, інвертори та акумулятори для дому й бізнесу в Україні." />
-    <meta name="keywords" content="сонячні електростанції, сонячні панелі, інвертори, акумулятори, гібридні сонячні електростанції, мережеві сонячні електростанції, METON" />
+    <meta name="keywords" content="сонячні електростанції, сонячні панелі, інвертори, акумулятори, Deye, Longi, Jinko, Dyness, METON" />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="METON | Сонячні електростанції" />
-    <meta property="og:description" content="Сонячні електростанції, панелі, інвертори та акумулятори для автономності й економії." />
-    <meta property="og:type" content="website" />
+    <meta property="og:title" content="METON | Сонячні електростанції та обладнання" />
+    <meta property="og:description" content="Сонячні електростанції, панелі, інвертори й акумулятори з переходами на ціни та характеристики." />
     <style>
       :root {
         --black: #050505;
-        --ink: #111111;
-        --soft: #f4f4f4;
+        --ink: #141414;
         --white: #ffffff;
-        --muted: #747474;
+        --soft: #f4f4f2;
         --line: #dedede;
+        --muted: #666666;
+        --accent: #f4c542;
+        --green: #24a267;
       }
 
       * {
@@ -47,13 +48,13 @@
 
       .header {
         align-items: center;
-        background: rgba(255, 255, 255, 0.94);
+        background: rgba(255, 255, 255, 0.95);
         border-bottom: 1px solid var(--line);
         display: grid;
         gap: 18px;
         grid-template-columns: auto 1fr auto;
         left: 0;
-        padding: 16px clamp(18px, 5vw, 72px);
+        padding: 14px clamp(18px, 5vw, 72px);
         position: fixed;
         right: 0;
         top: 0;
@@ -68,7 +69,7 @@
         gap: 10px;
       }
 
-      .brand-mark {
+      .mark {
         align-items: center;
         background: var(--black);
         color: var(--white);
@@ -82,30 +83,34 @@
         display: flex;
         gap: clamp(14px, 2vw, 28px);
         justify-content: center;
-        color: #333;
+        color: #2f2f2f;
         font-size: 14px;
       }
 
-      .header-button,
-      .button {
+      .btn {
         align-items: center;
         border: 1px solid var(--black);
         display: inline-flex;
-        font-weight: 800;
+        font-weight: 850;
         justify-content: center;
         min-height: 44px;
         padding: 12px 18px;
       }
 
-      .header-button,
-      .button.dark {
+      .btn.dark {
         background: var(--black);
         color: var(--white);
       }
 
-      .button.light {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.6);
+      .btn.accent {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--black);
+      }
+
+      .btn.green {
+        background: var(--green);
+        border-color: var(--green);
         color: var(--white);
       }
 
@@ -113,15 +118,15 @@
         background: var(--black);
         color: var(--white);
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
         min-height: 92vh;
-        padding: 112px clamp(18px, 5vw, 72px) 54px;
+        padding: 112px clamp(18px, 5vw, 72px) 56px;
       }
 
       .hero-copy {
         align-self: center;
-        max-width: 920px;
-        padding-right: clamp(0px, 5vw, 60px);
+        max-width: 950px;
+        padding-right: clamp(0px, 5vw, 64px);
       }
 
       .eyebrow {
@@ -140,45 +145,49 @@
       }
 
       h1 {
-        font-size: clamp(44px, 8vw, 96px);
+        font-size: clamp(44px, 8vw, 94px);
         line-height: 0.96;
         margin-bottom: 26px;
       }
 
       h2 {
-        font-size: clamp(32px, 5vw, 62px);
-        line-height: 1.02;
+        font-size: clamp(32px, 5vw, 60px);
+        line-height: 1.04;
         margin-bottom: 18px;
       }
 
       h3 {
-        font-size: 28px;
-        margin-bottom: 12px;
+        font-size: 25px;
+        line-height: 1.15;
+        margin-bottom: 10px;
       }
 
       .lead {
         color: #d8d8d8;
         font-size: clamp(18px, 2vw, 23px);
         line-height: 1.6;
-        max-width: 790px;
+        max-width: 820px;
       }
 
-      .hero-actions {
+      .actions,
+      .card-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 12px;
+      }
+
+      .actions {
         margin-top: 34px;
       }
 
       .hero-photo {
         align-self: stretch;
         background-image:
-          linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.55)),
-          url("https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=85");
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.3)),
+          url("https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=85");
         background-position: center;
         background-size: cover;
-        filter: grayscale(100%);
-        min-height: 520px;
+        min-height: 540px;
       }
 
       .strip {
@@ -192,7 +201,7 @@
         border-right: 1px solid var(--line);
         font-size: clamp(18px, 2vw, 25px);
         font-weight: 900;
-        min-height: 120px;
+        min-height: 118px;
         padding: 26px;
       }
 
@@ -200,99 +209,115 @@
         padding: clamp(58px, 8vw, 110px) clamp(18px, 5vw, 72px);
       }
 
-      .section-head {
-        max-width: 820px;
+      .section.dark {
+        background: var(--black);
+        color: var(--white);
       }
 
-      .section-head p {
+      .section.soft {
+        background: var(--soft);
+      }
+
+      .section-head {
+        max-width: 900px;
+      }
+
+      .section-head p,
+      .muted {
         color: var(--muted);
         font-size: 18px;
         line-height: 1.65;
       }
 
-      .catalog {
+      .dark .section-head p,
+      .dark .muted {
+        color: #c8c8c8;
+      }
+
+      .category-grid {
         display: grid;
         gap: 20px;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         margin-top: 38px;
       }
 
-      .card {
+      .category-card {
         background: var(--white);
         border: 1px solid var(--line);
+        min-height: 100%;
+      }
+
+      .category-card img {
+        aspect-ratio: 1.18;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .category-card div {
+        padding: 24px;
+      }
+
+      .product-section {
+        border-top: 1px solid #2d2d2d;
+        padding-top: clamp(46px, 6vw, 72px);
+      }
+
+      .product-section + .product-section {
+        margin-top: clamp(54px, 7vw, 88px);
+      }
+
+      .product-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 28px;
+      }
+
+      .product-card {
+        background: #111111;
+        border: 1px solid #2d2d2d;
         display: flex;
         flex-direction: column;
         min-height: 100%;
       }
 
-      .card img {
-        aspect-ratio: 1.18;
-        filter: grayscale(100%);
+      .product-card img {
+        aspect-ratio: 4 / 3;
+        background: #ffffff;
         object-fit: cover;
         width: 100%;
       }
 
-      .card-body {
+      .product-body {
         display: flex;
         flex: 1;
         flex-direction: column;
-        padding: 24px;
+        padding: 22px;
       }
 
-      .card p,
-      .product p,
-      .product li,
-      .faq p {
-        color: var(--muted);
-        line-height: 1.65;
-      }
-
-      .card-link {
-        border-top: 1px solid var(--line);
+      .badge {
+        align-self: flex-start;
+        background: rgba(244, 197, 66, 0.16);
+        color: var(--accent);
+        font-size: 12px;
         font-weight: 900;
-        margin-top: auto;
-        padding-top: 18px;
+        margin-bottom: 14px;
+        padding: 7px 10px;
+        text-transform: uppercase;
       }
 
-      .black-section {
-        background: var(--black);
-        color: var(--white);
+      .specs {
+        color: #cfcfcf;
+        line-height: 1.6;
+        margin: 10px 0 18px;
+        padding-left: 18px;
       }
 
-      .black-section .section-head p,
-      .black-section .product p,
-      .black-section .product li {
-        color: #c9c9c9;
-      }
-
-      .products {
-        display: grid;
-        gap: 1px;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        margin-top: 38px;
-      }
-
-      .product {
-        background: #111;
-        border: 1px solid #2b2b2b;
-        min-height: 420px;
-        padding: clamp(28px, 4vw, 46px);
-      }
-
-      .product .number {
-        color: #999;
-        display: block;
+      .price-note {
+        color: #ffffff;
+        font-size: 15px;
         font-weight: 900;
-        margin-bottom: 22px;
-      }
-
-      .product ul {
-        margin: 24px 0 0;
-        padding-left: 20px;
-      }
-
-      .work {
-        background: var(--soft);
+        margin: auto 0 18px;
       }
 
       .steps {
@@ -321,6 +346,7 @@
       }
 
       details {
+        background: var(--white);
         border: 1px solid var(--line);
         padding: 18px 22px;
       }
@@ -329,6 +355,12 @@
         cursor: pointer;
         font-size: 20px;
         font-weight: 900;
+      }
+
+      details p {
+        color: var(--muted);
+        line-height: 1.65;
+        margin: 12px 0 0;
       }
 
       .contact {
@@ -348,7 +380,7 @@
         max-width: 760px;
       }
 
-      @media (max-width: 1060px) {
+      @media (max-width: 1100px) {
         .header {
           grid-template-columns: 1fr auto;
         }
@@ -367,9 +399,13 @@
           min-height: 360px;
         }
 
-        .catalog,
         .strip,
+        .category-grid,
         .steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .product-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
@@ -379,7 +415,7 @@
           padding: 12px 16px;
         }
 
-        .header-button {
+        .header .btn {
           font-size: 13px;
           padding-inline: 12px;
         }
@@ -388,10 +424,10 @@
           padding: 104px 18px 42px;
         }
 
-        .catalog,
-        .products,
         .strip,
-        .steps {
+        .category-grid,
+        .steps,
+        .product-grid {
           grid-template-columns: 1fr;
         }
 
@@ -400,27 +436,11 @@
         }
       }
     </style>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "METON",
-        "url": "https://meton.com.ua",
-        "areaServed": "Україна",
-        "description": "Сонячні електростанції, сонячні панелі, інвертори та акумулятори для дому й бізнесу.",
-        "makesOffer": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Сонячні електростанції під ключ" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Сонячні панелі" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Інвертори" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Акумулятори" } }
-        ]
-      }
-    </script>
   </head>
   <body>
     <header class="header">
       <a class="brand" href="#top" aria-label="METON">
-        <span class="brand-mark">M</span>
+        <span class="mark">M</span>
         <span>METON</span>
       </a>
       <nav class="nav" aria-label="Навігація">
@@ -429,22 +449,23 @@
         <a href="#inverters">Інвертори</a>
         <a href="#batteries">Акумулятори</a>
       </nav>
-      <a class="header-button" href="#contact">Розрахунок</a>
+      <a class="btn accent" href="#products">Каталог</a>
     </header>
 
     <main>
       <section class="hero" id="top">
         <div class="hero-copy">
           <p class="eyebrow">METON solar systems</p>
-          <h1>Сонячні електростанції для дому та бізнесу</h1>
+          <h1>Сонячна енергетика без зайвих категорій</h1>
           <p class="lead">
-            Проєктуємо, підбираємо та монтуємо сонячні електростанції,
-            сонячні панелі, інвертори й акумулятори. Мінімум зайвого,
-            максимум користі: економія, резерв живлення та зрозуміла комплектація.
+            Сайт сфокусований на чотирьох напрямах: сонячні електростанції,
+            сонячні панелі, інвертори та акумулятори. Айдентика залишається
+            чорно-білою, але обладнання показане кольоровими фото, щоб його
+            можна було нормально оцінити.
           </p>
-          <div class="hero-actions">
-            <a class="button dark" href="#catalog">Обрати категорію</a>
-            <a class="button light" href="#contact">Замовити розрахунок</a>
+          <div class="actions">
+            <a class="btn accent" href="#products">Дивитися обладнання</a>
+            <a class="btn green" href="https://meton.com.ua/" target="_blank" rel="noopener">Поточний сайт METON</a>
           </div>
         </div>
         <div class="hero-photo" aria-label="Сонячні панелі на даху"></div>
@@ -457,151 +478,285 @@
         <a href="#batteries">Акумулятори</a>
       </section>
 
-      <section class="section" id="catalog">
+      <section class="section">
         <div class="section-head">
           <p class="eyebrow">Категорії</p>
-          <h2>Чотири основні напрями сайту</h2>
+          <h2>Тільки обладнання для сонячних систем</h2>
           <p>
-            Прибрано зайві категорії на кшталт ДБЖ, відеонагляду та інших
-            позицій. На першому етапі сайт концентрується тільки на тому, що
-            потрібно для сонячної енергетики METON.
+            Прибрано ДБЖ, відеонагляд, безперебійні системи та інші сторонні
+            напрями. На сторінці лишилися товари, які напряму стосуються СЕС:
+            готові станції, панелі, інвертори й акумулятори.
           </p>
         </div>
-
-        <div class="catalog">
-          <article class="card" id="stations">
-            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=85" alt="Сонячні електростанції" />
-            <div class="card-body">
-              <h3>Сонячні електростанції</h3>
-              <p>Мережеві та гібридні рішення під ключ для будинків, офісів, складів, магазинів і виробництв.</p>
-              <a class="card-link" href="#product-stations">Детальніше</a>
-            </div>
+        <div class="category-grid">
+          <article class="category-card">
+            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=85" alt="Сонячна електростанція" />
+            <div><h3>Сонячні електростанції</h3><p class="muted">Мережеві та гібридні рішення для дому, бізнесу й виробництва.</p></div>
           </article>
-          <article class="card" id="panels">
+          <article class="category-card">
             <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=900&q=85" alt="Сонячні панелі" />
-            <div class="card-body">
-              <h3>Сонячні панелі</h3>
-              <p>Односторонні та двосторонні модулі під дахові й наземні станції з підбором за потужністю.</p>
-              <a class="card-link" href="#product-panels">Детальніше</a>
-            </div>
+            <div><h3>Сонячні панелі</h3><p class="muted">Односторонні й двосторонні модулі під дахові та наземні системи.</p></div>
           </article>
-          <article class="card" id="inverters">
-            <img src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=900&q=85" alt="Інвертори для сонячних електростанцій" />
-            <div class="card-body">
-              <h3>Інвертори</h3>
-              <p>Мережеві та гібридні інвертори для правильної роботи станції, резерву та майбутнього розширення.</p>
-              <a class="card-link" href="#product-inverters">Детальніше</a>
-            </div>
+          <article class="category-card">
+            <img src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=900&q=85" alt="Інвертори" />
+            <div><h3>Інвертори</h3><p class="muted">Мережеві та гібридні інвертори для керування генерацією й резервом.</p></div>
           </article>
-          <article class="card" id="batteries">
-            <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=900&q=85" alt="Акумулятори для сонячних електростанцій" />
-            <div class="card-body">
-              <h3>Акумулятори</h3>
-              <p>LiFePO4-батареї та накопичувачі енергії для резервного живлення й автономності.</p>
-              <a class="card-link" href="#product-batteries">Детальніше</a>
-            </div>
+          <article class="category-card">
+            <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=900&q=85" alt="Акумулятори" />
+            <div><h3>Акумулятори</h3><p class="muted">Накопичувачі енергії для автономності та роботи під час відключень.</p></div>
           </article>
         </div>
       </section>
 
-      <section class="section black-section">
+      <section class="section dark" id="products">
         <div class="section-head">
-          <p class="eyebrow">Продукти</p>
-          <h2>Структура, яку зручно розвивати далі</h2>
+          <p class="eyebrow">Каталог</p>
+          <h2>Позиції для першої версії товарного сайту</h2>
           <p>
-            Ці блоки стануть основою для окремих SEO-сторінок: кожну категорію
-            можна буде розширити товарами, характеристиками, цінами, фото та
-            формою заявки.
+            Фото залишені кольоровими. Кнопки ведуть на пошук відповідного
+            обладнання на основному сайті METON, щоб можна було одразу дивитися
+            ціну, наявність і характеристики.
           </p>
         </div>
-        <div class="products">
-          <article class="product" id="product-stations">
-            <span class="number">01</span>
-            <h3>Сонячні електростанції</h3>
-            <p>Підбір конфігурації під споживання, дах або ділянку, тип мережі та бажаний рівень резерву.</p>
-            <ul>
-              <li>Мережеві СЕС для економії електроенергії.</li>
-              <li>Гібридні СЕС з акумуляторами для відключень.</li>
-              <li>Проєктування, монтаж, налаштування й запуск.</li>
-            </ul>
-          </article>
-          <article class="product" id="product-panels">
-            <span class="number">02</span>
-            <h3>Сонячні панелі</h3>
-            <p>Панелі підбираються за площею, потужністю, типом монтажу та очікуваною генерацією.</p>
-            <ul>
-              <li>Односторонні панелі для класичних дахових систем.</li>
-              <li>Двосторонні панелі для наземних конструкцій.</li>
-              <li>Підбір кількості модулів під реальне споживання.</li>
-            </ul>
-          </article>
-          <article class="product" id="product-inverters">
-            <span class="number">03</span>
-            <h3>Інвертори</h3>
-            <p>Інвертор визначає, як станція працює з мережею, панелями, акумуляторами й навантаженням.</p>
-            <ul>
-              <li>Мережеві інвертори.</li>
-              <li>Гібридні інвертори.</li>
-              <li>Підбір за фазністю, потужністю та запасом розширення.</li>
-            </ul>
-          </article>
-          <article class="product" id="product-batteries">
-            <span class="number">04</span>
-            <h3>Акумулятори</h3>
-            <p>Накопичувачі енергії дозволяють живити критичні прилади, коли мережа недоступна.</p>
-            <ul>
-              <li>LiFePO4-рішення для дому й бізнесу.</li>
-              <li>Розрахунок ємності під критичне навантаження.</li>
-              <li>Модульне нарощування резерву.</li>
-            </ul>
-          </article>
+
+        <div class="product-section" id="stations">
+          <h2>Сонячні електростанції</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=85" alt="Мережева сонячна електростанція" />
+              <div class="product-body">
+                <span class="badge">Під ключ</span>
+                <h3>Мережева СЕС для економії</h3>
+                <ul class="specs">
+                  <li>Для дому, офісу, складу або магазину.</li>
+                  <li>Працює разом із міською мережею.</li>
+                  <li>Підбір панелей та інвертора під споживання.</li>
+                </ul>
+                <p class="price-note">Ціну рахуємо за потужністю та об'єктом.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=%D0%BC%D0%B5%D1%80%D0%B5%D0%B6%D0%B5%D0%B2%D0%B0%20%D1%81%D0%BE%D0%BD%D1%8F%D1%87%D0%BD%D0%B0%20%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D1%86%D1%96%D1%8F" target="_blank" rel="noopener">Купити / ціна</a></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=900&q=85" alt="Гібридна сонячна електростанція" />
+              <div class="product-body">
+                <span class="badge">Резерв</span>
+                <h3>Гібридна СЕС з акумуляторами</h3>
+                <ul class="specs">
+                  <li>Для відключень та критичних навантажень.</li>
+                  <li>Працює з батареями LiFePO4.</li>
+                  <li>Може масштабуватися поетапно.</li>
+                </ul>
+                <p class="price-note">Підбір за потужністю інвертора і ємністю АКБ.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=%D0%B3%D1%96%D0%B1%D1%80%D0%B8%D0%B4%D0%BD%D0%B0%20%D1%81%D0%BE%D0%BD%D1%8F%D1%87%D0%BD%D0%B0%20%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D1%86%D1%96%D1%8F" target="_blank" rel="noopener">Купити / ціна</a></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85" alt="Промислова сонячна електростанція" />
+              <div class="product-body">
+                <span class="badge">Бізнес</span>
+                <h3>СЕС для комерційного об'єкта</h3>
+                <ul class="specs">
+                  <li>Для складів, СТО, магазинів, виробництв.</li>
+                  <li>Оптимізація денного споживання.</li>
+                  <li>Проєктування й монтаж під навантаження.</li>
+                </ul>
+                <p class="price-note">Розрахунок після аналізу рахунків і площі.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=%D1%81%D0%BE%D0%BD%D1%8F%D1%87%D0%BD%D0%B0%20%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D1%86%D1%96%D1%8F" target="_blank" rel="noopener">Купити / ціна</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="product-section" id="panels">
+          <h2>Сонячні панелі</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=900&q=85" alt="Сонячна панель Longi" />
+              <div class="product-body">
+                <span class="badge">Mono</span>
+                <h3>LONGi Hi-MO / монокристалічна панель</h3>
+                <ul class="specs">
+                  <li>Для дахових та наземних станцій.</li>
+                  <li>Стабільна генерація та популярний формат.</li>
+                  <li>Підбір кількості модулів під площу.</li>
+                </ul>
+                <p class="price-note">Дивись актуальні ціни й моделі на METON.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=Longi%20%D1%81%D0%BE%D0%BD%D1%8F%D1%87%D0%BD%D0%B0%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C" target="_blank" rel="noopener">Купити</a><a class="btn green" href="https://meton.com.ua/search/?q=Longi" target="_blank" rel="noopener">Характеристики</a></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1592833159057-6d61e31f2ff6?auto=format&fit=crop&w=900&q=85" alt="Сонячна панель Jinko" />
+              <div class="product-body">
+                <span class="badge">N-type</span>
+                <h3>Jinko Tiger Neo / N-type панель</h3>
+                <ul class="specs">
+                  <li>Висока ефективність для нових СЕС.</li>
+                  <li>Підходить для систем із щільним розміщенням.</li>
+                  <li>Актуальна серія для побутових і комерційних об'єктів.</li>
+                </ul>
+                <p class="price-note">Ціна залежить від потужності й партії.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=Jinko%20%D1%81%D0%BE%D0%BD%D1%8F%D1%87%D0%BD%D0%B0%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C" target="_blank" rel="noopener">Купити</a><a class="btn green" href="https://meton.com.ua/search/?q=Jinko" target="_blank" rel="noopener">Характеристики</a></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=900&q=85" alt="Двостороння сонячна панель" />
+              <div class="product-body">
+                <span class="badge">Bifacial</span>
+                <h3>Двосторонні сонячні панелі</h3>
+                <ul class="specs">
+                  <li>Додаткова генерація від відбитого світла.</li>
+                  <li>Особливо цікаві для наземних конструкцій.</li>
+                  <li>Підбір залежить від поверхні та кута монтажу.</li>
+                </ul>
+                <p class="price-note">Перевіряй наявність двосторонніх модулів.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=%D0%B4%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D1%8F%20%D1%81%D0%BE%D0%BD%D1%8F%D1%87%D0%BD%D0%B0%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C" target="_blank" rel="noopener">Купити</a><a class="btn green" href="https://meton.com.ua/search/?q=bifacial" target="_blank" rel="noopener">Характеристики</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="product-section" id="inverters">
+          <h2>Інвертори</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=900&q=85" alt="Гібридний інвертор Deye" />
+              <div class="product-body">
+                <span class="badge">Hybrid</span>
+                <h3>Deye SUN-6K-SG / гібридний інвертор</h3>
+                <ul class="specs">
+                  <li>Для роботи з панелями та акумуляторами.</li>
+                  <li>Підходить для резерву в будинку або офісі.</li>
+                  <li>Популярний клас для гібридних СЕС.</li>
+                </ul>
+                <p class="price-note">Ціна й модель уточнюються за наявністю.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=Deye%206K%20%D1%96%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Купити</a><a class="btn green" href="https://meton.com.ua/search/?q=Deye%206K" target="_blank" rel="noopener">Характеристики</a></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1581092921461-39b2f2f8a3b8?auto=format&fit=crop&w=900&q=85" alt="Трифазний інвертор Deye" />
+              <div class="product-body">
+                <span class="badge">3 phase</span>
+                <h3>Deye SUN-12K-SG / трифазний інвертор</h3>
+                <ul class="specs">
+                  <li>Для об'єктів із трифазним живленням.</li>
+                  <li>Гібридний сценарій із батареями.</li>
+                  <li>Підходить для дому з великим навантаженням або бізнесу.</li>
+                </ul>
+                <p class="price-note">Потрібно звірити фазність і потужність.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=Deye%2012K%20%D1%96%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Купити</a><a class="btn green" href="https://meton.com.ua/search/?q=Deye%2012K" target="_blank" rel="noopener">Характеристики</a></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=900&q=85" alt="Мережевий інвертор" />
+              <div class="product-body">
+                <span class="badge">Grid</span>
+                <h3>Мережевий інвертор для СЕС</h3>
+                <ul class="specs">
+                  <li>Для станцій без акумуляторного резерву.</li>
+                  <li>Економія електроенергії вдень.</li>
+                  <li>Підбір за потужністю поля панелей.</li>
+                </ul>
+                <p class="price-note">Оптимальний для бізнесу з денним споживанням.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=%D0%BC%D0%B5%D1%80%D0%B5%D0%B6%D0%B5%D0%B2%D0%B8%D0%B9%20%D1%96%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Купити</a><a class="btn green" href="https://meton.com.ua/search/?q=%D1%96%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Характеристики</a></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="product-section" id="batteries">
+          <h2>Акумулятори</h2>
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=900&q=85" alt="Акумулятор Deye RW-M6.1" />
+              <div class="product-body">
+                <span class="badge">LiFePO4</span>
+                <h3>Deye RW-M6.1 / акумуляторний модуль</h3>
+                <ul class="specs">
+                  <li>Для гібридних інверторів і резервного живлення.</li>
+                  <li>Модульне нарощування ємності.</li>
+                  <li>Підходить для критичних навантажень.</li>
+                </ul>
+                <p class="price-note">Перевіряй актуальну ціну й сумісність.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=Deye%20RW-M6.1" target="_blank" rel="noopener">Купити</a><a class="btn green" href="https://meton.com.ua/search/?q=RW-M6.1" target="_blank" rel="noopener">Характеристики</a></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1612178537253-bccd437b730e?auto=format&fit=crop&w=900&q=85" alt="Акумулятор Dyness" />
+              <div class="product-body">
+                <span class="badge">Stack</span>
+                <h3>Dyness / накопичувач енергії</h3>
+                <ul class="specs">
+                  <li>Система зберігання для дому й малого бізнесу.</li>
+                  <li>Підбір за ємністю і сумісністю з інвертором.</li>
+                  <li>Можливість масштабування резерву.</li>
+                </ul>
+                <p class="price-note">Ємність підбирається під критичне споживання.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=Dyness" target="_blank" rel="noopener">Купити</a><a class="btn green" href="https://meton.com.ua/search/?q=Dyness%20%D0%B0%D0%BA%D1%83%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Характеристики</a></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1609592424822-3c6fba0d03e6?auto=format&fit=crop&w=900&q=85" alt="LiFePO4 акумулятор" />
+              <div class="product-body">
+                <span class="badge">Reserve</span>
+                <h3>LiFePO4 акумулятор для резерву</h3>
+                <ul class="specs">
+                  <li>Для освітлення, холодильника, насоса, котла, роутера.</li>
+                  <li>Довший ресурс порівняно зі свинцевими батареями.</li>
+                  <li>Працює у складі гібридної СЕС.</li>
+                </ul>
+                <p class="price-note">Підбір за часом автономної роботи.</p>
+                <div class="card-actions"><a class="btn accent" href="https://meton.com.ua/search/?q=LiFePO4%20%D0%B0%D0%BA%D1%83%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Купити</a><a class="btn green" href="https://meton.com.ua/search/?q=%D0%B0%D0%BA%D1%83%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Характеристики</a></div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="section work">
+      <section class="section soft">
         <div class="section-head">
-          <p class="eyebrow">Як працюємо</p>
-          <h2>Від заявки до запуску станції</h2>
+          <p class="eyebrow">Як обирати</p>
+          <h2>Логіка підбору обладнання</h2>
         </div>
         <div class="steps">
-          <div class="step"><span>01</span><h3>Аналіз</h3><p>Дивимось споживання, об'єкт, дах, мережу та задачі резерву.</p></div>
-          <div class="step"><span>02</span><h3>Підбір</h3><p>Формуємо комплект: панелі, інвертор, акумулятори й захист.</p></div>
-          <div class="step"><span>03</span><h3>Монтаж</h3><p>Встановлюємо обладнання, підключаємо та перевіряємо схему.</p></div>
-          <div class="step"><span>04</span><h3>Запуск</h3><p>Налаштовуємо моніторинг і пояснюємо логіку роботи системи.</p></div>
+          <div class="step"><span>01</span><h3>Споживання</h3><p class="muted">Дивимось рахунки, денне навантаження та критичні прилади.</p></div>
+          <div class="step"><span>02</span><h3>Тип СЕС</h3><p class="muted">Вибираємо мережеву або гібридну архітектуру.</p></div>
+          <div class="step"><span>03</span><h3>Комплект</h3><p class="muted">Підбираємо панелі, інвертор, акумулятори та захист.</p></div>
+          <div class="step"><span>04</span><h3>Запуск</h3><p class="muted">Монтуємо, налаштовуємо моніторинг і пояснюємо роботу.</p></div>
         </div>
       </section>
 
-      <section class="section faq">
+      <section class="section">
         <div class="section-head">
           <p class="eyebrow">FAQ</p>
-          <h2>Питання, які впливають на вибір</h2>
+          <h2>Питання перед покупкою</h2>
         </div>
         <div class="faq-list">
           <details>
-            <summary>Що краще: мережева чи гібридна сонячна електростанція?</summary>
-            <p>Мережева станція вигідна для економії при стабільній мережі. Гібридна додає акумулятори та резерв, тому краще підходить для відключень.</p>
+            <summary>Чому фото не чорно-білі?</summary>
+            <p>Айдентика сайту чорно-біла, але обладнання має бути кольоровим, щоб клієнт бачив реальний вигляд панелей, інверторів і акумуляторів.</p>
           </details>
           <details>
-            <summary>Чи можна почати зі станції без акумуляторів?</summary>
-            <p>Так, але якщо резерв потрібен у майбутньому, краще одразу підбирати інвертор і схему з урахуванням майбутнього додавання батарей.</p>
+            <summary>Чому кнопки ведуть на основний METON?</summary>
+            <p>Так можна одразу перевірити актуальну ціну, наявність і характеристики товару. Пізніше ці позиції можна перетворити на окремі сторінки всередині нового сайту.</p>
           </details>
           <details>
-            <summary>Що потрібно для розрахунку?</summary>
-            <p>Потрібне місячне споживання, тип об'єкта, доступна площа, фазність мережі та перелік приладів, які мають працювати під час відключень.</p>
+            <summary>Що додати наступним етапом?</summary>
+            <p>Реальні фото товарів з каталогу, окремі SEO-сторінки категорій, фільтри потужності, форма заявки та блоки з виконаними монтажами.</p>
           </details>
         </div>
       </section>
 
-      <section class="contact" id="contact">
+      <section class="contact">
         <div>
-          <p class="eyebrow">Контакт</p>
-          <h2>Підберемо сонячну систему під ваш об'єкт</h2>
+          <p class="eyebrow">METON</p>
+          <h2>Готово для перегляду і наступного наповнення</h2>
           <p>
-            Ця сторінка вже готова як база в GitHub. Далі можна додати товари,
-            ціни, окремі сторінки категорій, форму заявки та реальні фото METON.
+            На сторінку додано товарний каталог першого етапу. Далі можна
+            замінити тимчасові фото на точні фото з вашого каталогу й додати
+            конкретні ціни після підтвердження асортименту.
           </p>
         </div>
-        <a class="button light" href="https://meton.com.ua/">Поточний сайт METON</a>
+        <a class="btn accent" href="https://meton.com.ua/" target="_blank" rel="noopener">Основний сайт</a>
       </section>
     </main>
   </body>
