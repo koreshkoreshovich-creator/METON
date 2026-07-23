@@ -46,9 +46,48 @@
       <aside class="shop-card">
         <h2>Підсумок</h2>
         <div id="cartSummary"></div>
-        <div class="button-row"><a class="btn primary" id="cartOrder" href="consultation.html">Оформити заявку</a><button class="btn ghost" id="clearCart" type="button">Очистити</button></div>
+        <div class="button-row"><button class="btn primary" id="cartOrder" type="button">Оформити замовлення</button><button class="btn ghost" id="clearCart" type="button">Очистити</button></div>
         <p class="fine">Ціни з позначкою “уточнюйте” не входять у попередню суму. Остаточну комерційну пропозицію підтверджує менеджер METON.</p>
       </aside>
+    </div>
+    <div class="checkout-panel" id="checkoutPanel" hidden>
+      <div class="checkout-heading">
+        <div>
+          <span class="kicker">Оформлення замовлення</span>
+          <h2>Залиште контакти — менеджер підтвердить комплектацію та оплату</h2>
+        </div>
+        <button class="checkout-close" id="closeCheckout" type="button" aria-label="Закрити форму">×</button>
+      </div>
+      <form class="lead-form checkout-form" id="checkoutForm">
+        <div class="form-grid">
+          <label>Ім’я *
+            <input name="name" autocomplete="name" required maxlength="80" />
+          </label>
+          <label>Телефон *
+            <input name="phone" type="tel" autocomplete="tel" required inputmode="tel" placeholder="+380…" pattern="^\+?[0-9\s()\-]{10,20}$" />
+          </label>
+          <label>Місто або область
+            <input name="city" autocomplete="address-level2" maxlength="120" />
+          </label>
+          <label>Як зручніше зв’язатися
+            <select name="contactMethod">
+              <option value="Телефон">Телефон</option>
+              <option value="Telegram">Telegram</option>
+              <option value="Viber">Viber</option>
+            </select>
+          </label>
+          <label class="full-span">Коментар до замовлення
+            <textarea name="comment" maxlength="1000" placeholder="Наприклад: потрібен монтаж, доставка або консультація інженера"></textarea>
+          </label>
+        </div>
+        <label class="checkout-consent"><input name="consent" type="checkbox" required /> Погоджуюся на обробку контактних даних для опрацювання замовлення.</label>
+        <input class="checkout-trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="button-row">
+          <button class="btn primary" id="submitOrder" type="submit">Надіслати замовлення</button>
+          <button class="btn ghost" id="cancelCheckout" type="button">Повернутися до кошика</button>
+        </div>
+        <p class="form-status" id="orderStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 </main>
@@ -1816,7 +1855,7 @@ function renderCart(){
   if (!cart.length) {
     itemsEl.innerHTML = '<div class="compare-empty"><h3>Кошик порожній</h3><p>Перейдіть у каталог і додайте потрібне обладнання.</p></div>';
     summaryEl.innerHTML = '<div class="summary-line"><span>Товарів</span><strong>0</strong></div><div class="summary-line"><span>Попередня сума</span><strong>0 грн</strong></div>';
-    document.getElementById('cartOrder').href = 'consultation.html';
+    document.getElementById('cartOrder').disabled = true;
     return;
   }
   itemsEl.innerHTML = cart.map(function(item){
@@ -1826,8 +1865,7 @@ function renderCart(){
   const totalQty = cart.reduce(function(sum,item){ return sum + item.qty; }, 0);
   const total = cart.reduce(function(sum,item){ return sum + priceNumber(productMap[item.id].price) * item.qty; }, 0);
   summaryEl.innerHTML = '<div class="summary-line"><span>Товарів</span><strong>'+totalQty+'</strong></div><div class="summary-line"><span>Попередня сума</span><strong>'+total.toLocaleString('uk-UA')+' грн</strong></div>';
-  const orderLines = cart.map(function(item){ const p = productMap[item.id]; return p.name + ' — ' + item.qty + ' шт. — ' + p.price; }).join('%0A');
-  document.getElementById('cartOrder').href = 'consultation.html?cart=' + encodeURIComponent(orderLines);
+  document.getElementById('cartOrder').disabled = false;
   itemsEl.querySelectorAll('button').forEach(function(btn){
     btn.addEventListener('click', function(){
       const current = getCart();
@@ -1843,6 +1881,75 @@ function renderCart(){
   });
 }
 document.getElementById('clearCart').addEventListener('click', function(){ saveCart([]); renderCart(); });
+const ORDER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwS0-3y7yTZIiQIpn0jqJhrLiBZzVCaMMaM5rG4TeKWFcPbB-N3rCqgVSDShJdPO1TXHQ/exec';
+const checkoutPanel = document.getElementById('checkoutPanel');
+const checkoutForm = document.getElementById('checkoutForm');
+const orderStatus = document.getElementById('orderStatus');
+function setCheckoutOpen(open){
+  checkoutPanel.hidden = !open;
+  if (open) {
+    checkoutPanel.scrollIntoView({behavior:'smooth', block:'start'});
+    const user = getUser();
+    if (user) {
+      if (!checkoutForm.elements.name.value) checkoutForm.elements.name.value = user.name || '';
+      if (!checkoutForm.elements.phone.value) checkoutForm.elements.phone.value = user.phone || '';
+    }
+  }
+}
+document.getElementById('cartOrder').addEventListener('click', function(){ if (getCart().length) setCheckoutOpen(true); });
+document.getElementById('closeCheckout').addEventListener('click', function(){ setCheckoutOpen(false); });
+document.getElementById('cancelCheckout').addEventListener('click', function(){ setCheckoutOpen(false); });
+checkoutForm.addEventListener('submit', async function(event){
+  event.preventDefault();
+  if (!checkoutForm.reportValidity()) return;
+  if (checkoutForm.elements.website.value) return;
+  if (ORDER_ENDPOINT.indexOf('PASTE_') === 0) {
+    orderStatus.textContent = 'Форма підготовлена. Для приймання замовлень потрібно завершити підключення Google Apps Script.';
+    return;
+  }
+  const cart = getCart().filter(function(item){ return productMap[item.id]; });
+  if (!cart.length) {
+    orderStatus.textContent = 'Кошик порожній.';
+    return;
+  }
+  const submitButton = document.getElementById('submitOrder');
+  const total = cart.reduce(function(sum,item){ return sum + priceNumber(productMap[item.id].price) * item.qty; }, 0);
+  const payload = {
+    orderId: 'METON-' + Date.now().toString(36).toUpperCase(),
+    createdAt: new Date().toISOString(),
+    name: checkoutForm.elements.name.value.trim(),
+    phone: checkoutForm.elements.phone.value.trim(),
+    city: checkoutForm.elements.city.value.trim(),
+    contactMethod: checkoutForm.elements.contactMethod.value,
+    comment: checkoutForm.elements.comment.value.trim(),
+    items: cart.map(function(item){
+      const p = productMap[item.id];
+      return {id:p.id, name:p.name, quantity:item.qty, price:p.price, url:p.url};
+    }),
+    itemCount: cart.reduce(function(sum,item){ return sum + item.qty; }, 0),
+    total: total,
+    source: location.href
+  };
+  submitButton.disabled = true;
+  orderStatus.textContent = 'Надсилаємо замовлення…';
+  try {
+    const response = await fetch(ORDER_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      redirect: 'follow',
+      headers: {'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload)
+    });
+    saveCart([]);
+    renderCart();
+    checkoutForm.reset();
+    orderStatus.innerHTML = 'Дякуємо! Замовлення <strong>' + payload.orderId + '</strong> прийнято. Менеджер зв’яжеться з вами найближчим часом.';
+  } catch (error) {
+    orderStatus.textContent = 'Не вдалося надіслати замовлення. Спробуйте ще раз або зателефонуйте менеджеру: +38 096 073 50 59.';
+  } finally {
+    submitButton.disabled = false;
+  }
+});
 addFromUrl();
 renderCart();
 </script><footer class="footer">
