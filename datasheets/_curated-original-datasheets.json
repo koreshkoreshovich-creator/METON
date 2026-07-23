@@ -1,0 +1,122 @@
+﻿[
+    {
+        "id":  "deye-6k-1p",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2024/07/deye-sun-3.610k-sg05lp1-datasheet-ua.pdf",
+        "bytes":  547026
+    },
+    {
+        "id":  "deye-8k-1p",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/09/deye-sun-8k-sg01lp1-datasheet-ua.pdf",
+        "bytes":  329350
+    },
+    {
+        "id":  "deye-10k-lp1",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2024/11/deye-sun-7.6-12k-sg02lp1-eu-am2-datasheet-ua.pdf",
+        "bytes":  412817
+    },
+    {
+        "id":  "deye-12k-lp1",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2024/11/deye-sun-7.6-12k-sg02lp1-eu-am2-datasheet-ua.pdf",
+        "bytes":  412817
+    },
+    {
+        "id":  "deye-10k-3p",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/09/deye-sun-512k-sg04lp3-datasheet-ukr.pdf",
+        "bytes":  337994
+    },
+    {
+        "id":  "deye-12k-3p",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/09/deye-sun-512k-sg04lp3-datasheet-ukr.pdf",
+        "bytes":  337994
+    },
+    {
+        "id":  "deye-15k-3p",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2024/07/deye-sun-5-25k-sg01hp3-datasheet-ukr.pdf",
+        "bytes":  351604
+    },
+    {
+        "id":  "deye-20k-3p",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2024/07/deye-sun-5-25k-sg01hp3-datasheet-ukr.pdf",
+        "bytes":  351604
+    },
+    {
+        "id":  "deye-25k-3p",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2024/07/deye-sun-5-25k-sg01hp3-datasheet-ukr.pdf",
+        "bytes":  351604
+    },
+    {
+        "id":  "deye-30k-3p",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/05/deye-sun-299-50k-sg01hp3-bm3-4-datasheet-ukr.pdf",
+        "bytes":  406615
+    },
+    {
+        "id":  "deye-50k-3p",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/05/deye-sun-299-50k-sg01hp3-bm3-4-datasheet-ukr.pdf",
+        "bytes":  406615
+    },
+    {
+        "id":  "longi-620",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr7-72hth-590-630-f30-datasheet-ua.pdf",
+        "bytes":  629599
+    },
+    {
+        "id":  "panel-longi-620",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr7-72hth-590-630-f30-datasheet-ua.pdf",
+        "bytes":  629599
+    },
+    {
+        "id":  "panel-longi-bifacial-610",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/04/longi-lr8-66hgd-595-625-f30-bificial-datasheet-ua.pdf",
+        "bytes":  590077
+    },
+    {
+        "id":  "panel-longi-bifacial-650",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/12/longi-lr7-72hvh-630-650-datasheet-ua.pdf",
+        "bytes":  854223
+    },
+    {
+        "id":  "panel-leapton-620",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2026/01/leapton-lp182x210-m-66-nb-610-630-fiberglass-bifacial-dataseen-en.pdf",
+        "bytes":  363257
+    },
+    {
+        "id":  "panel-leapton-710",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/12/leapton-lp210x210-m-66-nb-700-730-fiberglass-bificial-datasheet-ua.pdf",
+        "bytes":  350521
+    },
+    {
+        "id":  "panel-trina-610",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2024/06/trina-ne19r-600-630-n-type-f30-2025-datasheet-ua.pdf",
+        "bytes":  1363821
+    },
+    {
+        "id":  "panel-tongwei-bifacial-625",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/12/tongwei-66hd-610-630-30f-datasheet-ua.pdf",
+        "bytes":  4766980
+    },
+    {
+        "id":  "panel-tongwei-bifacial-630",
+        "status":  "original-sig",
+        "url":  "https://www.sig.energy/wp-content/uploads/2025/12/tongwei-66hd-610-630-30f-datasheet-ua.pdf",
+        "bytes":  4766980
+    }
+]

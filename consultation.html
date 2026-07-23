@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Отримати консультацію | METON</title>
+  <meta name="description" content="Контакти METON для підбору сонячної електростанції, панелей, інвертора або акумуляторів." />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body><header class="header">
+  <a class="brand" href="index.html"><span class="mark">M</span><span>METON</span></a>
+  <nav class="nav">
+    <div class="nav-item"><a href="stations-hybrid.html">Станції</a><div class="dropdown"><a href="stations-grid.html">Мережеві станції</a><a href="stations-hybrid.html">Гібридні станції</a></div></div>
+    <div class="nav-item"><a href="panels-one-sided.html">Панелі</a><div class="dropdown"><a href="panels-one-sided.html">Односторонні</a><a href="panels-bifacial.html">Двосторонні</a></div></div>
+    <div class="nav-item"><a href="inverters-hybrid.html">Інвертори</a><div class="dropdown"><a href="inverters-hybrid.html">Гібридні інвертори</a><a href="inverters-grid.html">Мережеві інвертори</a></div></div>
+    <div class="nav-item"><a href="batteries-lifepo4.html">Акумулятори</a><div class="dropdown"><a href="batteries-lifepo4.html">Низьковольтні</a><a href="batteries-high-voltage.html">Високовольтні</a></div></div>
+    <div class="nav-item"><a href="mounting-systems.html">Кріплення</a><div class="dropdown"><a href="mounting-kits.html">Комплекти кріплення</a><a href="mounting-ballast.html">Баластні системи</a><a href="mounting-ground.html">Наземні конструкції</a><a href="mounting-components.html">Комплектуючі</a><a href="consultation.html">Підібрати під дах</a></div></div>
+    <div class="nav-item"><a href="compare.html">Порівняння</a><div class="dropdown"><a href="compare.html?group=panels">Порівняти панелі</a><a href="compare.html?group=inverters">Порівняти інвертори</a><a href="compare.html?group=batteries">Порівняти акумулятори</a><a href="compare.html?group=stations">Порівняти станції</a></div></div>
+    <div class="nav-item"><a href="about.html">Компанія</a><div class="dropdown"><a href="about.html">Про нас</a><a href="payment-delivery.html">Оплата і доставка</a><a href="returns.html">Обмін та повернення</a><a href="contacts.html">Контактна інформація</a><a href="blog.html">Блог</a></div></div>
+  </nav>
+  <a class="account-pill" href="account.html" aria-label="Особистий кабінет">
+    <span class="account-avatar" data-account-avatar>U</span>
+    <span class="account-copy"><span>Кабінет</span><strong data-account-link>Unnamed user</strong></span>
+  </a>
+</header>
+<a class="floating-cart" href="cart.html" aria-label="Кошик">
+  <span class="cart-glyph" aria-hidden="true"></span>
+  <span class="floating-cart-count" data-cart-count>0</span>
+</a><main>
+  <section class="page-hero">
+    <div>
+      <span class="kicker">Консультація METON</span>
+      <h1>Підберемо станцію, панелі, інвертор і акумулятори</h1>
+      <p>Щоб швидко порахувати комплект, підготуйте адресу або тип об'єкта, середнє споживання, список критичних приладів і бажаний час резерву.</p>
+      <div class="button-row"><a class="btn primary" href="tel:+380960735059">+38 096 073 50 59</a><a class="btn green" href="tel:+380931562257">+38 093 156 22 57</a></div>
+    </div>
+    <img src="assets/station.png" alt="Консультація з сонячної електростанції" />
+  </section>
+  <section class="section">
+    <div class="section-head"><h2>Що ми уточнюємо</h2><p>Ці дані потрібні, щоб не продавати випадковий комплект, а підібрати систему під реальне навантаження.</p></div>
+    <div class="contact-grid">
+      <div class="contact-card"><h3>1. Об'єкт</h3><p>Будинок, офіс, магазин, склад або виробництво. Важлива площа даху/землі та тип мережі.</p></div>
+      <div class="contact-card"><h3>2. Споживання</h3><p>Рахунки за електроенергію або приблизна потужність обладнання, яке має працювати.</p></div>
+      <div class="contact-card"><h3>3. Резерв</h3><p>Які прилади мають працювати під час відключення і скільки годин потрібної автономності.</p></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-head"><h2>Заявка на підбір</h2><p>Телефон обов'язковий: так менеджер зможе швидко уточнити деталі й не загубити заявку.</p></div>
+    <form class="lead-form" id="leadForm">
+      <div class="form-grid">
+        <label>Ім'я<input name="name" autocomplete="name" placeholder="Ваше ім'я" /></label>
+        <label>Телефон *<input name="phone" type="tel" autocomplete="tel" required placeholder="+38 ___ ___ __ __" /></label>
+        <label>Email<input name="email" type="email" autocomplete="email" placeholder="email@example.com" /></label>
+        <label>Де знаходиться об'єкт<input name="location" placeholder="Місто / область / адреса об'єкта" /></label>
+        <label>Що цікавить
+          <select name="interest">
+            <option>Гібридна сонячна електростанція</option>
+            <option>Мережева сонячна електростанція</option>
+            <option>Сонячні панелі</option>
+            <option>Інвертор</option>
+            <option>Акумулятори</option>
+            <option>Повний комплект під ключ</option>
+          </select>
+        </label>
+        <label>Тип об'єкта
+          <select name="objectType">
+            <option>Приватний будинок</option>
+            <option>Бізнес / офіс / магазин</option>
+            <option>Склад / виробництво</option>
+            <option>Інше</option>
+          </select>
+        </label>
+        <label>Споживання на місяць, кВт·год<input name="monthlyKwh" type="number" min="0" step="1" placeholder="Наприклад: 450" /></label>
+        <label>Бажаний резерв, год<input name="reserveHours" type="number" min="0" step="0.5" placeholder="Наприклад: 4" /></label>
+        <label class="full-span">Що потрібно живити<textarea name="loads" placeholder="Наприклад: котел, холодильник, насос, освітлення, роутер, ворота, виробниче обладнання"></textarea></label>
+        <label class="full-span">Коментар<textarea name="comment" placeholder="Бажана потужність, бюджет, чи є дах/земля, чи потрібен резерв під час відключень"></textarea></label>
+      </div>
+      <p class="required-note">Після натискання кнопки відкриється лист на пошту METON з усіма даними заявки.</p>
+      <div class="recommendation-box" id="recommendationBox" hidden></div>
+      <button class="btn primary" type="submit">Надіслати заявку</button>
+      <p class="form-status" id="formStatus" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+<script>
+document.getElementById('leadForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  var data = new FormData(form);
+  function numberValue(name) {
+    return Number(String(data.get(name) || '').replace(',', '.')) || 0;
+  }
+  function stationRecommendation() {
+    var interest = String(data.get('interest') || '');
+    var objectType = String(data.get('objectType') || '');
+    var loads = String(data.get('loads') || '');
+    var comment = String(data.get('comment') || '');
+    var text = (interest + ' ' + objectType + ' ' + loads + ' ' + comment).toLowerCase();
+    var monthly = numberValue('monthlyKwh');
+    var reserve = numberValue('reserveHours');
+    var wantsBackup = reserve > 0 || /котел|насос|холодильник|освітлення|роутер|сервер|ворота|резерв|відключ/i.test(text);
+    var wantsGrid = /мережева|зелений|тариф/i.test(text) && !wantsBackup;
+    var isBusiness = /бізнес|офіс|магазин|склад|виробництво/i.test(objectType);
+    var rec = { title: 'Гібридна сонячна електростанція 10 кВт', price: 'орієнтовно від 242 721 грн', why: 'підходить для будинку або малого бізнесу, якщо потрібна економія вдень і резерв для критичних приладів.' };
+    if (wantsGrid) {
+      if (monthly >= 1400 || isBusiness) rec = { title: 'Мережева станція під зелений тариф Elite 30 кВт', price: 'орієнтовно від 500 640 грн', why: 'доцільна для обʼєкта з великим денним виробітком і продажем надлишків у мережу.' };
+      else if (monthly >= 900) rec = { title: 'Мережева станція під зелений тариф Elite 20 кВт', price: 'орієнтовно від 362 070 грн', why: 'підходить, коли є достатня площа під панелі та мета продавати надлишки.' };
+      else rec = { title: 'Мережева станція під зелений тариф Elite 15 кВт', price: 'орієнтовно від 278 928 грн', why: 'може бути стартовим варіантом під зелений тариф після перевірки технічних умов.' };
+    } else if (isBusiness || monthly >= 1800) {
+      rec = { title: 'Гібридна станція для власного споживання 50 кВт', price: 'орієнтовно від 1 063 413 грн', why: 'краще підходить бізнесу з відчутним денним навантаженням і потребою резерву окремих ліній.' };
+    } else if (monthly >= 1000) {
+      rec = { title: 'Гібридна станція для власного споживання 30 кВт', price: 'орієнтовно від 514 050 грн', why: 'підходить для великого будинку або комерційного обʼєкта з активним денним споживанням.' };
+    } else if (monthly >= 650) {
+      rec = { title: 'Гібридна станція для власного споживання 20 кВт', price: 'орієнтовно від 362 070 грн', why: 'доречна, якщо треба покрити значну частину денного споживання і додати акумуляторний резерв.' };
+    } else if (monthly >= 350) {
+      rec = { title: 'Гібридна станція для власного споживання 15 кВт', price: 'орієнтовно від 301 725 грн', why: 'може закрити типові домашні навантаження та залишити запас для розвитку системи.' };
+    }
+    if (wantsBackup && rec.title.indexOf('Гібридна') === -1) {
+      rec.title = 'Гібридна сонячна електростанція 10-15 кВт';
+      rec.price = 'орієнтовно від 242 721 грн';
+      rec.why = 'резерв під час відключень потребує гібридного інвертора та LiFePO4 акумулятора, ємність підбирається за списком приладів.';
+    }
+    rec.plain = rec.title + ' — ' + rec.price + '. ' + rec.why;
+    return rec;
+  }
+  var recommendation = stationRecommendation();
+  var box = document.getElementById('recommendationBox');
+  box.hidden = false;
+  box.innerHTML = '<h3>Попередня рекомендація METON</h3><strong>' + recommendation.title + '</strong><p>' + recommendation.why + '</p><ul><li>' + recommendation.price + '</li><li>Точний розрахунок залежить від даху або землі, фази мережі, акумулятора, кабелю, захисту та монтажу.</li><li>За детальною пропозицією телефонуйте: +38 096 073 50 59 або +38 093 156 22 57.</li></ul>';
+  var lines = [
+    'Нова заявка з сайту METON',
+    '',
+    'Імʼя: ' + (data.get('name') || ''),
+    'Телефон: ' + (data.get('phone') || ''),
+    'Email: ' + (data.get('email') || ''),
+    'Обʼєкт: ' + (data.get('location') || ''),
+    'Що цікавить: ' + (data.get('interest') || ''),
+    'Тип обʼєкта: ' + (data.get('objectType') || ''),
+    'Споживання на місяць, кВт·год: ' + (data.get('monthlyKwh') || ''),
+    'Бажаний резерв, год: ' + (data.get('reserveHours') || ''),
+    'Що потрібно живити: ' + (data.get('loads') || ''),
+    'Коментар: ' + (data.get('comment') || ''),
+    '',
+    'Попередня рекомендація METON: ' + recommendation.plain
+  ];
+  document.getElementById('formStatus').textContent = 'Попередня рекомендація сформована. Відкриваємо пошту для відправки заявки.';
+  setTimeout(function(){
+    window.location.href = 'mailto:meton.com.ua@mail.com?subject=' + encodeURIComponent('Заявка з сайту METON') + '&body=' + encodeURIComponent(lines.join('\n'));
+  }, 700);
+});
+</script><footer class="footer">
+  <div><strong>METON</strong><p>Сонячні електростанції, панелі, інвертори та акумулятори для дому й бізнесу.</p></div>
+  <div class="footer-links"><h4>Клієнту</h4><a href="cart.html">Кошик</a><a href="account.html">Вхід і реєстрація</a><a href="compare.html">Порівняння</a><a href="blog.html">Блог</a></div>
+  <div class="footer-links"><h4>Контакти</h4><a href="contacts.html">Контактна інформація</a><a href="tel:+380960735059">+38 096 073 50 59</a><a href="tel:+380931562257">+38 093 156 22 57</a><a href="mailto:meton.com.ua@mail.com">meton.com.ua@mail.com</a></div>
+</footer>
+<script>
+(function(){
+  function getCart(){ try { return JSON.parse(localStorage.getItem('metonCart') || '[]'); } catch(e) { return []; } }
+  function getUser(){ try { return JSON.parse(localStorage.getItem('metonUser') || 'null'); } catch(e) { return null; } }
+  var count = getCart().reduce(function(sum, item){ return sum + (item.qty || 1); }, 0);
+  document.querySelectorAll('[data-cart-count]').forEach(function(el){ el.textContent = count; });
+  var user = getUser();
+  var accountName = user ? (user.name || 'Unnamed user') : 'Unnamed user';
+  document.querySelectorAll('[data-account-link]').forEach(function(el){ el.textContent = accountName; });
+  document.querySelectorAll('[data-account-avatar]').forEach(function(el){
+    var seed = user ? (user.name || user.email || 'U') : 'U';
+    el.textContent = String(seed).trim().charAt(0).toUpperCase() || 'U';
+  });
+  var ratings = {};
+  try { ratings = JSON.parse(localStorage.getItem('metonRatings') || '{}'); } catch(e) {}
+  document.querySelectorAll('[data-card-rating]').forEach(function(box){
+    var id = box.getAttribute('data-card-rating');
+    var value = ratings[id] || 0;
+    var status = box.querySelector('[data-card-rating-status]');
+    var visual = box.querySelector('[data-card-rating-visual]');
+    function starsText(nextValue){
+      var full = Number(nextValue || 0);
+      var text = '';
+      for (var i = 1; i <= 5; i++) text += i <= full ? '★' : '☆';
+      return text;
+    }
+    if (!user) {
+      if (visual) visual.textContent = starsText(value || 0);
+      if (status) status.innerHTML = value ? (value + '.0 · ваша оцінка') : 'Оцінка після <a href="account.html">входу</a>';
+      return;
+    }
+    if (visual) visual.textContent = starsText(value || 0);
+    if (status) status.textContent = value ? (value + '.0 · ваша оцінка') : 'Ще немає вашої оцінки';
+  });
+})();
+</script>
+<script src="catalog-details.js" defer></script>
+<script src="ai-consultant.js" defer></script>
+</body>
+</html>

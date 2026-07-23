@@ -1,0 +1,297 @@
+﻿[
+    {
+        "id":  "deye-10k-3p",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-10K-SG04LP3-EU 10kW, 3Р¤, 48V",
+        "status":  "downloaded",
+        "score":  15,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-10k-g06p3-eu-am2-p1/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/07/deye-sun-3-15k-g06p3-eu-am2-p1-datasheet-ua.pdf",
+        "bytes":  389549
+    },
+    {
+        "id":  "deye-10k-lp1",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-10K-SG02 LP1-EU-AM3",
+        "status":  "downloaded",
+        "score":  15,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-12k-sg02lp1-eu/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/11/deye-sun-7.6-12k-sg02lp1-eu-am2-datasheet-ua.pdf",
+        "bytes":  412817
+    },
+    {
+        "id":  "deye-12k-3p",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-12K-SG04LP3-EU 12kW, 3Р¤, 48v",
+        "status":  "downloaded",
+        "score":  19,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-12k-sg04lp3-eu/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/09/deye-sun-512k-sg04lp3-datasheet-ukr.pdf",
+        "bytes":  337994
+    },
+    {
+        "id":  "deye-12k-lp1",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-12K-SG02 LP1-EU-AM3",
+        "status":  "downloaded",
+        "score":  19,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-12k-sg02lp1-eu/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/11/deye-sun-7.6-12k-sg02lp1-eu-am2-datasheet-ua.pdf",
+        "bytes":  412817
+    },
+    {
+        "id":  "deye-15k-3p",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-15K-SG01HP3-EU-AM2",
+        "status":  "downloaded",
+        "score":  19,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-15k-sg01hp3-eu-am2/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/07/deye-sun-5-25k-sg01hp3-datasheet-ukr.pdf",
+        "bytes":  351604
+    },
+    {
+        "id":  "deye-20k-3p",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-20K-SG01HP3-EU-AM2",
+        "status":  "downloaded",
+        "score":  19,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-20k-sg01hp3-eu-am2/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/07/deye-sun-5-25k-sg01hp3-datasheet-ukr.pdf",
+        "bytes":  351604
+    },
+    {
+        "id":  "deye-25k-3p",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-25K-SG01HP3-EU-AM2",
+        "status":  "downloaded",
+        "score":  15,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-20k-sg01hp3-eu-am2/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/07/deye-sun-5-25k-sg01hp3-datasheet-ukr.pdf",
+        "bytes":  351604
+    },
+    {
+        "id":  "deye-30k-3p",
+        "name":  "Р“Р†Р‘Р РР”РќРР™ Р†РќР’Р•Р РўРћР  SUN-30K-SG01HP3-EU-BM3 DEYE WIFI (30 KW, 3 Р¤РђР—Р, 3 MPPT)",
+        "status":  "downloaded",
+        "score":  23,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-30k-sg01hp3-eu-bm3/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/05/deye-sun-299-50k-sg01hp3-bm3-4-datasheet-ukr.pdf",
+        "bytes":  406615
+    },
+    {
+        "id":  "deye-50k-3p",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ СЃРѕРЅСЏС‡РЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-50K-SG01HP3-EU-BM3",
+        "status":  "downloaded",
+        "score":  15,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-50k-sg01hp3-eu-bm4/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/05/deye-sun-299-50k-sg01hp3-bm3-4-datasheet-ukr.pdf",
+        "bytes":  406615
+    },
+    {
+        "id":  "deye-5k-1p",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-5K-SG03LP1-EU 5kW, 1Р¤, 48V",
+        "status":  "downloaded",
+        "score":  15,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-15k-sg05lp3-eu-sm2/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/04/deye-sun-14-20k-sg05lp3-eu-datasheet-ua.pdf",
+        "bytes":  1752203
+    },
+    {
+        "id":  "deye-6k-1p",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-6k-SG05LP1-EU 6kW, 1С„ , 48V",
+        "status":  "downloaded",
+        "score":  19,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-6k-sg05lp1-eu/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/07/deye-sun-3.610k-sg05lp1-datasheet-ua.pdf",
+        "bytes":  547026
+    },
+    {
+        "id":  "deye-8k-1p",
+        "name":  "Р“С–Р±СЂРёРґРЅРёР№ С–РЅРІРµСЂС‚РѕСЂ Deye SUN-8K-SG01LP1-EU 8kW, 1Р¤, 48V",
+        "status":  "downloaded",
+        "score":  19,
+        "page":  "https://www.sig.energy/product/sonyachnyj-invertor-deye-sun-8k-sg01lp1-eu-am2/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/09/deye-sun-8k-sg01lp1-datasheet-ua.pdf",
+        "bytes":  329350
+    },
+    {
+        "id":  "panel-aiko-440",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ AIKO A440-MAH54Mb 440Р’С‚",
+        "status":  "not-found",
+        "score":  0,
+        "candidate":  ""
+    },
+    {
+        "id":  "panel-leapton-620",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Leapton LP182*210-M-66-NB-620W Bificial Fiberglass N-type 620Р’С‚",
+        "status":  "downloaded",
+        "score":  25,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-leapton-lp182210-m-66-nb-620w-bificial-fiberglass-n-type-620vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2026/01/leapton-lp182x210-m-66-nb-610-630-fiberglass-bifacial-dataseen-en.pdf",
+        "bytes":  363257
+    },
+    {
+        "id":  "panel-leapton-710",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Leapton LP210*210-M-66-NB-710W",
+        "status":  "downloaded",
+        "score":  23,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-leapton-lp210210-m-66-nb-710w/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/12/leapton-lp210x210-m-66-nb-700-730-fiberglass-bificial-datasheet-ua.pdf",
+        "bytes":  350521
+    },
+    {
+        "id":  "panel-longi-410",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Longi Solar LR5-54HIH-410M",
+        "status":  "downloaded",
+        "score":  11,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-longi-lr5-72hth-585m-n-type-585vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr5-72hth-565-585-35f-datasheet-ua.pdf",
+        "bytes":  422490
+    },
+    {
+        "id":  "panel-longi-425-807",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Longi Solar LR5-54HTH-425M",
+        "status":  "downloaded",
+        "score":  11,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-longi-lr5-72hth-585m-n-type-585vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr5-72hth-565-585-35f-datasheet-ua.pdf",
+        "bytes":  422490
+    },
+    {
+        "id":  "panel-longi-425",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Longi Solar LR5-54HTH-425M",
+        "status":  "downloaded",
+        "score":  11,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-longi-lr5-72hth-585m-n-type-585vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr5-72hth-565-585-35f-datasheet-ua.pdf",
+        "bytes":  422490
+    },
+    {
+        "id":  "panel-longi-435",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Longi Solar LR5-54HTH-435M, 435Р’С‚",
+        "status":  "downloaded",
+        "score":  11,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-longi-lr5-72hth-585m-n-type-585vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr5-72hth-565-585-35f-datasheet-ua.pdf",
+        "bytes":  422490
+    },
+    {
+        "id":  "panel-longi-580",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Longi Solar LR5-72HTH-580M",
+        "status":  "downloaded",
+        "score":  15,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-longi-lr5-72hth-585m-n-type-585vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr5-72hth-565-585-35f-datasheet-ua.pdf",
+        "bytes":  422490
+    },
+    {
+        "id":  "panel-longi-590",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Longi Solar LR5-72HTH-590M",
+        "status":  "downloaded",
+        "score":  15,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-longi-lr5-72hth-585m-n-type-585vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr5-72hth-565-585-35f-datasheet-ua.pdf",
+        "bytes":  422490
+    },
+    {
+        "id":  "panel-longi-620",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Longi Solar LR7-72HTH-620M",
+        "status":  "downloaded",
+        "score":  15,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-longi-hi-mo-x6-max-lr7-72hth-610m-n-type-610vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr7-72hth-590-630-f30-datasheet-ua.pdf",
+        "bytes":  629599
+    },
+    {
+        "id":  "panel-longi-bifacial-610",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Longi Solar LR7-72HGD-610M Bificial",
+        "status":  "downloaded",
+        "score":  19,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-longi-hi-mo-x6-max-lr7-72hth-610m-n-type-610vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/01/longi-lr7-72hth-590-630-f30-datasheet-ua.pdf",
+        "bytes":  629599
+    },
+    {
+        "id":  "panel-longi-bifacial-650",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Longi Solar LR7-72HYD-650M Bifacial",
+        "status":  "downloaded",
+        "score":  11,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-longi-hi-mo-x10-lr7-54hvh-490m-n-type-490vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/12/longi-lr7-54hvh-475-490-datasheet-ua.pdf",
+        "bytes":  833526
+    },
+    {
+        "id":  "panel-tongwei-435",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Tongwei TWMND-54HB435W",
+        "status":  "downloaded",
+        "score":  9,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-tongwei-twmnd-66hd625w-n-type-bificial-630vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/12/tongwei-66hd-610-630-30f-datasheet-ua.pdf",
+        "bytes":  4766980
+    },
+    {
+        "id":  "panel-tongwei-610",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ TONGWEI TWMNH-66HS610 610Р’С‚ N-type",
+        "status":  "downloaded",
+        "score":  9,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-tongwei-twmnd-66hd625w-n-type-bificial-630vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/12/tongwei-66hd-610-630-30f-datasheet-ua.pdf",
+        "bytes":  4766980
+    },
+    {
+        "id":  "panel-tongwei-bifacial-625",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ TongWei TWMNH-66HD625W N-type Bificial 625Р’С‚",
+        "status":  "downloaded",
+        "score":  17,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-tongwei-twmnd-66hd625w-n-type-bificial-630vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/12/tongwei-66hd-610-630-30f-datasheet-ua.pdf",
+        "bytes":  4766980
+    },
+    {
+        "id":  "panel-tongwei-bifacial-630",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ TongWei TWMNH-66HD625W N-type Bificial 630Р’С‚",
+        "status":  "downloaded",
+        "score":  17,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-tongwei-twmnd-66hd625w-n-type-bificial-630vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2025/12/tongwei-66hd-610-630-30f-datasheet-ua.pdf",
+        "bytes":  4766980
+    },
+    {
+        "id":  "panel-trina-610",
+        "name":  "РЎРѕРЅСЏС‡РЅР° РїР°РЅРµР»СЊ Trina Solar TSM-NE19R 610M",
+        "status":  "downloaded",
+        "score":  19,
+        "page":  "https://www.sig.energy/product/sonyachna-panel-trina-tsm-610m-ne19r-vertex-n-610vt/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/06/trina-ne19r-600-630-n-type-f30-2025-datasheet-ua.pdf",
+        "bytes":  1363821
+    },
+    {
+        "id":  "solis-10k",
+        "name":  "РњРµСЂРµР¶РµРІРёР№ С–РЅРІРµСЂС‚РѕСЂ Solis S5-GR3P10K",
+        "status":  "downloaded",
+        "score":  7,
+        "page":  "https://www.sig.energy/product/lichylnyk-acrel-dtsd1352-c-smart-meter-solis/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/07/acrel-dtsd1352-c-datasheet-en.pdf",
+        "bytes":  83299
+    },
+    {
+        "id":  "solis-15k",
+        "name":  "РњРµСЂРµР¶РµРІРёР№ С–РЅРІРµСЂС‚РѕСЂ Solis S5-GR3P15K",
+        "status":  "downloaded",
+        "score":  7,
+        "page":  "https://www.sig.energy/product/lichylnyk-acrel-dtsd1352-c-smart-meter-solis/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/07/acrel-dtsd1352-c-datasheet-en.pdf",
+        "bytes":  83299
+    },
+    {
+        "id":  "solis-20k",
+        "name":  "РњРµСЂРµР¶РµРІРёР№ С–РЅРІРµСЂС‚РѕСЂ Solis S5-GR3P20K",
+        "status":  "downloaded",
+        "score":  7,
+        "page":  "https://www.sig.energy/product/lichylnyk-acrel-dtsd1352-c-smart-meter-solis/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/07/acrel-dtsd1352-c-datasheet-en.pdf",
+        "bytes":  83299
+    },
+    {
+        "id":  "solis-30k",
+        "name":  "РњРµСЂРµР¶РµРІРёР№ С–РЅРІРµСЂС‚РѕСЂ Solis-30K-5G",
+        "status":  "downloaded",
+        "score":  7,
+        "page":  "https://www.sig.energy/product/lichylnyk-acrel-dtsd1352-c-smart-meter-solis/",
+        "pdf":  "https://www.sig.energy/wp-content/uploads/2024/07/acrel-dtsd1352-c-datasheet-en.pdf",
+        "bytes":  83299
+    }
+]

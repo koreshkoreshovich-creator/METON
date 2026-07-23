@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Характеристики обладнання — МЕТОН</title>
+  <meta name="description" content="Опис і технічні характеристики обладнання для сонячних електростанцій МЕТОН.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="index.html"><span class="mark">М</span><span>МЕТОН</span></a>
+    <nav class="nav"><div class="nav-item"><a href="panels-one-sided.html">Панелі</a></div><div class="nav-item"><a href="inverters-hybrid.html">Інвертори</a></div><div class="nav-item"><a href="batteries-lifepo4.html">АКБ</a></div><div class="nav-item"><a href="mounting-systems.html">Кріплення</a></div></nav>
+    <a class="phone" href="tel:+380960735059">+38 096 073 50 59</a>
+  </header>
+  <main>
+    <section class="detail equipment-dynamic-detail">
+      <div class="detail-img"><img id="equipmentImage" alt=""></div>
+      <article>
+        <a class="kicker" id="backLink" href="index.html">← Повернутися до каталогу</a>
+        <span class="badge" id="equipmentBadge">Обладнання</span>
+        <h1 id="equipmentName">Обладнання МЕТОН</h1>
+        <p id="equipmentDescription"></p>
+        <div class="price-row"><strong class="detail-price" id="equipmentPrice">Ціну уточнюйте</strong></div>
+        <div class="actions">
+          <a class="btn primary" id="consultLink" href="consultation.html">Отримати пропозицію</a>
+          <a class="btn ghost datasheet-link" id="datasheetLink" href="#" target="_blank" rel="noopener">Datasheet</a>
+        </div>
+        <h2 class="spec-heading">Основні характеристики</h2>
+        <ul class="spec-list" id="equipmentSpecs"></ul>
+        <div class="datasheet"><strong>Інформація про товар:</strong> <span id="equipmentConfidence">Характеристики наведені за даними виробника. Наявність, комплектація та гарантійні умови підтверджуються перед замовленням.</span></div>
+      </article>
+    </section>
+  </main>
+  <footer class="footer"><div><a class="brand" href="index.html"><span class="mark">М</span><span>МЕТОН</span></a><p>Сонячні електростанції та обладнання.</p></div><div class="footer-links"><h4>Каталог</h4><a href="panels-one-sided.html">Сонячні панелі</a><a href="inverters-hybrid.html">Інвертори</a><a href="batteries-lifepo4.html">Акумулятори</a></div><div class="footer-links"><h4>Контакти</h4><a href="contacts.html">Контактна інформація</a><a href="tel:+380960735059">+38 096 073 50 59</a></div></footer>
+  <script>
+  (function(){
+    var q=new URLSearchParams(location.search);
+    function value(name,fallback){return (q.get(name)||fallback||'').trim();}
+    function safeHref(href,fallback){
+      if(!href)return fallback;
+      if(/^(https?:\/\/|assets\/|[a-z0-9_.-]+\.html|datasheets\/)/i.test(href))return href;
+      return fallback;
+    }
+    var name=value('name','Обладнання МЕТОН');
+    var category=value('category','Обладнання для сонячної станції');
+    var badge=value('badge',category);
+    var description=value('description','Комплектація та параметри уточнюються за паспортом виробника.');
+    var combined=(name+' '+badge+' '+description).replace(/\s+/g,' ');
+    document.title=name+' — характеристики | МЕТОН';
+    document.getElementById('equipmentName').textContent=name;
+    document.getElementById('equipmentBadge').textContent=badge;
+    document.getElementById('equipmentDescription').textContent=description;
+    document.getElementById('equipmentPrice').textContent=value('price','Ціну уточнюйте');
+    var img=document.getElementById('equipmentImage');
+    img.src=safeHref(value('image'),'assets/inverter.png');
+    img.alt=name;
+    document.getElementById('backLink').href=safeHref(value('source'),'index.html');
+    document.getElementById('consultLink').href='consultation.html?product='+encodeURIComponent(name);
+    var sheet=document.getElementById('datasheetLink');
+    var sheetHref=safeHref(value('datasheet'),'');
+    if(sheetHref)sheet.href=sheetHref;else sheet.hidden=true;
+
+    var specs=[['Категорія',category]];
+    var brand=name.match(/^(LONGi|AIKO|Sunova Solar|Inter Energy|Trina Solar|Tongwei Solar|Jinko Solar|Suntech|SWI Solar|SolaX|Deye|Solis|Leapton)/i);
+    if(brand)specs.push(['Виробник',brand[0]]);
+    var power=combined.match(/(\d+(?:[,.]\d+)?)\s*(кВт·год|кВт|Вт)/i);
+    if(power)specs.push([/год/i.test(power[2])?'Енергія / ємність':'Номінальна потужність',power[1]+' '+power[2]]);
+    if(/bifacial|двосторон/i.test(combined))specs.push(['Тип панелі','Двостороння bifacial']);
+    else if(/monofacial|односторон/i.test(combined))specs.push(['Тип панелі','Одностороння monofacial']);
+    if(/LiFePO4/i.test(combined))specs.push(['Хімія комірок','LiFePO4']);
+    if(/\bHV\b|високовольт/i.test(combined))specs.push(['Клас напруги','Високовольтна система (HV)']);
+    else if(/\bLV\b|низьковольт/i.test(combined))specs.push(['Клас напруги','Низьковольтна система (LV)']);
+    if(/3Ф|3-фаз|трифаз/i.test(combined))specs.push(['Фазність','3 фази']);
+    else if(/1Ф|1-фаз|однофаз/i.test(combined))specs.push(['Фазність','1 фаза']);
+    if(/N-type/i.test(combined))specs.push(['Технологія комірок','N-type']);
+    if(/TOPCon/i.test(combined))specs.push(['Технологія','TOPCon']);
+    if(/ABC/i.test(combined))specs.push(['Технологія','ABC']);
+    if(/HJT/i.test(combined))specs.push(['Технологія','HJT']);
+    if(/dual-glass|double-glass|подвійн/i.test(combined))specs.push(['Конструкція','Подвійне скло']);
+    if(/сонячна панель/i.test(category)){
+      specs.push(['Тип комірок',/N-type/i.test(combined)?'N-type; точна технологія вказана в datasheet':'Монокристалічні; серія уточнюється за SKU']);
+      specs.push(['Максимальна напруга системи','До 1500 В, якщо це підтверджено datasheet конкретної моделі']);
+      specs.push(['Рама','Анодований алюміній; колір і товщина — за серією']);
+      specs.push(['З’єднувачі','MC4-сумісні; тип конектора звіряється з партією']);
+      specs.push(['Гарантія та деградація','За офіційними умовами виробника для обраної моделі']);
+    }
+    if(/інвертор/i.test(category)){
+      specs.push(['Призначення',/гібрид/i.test(category)?'Сонячна генерація, робота з мережею та сумісною АКБ':'Мережева генерація без автономного резерву']);
+      specs.push(['MPPT','Кількість, діапазони напруги та допустимий струм — за datasheet моделі']);
+      specs.push(['PV-вхід','Стрінги панелей проєктуються за Voc, Vmp, Isc і температурним коефіцієнтом']);
+      specs.push(['Комунікація','Wi-Fi / RS485 / CAN залежно від моделі та комплектації']);
+      specs.push(['Захист','DC/AC автоматика й SPD підбираються окремо за проєктом']);
+      specs.push(['Гарантія','За умовами виробника та партії постачання']);
+    }
+    if(/акумулятор/i.test(category)){
+      specs.push(['Монтаж','Лише відповідно до інструкції виробника, температурного режиму та класу IP']);
+      specs.push(['BMS','Обов’язкова перевірка протоколу зв’язку із точним SKU інвертора']);
+      specs.push(['Корисна ємність','Залежить від допустимої глибини розряду та конфігурації системи']);
+      specs.push(['Гарантія і ресурс','За офіційними умовами виробника для конкретної моделі']);
+    }
+    if(/BOS-G Pro/i.test(combined)){
+      specs.push(['Модуль','5,12 кВт·год · 51,2 В · 100 А·год']);
+      specs.push(['Конфігурації','5–17 модулів у серії · 25,6–87,04 кВт·год']);
+      specs.push(['Комунікація','CAN 2.0 / RS485']);
+      specs.push(['Ресурс','≥6000 циклів за умовами виробника']);
+      specs.push(['Клас захисту','IP20, монтаж у приміщенні']);
+    }
+    specs.push(['Datasheet',sheetHref?'Доступний за кнопкою вище':'Запитується у менеджера']);
+    specs.push(['Сумісність','Перевіряється за точним SKU інвертора, напругами та протоколом BMS']);
+    var list=document.getElementById('equipmentSpecs');
+    specs.forEach(function(item){var li=document.createElement('li');var strong=document.createElement('strong');strong.textContent=item[0]+': ';li.appendChild(strong);li.appendChild(document.createTextNode(item[1]));list.appendChild(li);});
+  })();
+  </script>
+  <script src="ai-consultant.js" defer></script>
+</body>
+</html>

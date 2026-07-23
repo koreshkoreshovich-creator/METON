@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Порівняння обладнання | METON</title>
+  <meta name="description" content="Порівняння сонячних панелей, інверторів, акумуляторів і станцій METON за ціною, виробником та характеристиками." />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body><header class="header">
+  <a class="brand" href="index.html"><span class="mark">M</span><span>METON</span></a>
+  <nav class="nav">
+    <div class="nav-item"><a href="stations-hybrid.html">Станції</a><div class="dropdown"><a href="stations-grid.html">Мережеві станції</a><a href="stations-hybrid.html">Гібридні станції</a></div></div>
+    <div class="nav-item"><a href="panels-one-sided.html">Панелі</a><div class="dropdown"><a href="panels-one-sided.html">Односторонні</a><a href="panels-bifacial.html">Двосторонні</a></div></div>
+    <div class="nav-item"><a href="inverters-hybrid.html">Інвертори</a><div class="dropdown"><a href="inverters-hybrid.html">Гібридні інвертори</a><a href="inverters-grid.html">Мережеві інвертори</a></div></div>
+    <div class="nav-item"><a href="batteries-lifepo4.html">Акумулятори</a><div class="dropdown"><a href="batteries-lifepo4.html">Низьковольтні</a><a href="batteries-high-voltage.html">Високовольтні</a></div></div>
+    <div class="nav-item"><a href="mounting-systems.html">Кріплення</a><div class="dropdown"><a href="mounting-kits.html">Комплекти кріплення</a><a href="mounting-ballast.html">Баластні системи</a><a href="mounting-ground.html">Наземні конструкції</a><a href="mounting-components.html">Комплектуючі</a><a href="consultation.html">Підібрати під дах</a></div></div>
+    <div class="nav-item"><a href="compare.html">Порівняння</a><div class="dropdown"><a href="compare.html?group=panels">Порівняти панелі</a><a href="compare.html?group=inverters">Порівняти інвертори</a><a href="compare.html?group=batteries">Порівняти акумулятори</a><a href="compare.html?group=stations">Порівняти станції</a></div></div>
+    <div class="nav-item"><a href="about.html">Компанія</a><div class="dropdown"><a href="about.html">Про нас</a><a href="payment-delivery.html">Оплата і доставка</a><a href="returns.html">Обмін та повернення</a><a href="contacts.html">Контактна інформація</a><a href="blog.html">Блог</a></div></div>
+  </nav>
+  <a class="account-pill" href="account.html" aria-label="Особистий кабінет">
+    <span class="account-avatar" data-account-avatar>U</span>
+    <span class="account-copy"><span>Кабінет</span><strong data-account-link>Unnamed user</strong></span>
+  </a>
+</header>
+<a class="floating-cart" href="cart.html" aria-label="Кошик">
+  <span class="cart-glyph" aria-hidden="true"></span>
+  <span class="floating-cart-count" data-cart-count>0</span>
+</a><main>
+  <section class="page-hero">
+    <div>
+      <span class="kicker">Порівняння METON</span>
+      <h1>Порівняйте обладнання перед покупкою</h1>
+      <p>Оберіть панелі, інвертори, акумулятори або станції одного типу й перегляньте ціну, виробника, опис та характеристики поруч.</p>
+      <div class="button-row"><a class="btn primary" href="consultation.html">Попросити пораду</a><a class="btn ghost" href="index.html#catalog">До каталогу</a></div>
+    </div>
+    <img src="assets/station.png" alt="Порівняння сонячного обладнання" />
+  </section>
+  <section class="section">
+    <div class="section-head"><h2>Порівняння</h2><p>Краще порівнювати 2-4 товари одного типу. Якщо сумніваєтесь, виберіть кілька моделей і надішліть заявку менеджеру.</p></div>
+    <div class="compare-layout">
+      <aside class="compare-panel">
+        <label>Тип обладнання
+          <select id="compareGroup">
+            <option value="panels">Сонячні панелі</option>
+            <option value="inverters">Інвертори</option>
+            <option value="batteries">Акумулятори</option>
+            <option value="stations">Сонячні електростанції</option>
+            <option value="mounting">Кріплення</option>
+          </select>
+        </label>
+        <div class="compare-list" id="compareList"></div>
+        <div class="compare-actions"><button class="btn ghost" type="button" id="clearCompare">Очистити</button><a class="btn primary" href="consultation.html">Консультація</a></div>
+      </aside>
+      <div>
+        <div class="hint-box" id="compareHint"></div>
+        <div id="compareResult"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+const products = [
+    {
+        "id":  "green-30kw",
+        "group":  "stations",
+        "category":  "stations-grid",
+        "categoryTitle":  "Зелений тариф",
+        "name":  "Сонячна станція під \"Зелений тариф\" Elite 30 кВт \"під ключ\"",
+        "producer":  "METON",
+        "price":  "500 640 грн",
+        "old":  "",
+        "image":  "assets/station-green-30.png",
+        "badge":  "Elite 30",
+        "summary":  "Мережева станція під зелений тариф для приватного об\u0027єкта. Рішення розраховане на максимальну генерацію та продаж надлишків за погодженими умовами підключення.",
+        "specs":  [
+                      "Тип: мережева СЕС під зелений тариф",
+                      "Потужність станції: 30 кВт",
+                      "Панелі: 54 шт. монокристалічні 550-610 Вт",
+                      "Інвертор: Solis, Deye або SolaX на вибір під фазність і технічні умови",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, MC4-конектори",
+                      "АКБ: не входять"
+                  ],
+        "url":  "product-green-30kw.html"
+    },
+    {
+        "id":  "green-20kw",
+        "group":  "stations",
+        "category":  "stations-grid",
+        "categoryTitle":  "Зелений тариф",
+        "name":  "Сонячна станція під \"Зелений тариф\" Elite 20 кВт \"під ключ\"",
+        "producer":  "METON",
+        "price":  "362 070 грн",
+        "old":  "",
+        "image":  "assets/station-green-20.png",
+        "badge":  "Elite 20",
+        "summary":  "Комплект під зелений тариф для об\u0027єктів із достатньою площею даху або землі. Перед монтажем перевіряються технічні умови та точка підключення.",
+        "specs":  [
+                      "Тип: мережева СЕС під зелений тариф",
+                      "Потужність станції: 20 кВт",
+                      "Панелі: 36 шт. монокристалічні 550-610 Вт",
+                      "Інвертор: Solis, Deye або SolaX на вибір під фазність і технічні умови",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, MC4-конектори",
+                      "АКБ: не входять"
+                  ],
+        "url":  "product-green-20kw.html"
+    },
+    {
+        "id":  "green-15kw",
+        "group":  "stations",
+        "category":  "stations-grid",
+        "categoryTitle":  "Зелений тариф",
+        "name":  "Сонячна станція під \"Зелений тариф\" Elite 15 кВт \"під ключ\"",
+        "producer":  "METON",
+        "price":  "278 928 грн",
+        "old":  "",
+        "image":  "assets/station-green-15.png",
+        "badge":  "Elite 15",
+        "summary":  "Мережева станція для генерації електроенергії під зелений тариф. Підійде приватному об\u0027єкту, де важливі прогнозована потужність і готовий монтажний комплект.",
+        "specs":  [
+                      "Тип: мережева СЕС під зелений тариф",
+                      "Потужність станції: 15 кВт",
+                      "Панелі: 27-28 шт. монокристалічні 550-610 Вт",
+                      "Інвертор: Solis, Deye або SolaX на вибір під фазність і технічні умови",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, MC4-конектори",
+                      "АКБ: не входять"
+                  ],
+        "url":  "product-green-15kw.html"
+    },
+    {
+        "id":  "green-10kw",
+        "group":  "stations",
+        "category":  "stations-grid",
+        "categoryTitle":  "Зелений тариф",
+        "name":  "Сонячна станція під \"Зелений тариф\" Elite 10 кВт \"під ключ\"",
+        "producer":  "METON",
+        "price":  "215 901 грн",
+        "old":  "",
+        "image":  "assets/station-green-10.png",
+        "badge":  "Elite 10",
+        "summary":  "Базове рішення під зелений тариф для приватного будинку. Добре підходить, коли потрібно почати з помірної потужності та зрозумілого бюджету.",
+        "specs":  [
+                      "Тип: мережева СЕС під зелений тариф",
+                      "Потужність станції: 10 кВт",
+                      "Панелі: 18 шт. монокристалічні 550-610 Вт",
+                      "Інвертор: Solis, Deye або SolaX на вибір під фазність і технічні умови",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, MC4-конектори",
+                      "АКБ: не входять"
+                  ],
+        "url":  "product-green-10kw.html"
+    },
+    {
+        "id":  "own-10kw",
+        "group":  "stations",
+        "category":  "stations-hybrid",
+        "categoryTitle":  "Станції власного споживання",
+        "name":  "Сонячна електростанція для власного споживання на 10 кВт",
+        "producer":  "METON",
+        "price":  "242 721 грн",
+        "old":  "",
+        "image":  "assets/station-own-home-10.png",
+        "badge":  "10 кВт",
+        "summary":  "Станція для об\u0027єкта, де сонячна генерація в першу чергу працює на власні денні навантаження. Комплектація уточнюється під сценарій резерву та споживання.",
+        "specs":  [
+                      "Тип: гібридна СЕС для власного споживання",
+                      "Потужність станції: 10 кВт",
+                      "Панелі: 18 шт. монокристалічні 550-610 Вт",
+                      "Інвертор: Solis, Deye або SolaX на вибір під резерв і фазність об\u0027єкта",
+                      "Акумулятор: LiFePO4 низьковольтний, ємність підбирається під резерв",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, кабель АКБ, MC4-конектори"
+                  ],
+        "url":  "product-own-10kw.html"
+    },
+    {
+        "id":  "own-15kw",
+        "group":  "stations",
+        "category":  "stations-hybrid",
+        "categoryTitle":  "Станції власного споживання",
+        "name":  "Сонячна електростанція для власного споживання на 15 кВт",
+        "producer":  "METON",
+        "price":  "301 725 грн",
+        "old":  "",
+        "image":  "assets/station-own-15kw.png",
+        "badge":  "15 кВт",
+        "summary":  "Рішення для об\u0027єктів із вищим денним споживанням. Перед підбором важливо звірити графік навантажень і критичні лінії.",
+        "specs":  [
+                      "Тип: гібридна СЕС для власного споживання",
+                      "Потужність станції: 15 кВт",
+                      "Панелі: 27-28 шт. монокристалічні 550-610 Вт",
+                      "Інвертор: Solis, Deye або SolaX на вибір під резерв і фазність об\u0027єкта",
+                      "Акумулятор: LiFePO4 низьковольтний або високовольтний під модель інвертора",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, кабель АКБ, MC4-конектори"
+                  ],
+        "url":  "product-own-15kw.html"
+    },
+    {
+        "id":  "own-20kw",
+        "group":  "stations",
+        "category":  "stations-hybrid",
+        "categoryTitle":  "Станції власного споживання",
+        "name":  "Сонячна електростанція для власного споживання на 20 кВт",
+        "producer":  "METON",
+        "price":  "362 070 грн",
+        "old":  "",
+        "image":  "assets/station-own-home-20.png",
+        "badge":  "20 кВт",
+        "summary":  "Станція для приватного або комерційного об\u0027єкта з помітним денним навантаженням. Дає сенс там, де обладнання працює саме вдень.",
+        "specs":  [
+                      "Тип: гібридна СЕС для власного споживання",
+                      "Потужність станції: 20 кВт",
+                      "Панелі: 36 шт. монокристалічні 550-610 Вт",
+                      "Інвертор: Solis, Deye або SolaX на вибір під резерв і фазність об\u0027єкта",
+                      "Акумулятор: LiFePO4 під резерв критичних навантажень",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, кабель АКБ, MC4-конектори"
+                  ],
+        "url":  "product-own-20kw.html"
+    },
+    {
+        "id":  "own-30kw",
+        "group":  "stations",
+        "category":  "stations-hybrid",
+        "categoryTitle":  "Станції власного споживання",
+        "name":  "Сонячна електростанція для власного споживання на 30 кВт",
+        "producer":  "METON",
+        "price":  "514 050 грн",
+        "old":  "",
+        "image":  "assets/station-own-30kw-new.png",
+        "badge":  "Хіт",
+        "summary":  "Комерційне рішення для власного споживання. Підійде об\u0027єктам, де вдень стабільно працює освітлення, вентиляція, холодильне або виробниче обладнання.",
+        "specs":  [
+                      "Тип: гібридна СЕС для власного споживання",
+                      "Потужність станції: 30 кВт",
+                      "Панелі: 54 шт. монокристалічні 550-610 Вт",
+                      "Інвертор: Solis, Deye або SolaX на вибір під резерв і фазність об\u0027єкта",
+                      "Акумулятор: LiFePO4 під резерв і графік споживання",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, кабель АКБ, MC4-конектори"
+                  ],
+        "url":  "product-own-30kw.html"
+    },
+    {
+        "id":  "own-50kw",
+        "group":  "stations",
+        "category":  "stations-hybrid",
+        "categoryTitle":  "Станції власного споживання",
+        "name":  "Сонячна електростанція для власного споживання на 50 кВт",
+        "producer":  "METON",
+        "price":  "1 063 413 грн",
+        "old":  "",
+        "image":  "assets/station-own-50kw-new.png",
+        "badge":  "50 кВт",
+        "summary":  "Станція для бізнесу з високим денним споживанням. Проект потребує аналізу площі, лімітів підключення та графіка навантаження.",
+        "specs":  [
+                      "Тип: гібридна СЕС для власного споживання бізнесу",
+                      "Потужність станції: 50 кВт",
+                      "Панелі: 82-84 шт. монокристалічні 600-610 Вт",
+                      "Інвертор: Solis, Deye або SolaX на вибір під резерв і фазність об\u0027єкта",
+                      "Акумулятор: LiFePO4 під резерв виробничих або комерційних навантажень",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, кабель АКБ, MC4-конектори"
+                  ],
+        "url":  "product-own-50kw.html"
+    },
+    {
+        "id":  "own-150kw",
+        "group":  "stations",
+        "category":  "stations-hybrid",
+        "categoryTitle":  "Станції власного споживання",
+        "name":  "Сонячна електростанція 150 кВт для бізнесу та власного споживання",
+        "producer":  "METON",
+        "price":  "3 786 045 грн",
+        "old":  "",
+        "image":  "assets/station-own-industrial.png",
+        "badge":  "150 кВт",
+        "summary":  "Велика станція для підприємства або бізнесу. Доцільна, коли значна частина електроенергії споживається вдень і є достатня площа під сонячне поле.",
+        "specs":  [
+                      "Тип: гібридна або мережева СЕС для власного споживання бізнесу",
+                      "Потужність станції: 150 кВт",
+                      "Панелі: 246 шт. монокристалічні 610 Вт",
+                      "Інвертор: Deye, SolaX або Solis за схемою об\u0027єкта",
+                      "Акумулятор: опційно, під резерв критичних ліній",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: проектний DC/AC щит, автоматика, SPD, вимикачі",
+                      "Кабель: PV-кабель, AC-магістраль, кабель за проектом"
+                  ],
+        "url":  "product-own-150kw.html"
+    },
+    {
+        "id":  "own-200kw",
+        "group":  "stations",
+        "category":  "stations-hybrid",
+        "categoryTitle":  "Станції власного споживання",
+        "name":  "Сонячна електростанція для підприємства на 200 кВт",
+        "producer":  "METON",
+        "price":  "5 055 570 грн",
+        "old":  "",
+        "image":  "assets/station-own-industrial.png",
+        "badge":  "200 кВт",
+        "summary":  "Проектна станція для підприємства з великим денним споживанням. Потребує технічного аудиту, розрахунку генерації та погодження схеми підключення.",
+        "specs":  [
+                      "Тип: гібридна або мережева СЕС для підприємства",
+                      "Потужність станції: 200 кВт",
+                      "Панелі: 328 шт. монокристалічні 610 Вт",
+                      "Інвертор: Deye, SolaX або Solis за технічними умовами",
+                      "Акумулятор: опційно, під резерв критичних зон",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: проектний DC/AC щит, автоматика, SPD, вимикачі",
+                      "Кабель: PV-кабель, AC-магістраль, кабель за проектом"
+                  ],
+        "url":  "product-own-200kw.html"
+    },
+    {
+        "id":  "hybrid-deye-6kw-turnkey",
+        "group":  "stations",
+        "category":  "stations-hybrid",
+        "categoryTitle":  "Готові гібридні рішення",
+        "name":  "Гібридна сонячна електростанція Deye 6 кВт під ключ",
+        "producer":  "Deye / METON",
+        "price":  "187 740 грн",
+        "old":  "194 445 грн",
+        "image":  "assets/station-own-home-10.png",
+        "badge":  "-3%",
+        "summary":  "Гібридна станція Deye 6 кВт під ключ для приватного будинку. Поєднує сонячну генерацію, інвертор та акумуляторний резерв для критичних навантажень.",
+        "specs":  [
+                      "Тип: гібридна СЕС під ключ",
+                      "Потужність станції: 6 кВт",
+                      "Панелі: 10-12 шт. монокристалічні 550-610 Вт",
+                      "Інвертор: Deye 6 кВт, 1Ф",
+                      "Акумулятор: LiFePO4 Deye / Pylontech за потрібною автономністю",
+                      "Кріплення: дахове кріплення або наземна конструкція",
+                      "Захист: DC/AC щит, автоматика, захист від перенапруги",
+                      "Кабель: PV-кабель, AC-кабель, кабель АКБ, MC4-конектори"
+                  ],
+        "url":  "product-hybrid-deye-6kw-turnkey.html"
+    },
+    {
+        "id":  "panel-tongwei-435",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель Tongwei TWMND-54HB435W",
+        "producer":  "Tongwei Solar",
+        "price":  "3 487 грн",
+        "old":  "3 665 грн",
+        "image":  "assets/panel-monofacial-clean.png",
+        "badge":  "-5%",
+        "summary":  "Односторонній модуль Tongwei 435 Вт для дахових і малих комерційних станцій.",
+        "specs":  [
+                      "Потужність: 435 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: Tongwei Solar",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-tongwei-435.html"
+    },
+    {
+        "id":  "panel-longi-410",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель Longi Solar LR5-54HIH-410M",
+        "producer":  "LONGi Solar",
+        "price":  "3 353 грн",
+        "old":  "",
+        "image":  "assets/longi-435.png",
+        "badge":  "Новинка",
+        "summary":  "Компактний односторонній модуль LONGi для приватних дахів і невеликих СЕС.",
+        "specs":  [
+                      "Потужність: 410 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: LONGi Solar",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-longi-410.html"
+    },
+    {
+        "id":  "panel-tongwei-610",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель TONGWEI TWMNH-66HS610 610Вт N-type",
+        "producer":  "Tongwei Solar",
+        "price":  "4 917 грн",
+        "old":  "",
+        "image":  "assets/panel-monofacial-clean.png",
+        "badge":  "N-type",
+        "summary":  "Високопотужна N-type панель для станцій, де потрібно більше ват з одного модуля.",
+        "specs":  [
+                      "Потужність: 610 Вт",
+                      "Тип: одностороння N-type",
+                      "Виробник: Tongwei Solar",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-tongwei-610.html"
+    },
+    {
+        "id":  "panel-trina-610",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель Trina Solar TSM-NE19R 610M",
+        "producer":  "Trina Solar",
+        "price":  "4 917 грн",
+        "old":  "",
+        "image":  "assets/trina-575.png",
+        "badge":  "610 Вт",
+        "summary":  "Односторонній модуль Trina Solar для дахових і наземних СЕС із високою щільністю потужності.",
+        "specs":  [
+                      "Потужність: 610 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: Trina Solar",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-trina-610.html"
+    },
+    {
+        "id":  "panel-longi-620",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель Longi Solar LR7-72HTH-620M",
+        "producer":  "LONGi Solar",
+        "price":  "5 006 грн",
+        "old":  "",
+        "image":  "assets/longi-620.png",
+        "badge":  "620 Вт",
+        "summary":  "Потужний односторонній модуль LONGi для комерційних та приватних СЕС із достатньою площею монтажу.",
+        "specs":  [
+                      "Потужність: 620 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: LONGi Solar",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-longi-620.html"
+    },
+    {
+        "id":  "panel-longi-580",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель Longi Solar LR5-72HTH-580M",
+        "producer":  "LONGi Solar",
+        "price":  "4 604 грн",
+        "old":  "",
+        "image":  "assets/longi-620.png",
+        "badge":  "580 Вт",
+        "summary":  "Одностороння панель LONGi 580 Вт для стандартних дахових і наземних проектів.",
+        "specs":  [
+                      "Потужність: 580 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: LONGi Solar",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-longi-580.html"
+    },
+    {
+        "id":  "panel-longi-425",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель Longi Solar LR5-54HTH-425M",
+        "producer":  "LONGi Solar",
+        "price":  "3 487 грн",
+        "old":  "",
+        "image":  "assets/longi-435.png",
+        "badge":  "425 Вт",
+        "summary":  "Компактний модуль LONGi для дахів із обмеженою площею та домашніх станцій.",
+        "specs":  [
+                      "Потужність: 425 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: LONGi Solar",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-longi-425.html"
+    },
+    {
+        "id":  "panel-longi-435",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель Longi Solar LR5-54HTH-435M, 435Вт",
+        "producer":  "LONGi Solar",
+        "price":  "3 487 грн",
+        "old":  "",
+        "image":  "assets/longi-435.png",
+        "badge":  "435 Вт",
+        "summary":  "Одностороння панель LONGi 435 Вт для приватних дахових станцій.",
+        "specs":  [
+                      "Потужність: 435 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: LONGi Solar",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-longi-435.html"
+    },
+    {
+        "id":  "panel-aiko-440",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель AIKO A440-MAH54Mb 440Вт",
+        "producer":  "AIKO",
+        "price":  "3 576 грн",
+        "old":  "3 800 грн",
+        "image":  "assets/panel-monofacial-clean.png",
+        "badge":  "-6%",
+        "summary":  "Панель AIKO 440 Вт для клієнтів, яким важлива сучасна технологія й компактна потужність.",
+        "specs":  [
+                      "Потужність: 440 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: AIKO",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-aiko-440.html"
+    },
+    {
+        "id":  "panel-longi-590",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель Longi Solar LR5-72HTH-590M",
+        "producer":  "LONGi Solar",
+        "price":  "4 872 грн",
+        "old":  "",
+        "image":  "assets/longi-620.png",
+        "badge":  "590 Вт",
+        "summary":  "Односторонній модуль LONGi 590 Вт для більших полів панелей.",
+        "specs":  [
+                      "Потужність: 590 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: LONGi Solar",
+                      "Категорія на METON: Monofacial",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-longi-590.html"
+    },
+    {
+        "id":  "panel-longi-425-807",
+        "group":  "panels",
+        "category":  "panels-one-sided",
+        "categoryTitle":  "Односторонні панелі",
+        "name":  "Сонячна панель Longi Solar LR5-54HTH-425M",
+        "producer":  "LONGi Solar",
+        "price":  "78 грн",
+        "old":  "",
+        "image":  "assets/longi-435.png",
+        "badge":  "425 Вт",
+        "summary":  "Компактна одностороння панель LONGi 425 Вт для приватних дахових станцій та невеликих комерційних об\u0027єктів.",
+        "specs":  [
+                      "Потужність: 425 Вт",
+                      "Тип: одностороння панель",
+                      "Виробник: LONGi Solar",
+                      "Застосування: дахові СЕС",
+                      "Конструкція: одностороння monofacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-longi-425-807.html"
+    },
+    {
+        "id":  "panel-longi-bifacial-610",
+        "group":  "panels",
+        "category":  "panels-bifacial",
+        "categoryTitle":  "Двосторонні панелі",
+        "name":  "Сонячна панель Longi Solar LR7-72HGD-610M Bificial",
+        "producer":  "LONGi Solar",
+        "price":  "4 917 грн",
+        "old":  "",
+        "image":  "assets/panel-bifacial-glass-a.png",
+        "badge":  "Bifacial",
+        "summary":  "Двосторонній модуль LONGi для наземних конструкцій і пласких дахів, де задня сторона може давати додаткову генерацію.",
+        "specs":  [
+                      "Потужність: 610 Вт",
+                      "Тип: двостороння панель",
+                      "Виробник: LONGi Solar",
+                      "Категорія: Bifacial",
+                      "Конструкція: двостороння glass-glass / bifacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-longi-bifacial-610.html"
+    },
+    {
+        "id":  "panel-longi-bifacial-650",
+        "group":  "panels",
+        "category":  "panels-bifacial",
+        "categoryTitle":  "Двосторонні панелі",
+        "name":  "Сонячна панель Longi Solar LR7-72HYD-650M Bifacial",
+        "producer":  "LONGi Solar",
+        "price":  "5 364 грн",
+        "old":  "",
+        "image":  "assets/panel-bifacial-glass-b.png",
+        "badge":  "650 Вт",
+        "summary":  "Потужна двостороння панель LONGi для комерційних наземних СЕС.",
+        "specs":  [
+                      "Потужність: 650 Вт",
+                      "Тип: двостороння панель",
+                      "Виробник: LONGi Solar",
+                      "Категорія на METON: Bifacial",
+                      "Конструкція: двостороння glass-glass / bifacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-longi-bifacial-650.html"
+    },
+    {
+        "id":  "panel-leapton-620",
+        "group":  "panels",
+        "category":  "panels-bifacial",
+        "categoryTitle":  "Двосторонні панелі",
+        "name":  "Сонячна панель Leapton LP182*210-M-66-NB-620W Bificial Fiberglass N-type 620Вт",
+        "producer":  "Leapton",
+        "price":  "4 917 грн",
+        "old":  "",
+        "image":  "assets/panel-bifacial-glass-c.png",
+        "badge":  "N-type",
+        "summary":  "Двосторонній N-type модуль Leapton 620 Вт для ефективних наземних і комерційних станцій.",
+        "specs":  [
+                      "Потужність: 620 Вт",
+                      "Тип: двостороння N-type",
+                      "Виробник: Leapton",
+                      "Категорія на METON: Bifacial",
+                      "Конструкція: двостороння glass-glass / bifacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-leapton-620.html"
+    },
+    {
+        "id":  "panel-leapton-710",
+        "group":  "panels",
+        "category":  "panels-bifacial",
+        "categoryTitle":  "Двосторонні панелі",
+        "name":  "Сонячна панель Leapton LP210*210-M-66-NB-710W",
+        "producer":  "Leapton",
+        "price":  "5 051 грн",
+        "old":  "",
+        "image":  "assets/panel-bifacial-glass-a.png",
+        "badge":  "710 Вт",
+        "summary":  "Високопотужна панель Leapton з категорії двосторонніх модулів METON.",
+        "specs":  [
+                      "Потужність: 710 Вт",
+                      "Тип: панель з категорії Bifacial",
+                      "Виробник: Leapton",
+                      "Категорія на METON: Bifacial",
+                      "Конструкція: двостороння glass-glass / bifacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-leapton-710.html"
+    },
+    {
+        "id":  "panel-tongwei-bifacial-625",
+        "group":  "panels",
+        "category":  "panels-bifacial",
+        "categoryTitle":  "Двосторонні панелі",
+        "name":  "Сонячна панель TongWei TWMNH-66HD625W N-type Bificial 625Вт",
+        "producer":  "Tongwei Solar",
+        "price":  "5 230 грн",
+        "old":  "",
+        "image":  "assets/panel-bifacial-glass-b.png",
+        "badge":  "625 Вт",
+        "summary":  "Двосторонній N-type модуль Tongwei 625 Вт для об\u0027єктів, де є сенс використовувати відбите світло.",
+        "specs":  [
+                      "Потужність: 625 Вт",
+                      "Тип: двостороння N-type",
+                      "Виробник: Tongwei Solar",
+                      "Категорія на METON: Bifacial",
+                      "Конструкція: двостороння glass-glass / bifacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-tongwei-bifacial-625.html"
+    },
+    {
+        "id":  "panel-tongwei-bifacial-630",
+        "group":  "panels",
+        "category":  "panels-bifacial",
+        "categoryTitle":  "Двосторонні панелі",
+        "name":  "Сонячна панель TongWei TWMNH-66HD625W N-type Bificial 630Вт",
+        "producer":  "Tongwei Solar",
+        "price":  "4 917 грн",
+        "old":  "",
+        "image":  "assets/panel-bifacial-glass-c.png",
+        "badge":  "630 Вт",
+        "summary":  "Двосторонній модуль Tongwei 630 Вт для наземних і пласких дахових СЕС.",
+        "specs":  [
+                      "Потужність: 630 Вт",
+                      "Тип: двостороння N-type",
+                      "Виробник: Tongwei Solar",
+                      "Категорія на METON: Bifacial",
+                      "Конструкція: двостороння glass-glass / bifacial",
+                      "Технологія: монокристалічна N-type / TOPCon або серія виробника",
+                      "Рама: анодований алюміній",
+                      "З\u0027єднувачі: MC4-сумісні",
+                      "Максимальна напруга системи: до 1500 В, якщо підтверджено datasheet",
+                      "Гарантія та деградація: за паспортом виробника і партією постачання"
+                  ],
+        "url":  "product-panel-tongwei-bifacial-630.html"
+    },
+    {
+        "id":  "deye-5k-1p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-5K-SG03LP1-EU 5kW, 1Ф, 48V",
+        "producer":  "Deye",
+        "price":  "40 230 грн",
+        "old":  "",
+        "image":  "assets/inverter-deye-single-clean.png",
+        "badge":  "1Ф",
+        "summary":  "Однофазний гібридний інвертор Deye для резерву та сонячної генерації в будинку.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 1Ф",
+                      "Потужність: 5 кВт",
+                      "АКБ: 48V",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-5k-1p.html"
+    },
+    {
+        "id":  "deye-6k-1p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-6k-SG05LP1-EU 6kW, 1ф , 48V",
+        "producer":  "Deye",
+        "price":  "40 230 грн",
+        "old":  "42 912 грн",
+        "image":  "assets/inverter-deye-single-clean.png",
+        "badge":  "-6%",
+        "summary":  "Популярний однофазний гібридний інвертор Deye 6 кВт для будинку з акумуляторним резервом.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 1Ф",
+                      "Потужність: 6 кВт",
+                      "АКБ: 48V",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-6k-1p.html"
+    },
+    {
+        "id":  "deye-8k-1p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-8K-SG01LP1-EU 8kW, 1Ф, 48V",
+        "producer":  "Deye",
+        "price":  "57 216 грн",
+        "old":  "60 345 грн",
+        "image":  "assets/inverter-deye-single-clean.png",
+        "badge":  "-5%",
+        "summary":  "Однофазний інвертор Deye 8 кВт для більших домашніх навантажень.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 1Ф",
+                      "Потужність: 8 кВт",
+                      "АКБ: 48V",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-8k-1p.html"
+    },
+    {
+        "id":  "deye-10k-lp1",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-10K-SG02 LP1-EU-AM3",
+        "producer":  "Deye",
+        "price":  "78 300 грн",
+        "old":  "86 000 грн",
+        "image":  "assets/inverter-deye-single-clean.png",
+        "badge":  "-9%",
+        "summary":  "Потужний однофазний гібридний інвертор Deye для будинку з високим навантаженням.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 1Ф",
+                      "Потужність: 10 кВт",
+                      "АКБ: 48V",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-10k-lp1.html"
+    },
+    {
+        "id":  "deye-12k-lp1",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-12K-SG02 LP1-EU-AM3",
+        "producer":  "Deye",
+        "price":  "82 695 грн",
+        "old":  "84 930 грн",
+        "image":  "assets/inverter-deye-single-clean.png",
+        "badge":  "-3%",
+        "summary":  "Однофазний Deye 12 кВт для потужних домашніх систем з акумуляторами.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 1Ф",
+                      "Потужність: 12 кВт",
+                      "АКБ: 48V",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-12k-lp1.html"
+    },
+    {
+        "id":  "deye-10k-3p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-10K-SG04LP3-EU 10kW, 3Ф, 48V",
+        "producer":  "Deye",
+        "price":  "80 460 грн",
+        "old":  "",
+        "image":  "assets/inverter-deye-three-clean.png",
+        "badge":  "3Ф",
+        "summary":  "Трифазний гібридний інвертор Deye для будинку або бізнесу з трифазною мережею.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 10 кВт",
+                      "АКБ: 48V",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-10k-3p.html"
+    },
+    {
+        "id":  "deye-12k-3p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-12K-SG04LP3-EU 12kW, 3Ф, 48v",
+        "producer":  "Deye",
+        "price":  "82 695 грн",
+        "old":  "84 930 грн",
+        "image":  "assets/inverter-deye-three-clean.png",
+        "badge":  "-3%",
+        "summary":  "Трифазний гібридний інвертор Deye 12 кВт для розподілу навантажень по фазах.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 12 кВт",
+                      "АКБ: 48V",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-12k-3p.html"
+    },
+    {
+        "id":  "deye-15k-3p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-15K-SG01HP3-EU-AM2",
+        "producer":  "Deye",
+        "price":  "87 100 грн",
+        "old":  "91 000 грн",
+        "image":  "assets/inverter-deye-three-clean.png",
+        "badge":  "-4%",
+        "summary":  "Трифазний високовольтний Deye 15 кВт для більших гібридних систем.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 15 кВт",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-15k-3p.html"
+    },
+    {
+        "id":  "deye-20k-3p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-20K-SG01HP3-EU-AM2",
+        "producer":  "Deye",
+        "price":  "88 500 грн",
+        "old":  "",
+        "image":  "assets/inverter-deye-three-clean.png",
+        "badge":  "20 кВт",
+        "summary":  "Потужний трифазний Deye для бізнесу або великого приватного об\u0027єкта.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 20 кВт",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-20k-3p.html"
+    },
+    {
+        "id":  "deye-25k-3p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний інвертор Deye SUN-25K-SG01HP3-EU-AM2",
+        "producer":  "Deye",
+        "price":  "94 500 грн",
+        "old":  "",
+        "image":  "assets/inverter-deye-three-clean.png",
+        "badge":  "25 кВт",
+        "summary":  "Трифазний гібридний інвертор для об\u0027єктів із великим навантаженням.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 25 кВт",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-25k-3p.html"
+    },
+    {
+        "id":  "deye-30k-3p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "ГІБРИДНИЙ ІНВЕРТОР SUN-30K-SG01HP3-EU-BM3 DEYE WIFI (30 KW, 3 ФАЗИ, 3 MPPT)",
+        "producer":  "Deye",
+        "price":  "130 200 грн",
+        "old":  "136 000 грн",
+        "image":  "assets/inverter-deye-three-clean.png",
+        "badge":  "-4%",
+        "summary":  "Промисловіший трифазний Deye 30 кВт з трьома MPPT для великих гібридних систем.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 30 кВт",
+                      "MPPT: 3",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-30k-3p.html"
+    },
+    {
+        "id":  "deye-50k-3p",
+        "group":  "inverters",
+        "category":  "inverters-hybrid",
+        "categoryTitle":  "Гібридні інвертори",
+        "name":  "Гібридний сонячний інвертор Deye SUN-50K-SG01HP3-EU-BM3",
+        "producer":  "Deye",
+        "price":  "203 500 грн",
+        "old":  "210 300 грн",
+        "image":  "assets/inverter-deye-three-clean.png",
+        "badge":  "-3%",
+        "summary":  "Потужний трифазний гібридний інвертор Deye 50 кВт для великих бізнес-об\u0027єктів.",
+        "specs":  [
+                      "Тип: гібридний інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 50 кВт",
+                      "Категорія на METON: гібридні інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей"
+                  ],
+        "url":  "product-deye-50k-3p.html"
+    },
+    {
+        "id":  "solis-10k",
+        "group":  "inverters",
+        "category":  "inverters-grid",
+        "categoryTitle":  "Мережеві інвертори",
+        "name":  "Мережевий інвертор Solis S5-GR3P10K",
+        "producer":  "Solis",
+        "price":  "34 866 грн",
+        "old":  "",
+        "image":  "assets/inverter-solis-grid-white.png",
+        "badge":  "Grid",
+        "summary":  "Трифазний мережевий інвертор Solis для станцій без акумуляторів.",
+        "specs":  [
+                      "Тип: мережевий інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 10 кВт",
+                      "Категорія на METON: мережеві інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "АКБ: не підключається напряму, інвертор працює як мережева модель"
+                  ],
+        "url":  "product-solis-10k.html"
+    },
+    {
+        "id":  "solis-15k",
+        "group":  "inverters",
+        "category":  "inverters-grid",
+        "categoryTitle":  "Мережеві інвертори",
+        "name":  "Мережевий інвертор Solis S5-GR3P15K",
+        "producer":  "Solis",
+        "price":  "37 548 грн",
+        "old":  "",
+        "image":  "assets/inverter-solis-grid-white.png",
+        "badge":  "Grid",
+        "summary":  "Мережевий Solis 15 кВт для сонячної станції під зелений тариф або власну генерацію без АКБ.",
+        "specs":  [
+                      "Тип: мережевий інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 15 кВт",
+                      "Категорія на METON: мережеві інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "АКБ: не підключається напряму, інвертор працює як мережева модель"
+                  ],
+        "url":  "product-solis-15k.html"
+    },
+    {
+        "id":  "solis-20k",
+        "group":  "inverters",
+        "category":  "inverters-grid",
+        "categoryTitle":  "Мережеві інвертори",
+        "name":  "Мережевий інвертор Solis S5-GR3P20K",
+        "producer":  "Solis",
+        "price":  "42 912 грн",
+        "old":  "",
+        "image":  "assets/inverter-solis-grid-white.png",
+        "badge":  "Grid",
+        "summary":  "Трифазний мережевий інвертор Solis 20 кВт для дахових і наземних СЕС.",
+        "specs":  [
+                      "Тип: мережевий інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 20 кВт",
+                      "Категорія на METON: мережеві інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "АКБ: не підключається напряму, інвертор працює як мережева модель"
+                  ],
+        "url":  "product-solis-20k.html"
+    },
+    {
+        "id":  "solis-30k",
+        "group":  "inverters",
+        "category":  "inverters-grid",
+        "categoryTitle":  "Мережеві інвертори",
+        "name":  "Мережевий інвертор Solis-30K-5G",
+        "producer":  "Solis",
+        "price":  "60 345 грн",
+        "old":  "",
+        "image":  "assets/inverter-solis-grid-white.png",
+        "badge":  "Хіт",
+        "summary":  "Мережевий трифазний Solis 30 кВт для комерційних сонячних станцій.",
+        "specs":  [
+                      "Тип: мережевий інвертор",
+                      "Фаза: 3Ф",
+                      "Потужність: 30 кВт",
+                      "Категорія на METON: мережеві інвертори",
+                      "MPPT: звіряється з datasheet конкретної моделі",
+                      "PV-вхід: напруга та струм підбираються під стрінги панелей",
+                      "Комунікація: Wi-Fi / RS485 / CAN залежно від моделі",
+                      "Захист: DC/AC автоматика та SPD підбираються в щиті станції",
+                      "Гарантія: за умовами виробника та партії постачання",
+                      "АКБ: не підключається напряму, інвертор працює як мережева модель"
+                  ],
+        "url":  "product-solis-30k.html"
+    },
+    {
+        "id":  "mounting-zinc-kit",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "Комплект кріплення для C-профілю цинк",
+        "producer":  "METON",
+        "price":  "від 32 грн",
+        "old":  "",
+        "image":  "assets/mounting-kit-zinc.png",
+        "badge":  "Цинк",
+        "summary":  "Комплект для монтажу сонячної панелі на оцинкований C-профіль. До комплекту входять елементи притиску та кріплення під погоджену товщину модуля: міжпанельні прижими П-форми, кінцеві прижими Z-форми, болти та гайки під C-профіль.",
+        "specs":  [
+                      "Комплектація: кінцевий Z-подібний прижим",
+                      "Комплектація: міжпанельний П-подібний прижим",
+                      "Комплектація: болт М8х30",
+                      "Комплектація: гайка молоткова М8 для C-профілю",
+                      "Профіль: оцинкований C-профіль",
+                      "Розміри прижимів: 32 / 38 / 45 / 50 / 55 мм",
+                      "Підбір: під товщину панелі та тип профілю"
+                  ],
+        "url":  "product-mounting-zinc-kit.html"
+    },
+    {
+        "id":  "mounting-aluminum-kit",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "Комплект кріплення для алюмінієвого профілю",
+        "producer":  "METON",
+        "price":  "від 44 грн",
+        "old":  "",
+        "image":  "assets/mounting-kit-aluminum.png",
+        "badge":  "Алюміній",
+        "summary":  "Комплект у зборі для алюмінієвого профілю. До комплекту входять алюмінієві міжпанельні прижими П-форми, кінцеві прижими Z-форми, болти та спеціальні гайки для алюмінієвого профілю.",
+        "specs":  [
+                      "Комплектація: кінцевий Z-подібний прижим",
+                      "Комплектація: міжпанельний П-подібний прижим",
+                      "Комплектація: болт М8х30",
+                      "Комплектація: гайка М8 для алюмінієвого профілю",
+                      "Профіль: алюмінієвий монтажний профіль",
+                      "Розміри прижимів: 44 / 45 мм",
+                      "Підбір: під товщину панелі та тип профілю"
+                  ],
+        "url":  "product-mounting-aluminum-kit.html"
+    },
+    {
+        "id":  "mounting-c-profile-4141",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "C-профіль 41x41x41x1,5 для сонячних панелей",
+        "producer":  "METON",
+        "price":  "від 100 грн/м",
+        "old":  "",
+        "image":  "assets/mounting-c-profile-4141.png",
+        "badge":  "C-профіль",
+        "summary":  "Оцинкований C-профіль для монтажу сонячних панелей на дахових, баластних або наземних конструкціях. Доступні довжини уточнюються під проект.",
+        "specs":  [
+                      "Переріз: 41x41x41x1,5",
+                      "Матеріал: оцинкована сталь",
+                      "Довжини: 2,5 / 3 / 3,6 / 6 м",
+                      "Комплектація: тільки C-профіль без прижимів, болтів і гайок",
+                      "Застосування: дахові, баластні та наземні конструкції",
+                      "Ціна: залежить від довжини та кількості"
+                  ],
+        "url":  "product-mounting-c-profile-4141.html"
+    },
+    {
+        "id":  "mounting-ballast-aluminum",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "Баластна система на алюмінієвих блоках",
+        "producer":  "METON",
+        "price":  "від 150 грн",
+        "old":  "",
+        "image":  "assets/mounting-ballast.png",
+        "badge":  "Баласт",
+        "summary":  "Баластна система для пласких дахів без наскрізного кріплення до покрівлі. Алюмінієві блоки, рейки та прижими підбираються під розкладку панелей і вітрове навантаження.",
+        "specs":  [
+                      "Комплектація: алюмінієві баластні блоки",
+                      "Комплектація: монтажні рейки",
+                      "Комплектація: кінцеві Z-подібні та міжпанельні П-подібні прижими",
+                      "Комплектація: болти, гайки М8, з\u0027єднувальні елементи",
+                      "Монтаж: плаский дах без пробиття покрівлі",
+                      "Розрахунок: за кількістю панелей, покрівлею і вітровою зоною"
+                  ],
+        "url":  "product-mounting-ballast-aluminum.html"
+    },
+    {
+        "id":  "mounting-block-low",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "Алюмінієвий блочок низькопрофільний",
+        "producer":  "METON",
+        "price":  "ціну уточнюйте",
+        "old":  "",
+        "image":  "assets/mounting-block-low.png",
+        "badge":  "Низький",
+        "summary":  "Низькопрофільний алюмінієвий блочок для баластних та дахових систем кріплення сонячних панелей. Використовується там, де потрібно зменшити висоту вузла і зберегти акуратний монтаж.",
+        "specs":  [
+                      "Тип: алюмінієвий блочок",
+                      "Профіль: низькопрофільний",
+                      "Комплектація: один низькопрофільний блок",
+                      "Матеріал: алюміній",
+                      "Застосування: баластні та дахові системи",
+                      "Підбір: за розкладкою панелей і типом даху"
+                  ],
+        "url":  "product-mounting-block-low.html"
+    },
+    {
+        "id":  "mounting-block-high",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "Алюмінієвий блочок високопрофільний",
+        "producer":  "METON",
+        "price":  "ціну уточнюйте",
+        "old":  "",
+        "image":  "assets/mounting-block-high.png",
+        "badge":  "Високий",
+        "summary":  "Високопрофільний алюмінієвий блочок для монтажних вузлів, де потрібна більша висота опори або інша геометрія притиску панелі.",
+        "specs":  [
+                      "Тип: алюмінієвий блочок",
+                      "Профіль: високопрофільний",
+                      "Комплектація: один високопрофільний блок",
+                      "Матеріал: алюміній",
+                      "Застосування: баластні системи та вузли притиску",
+                      "Підбір: під конструкцію та товщину панелі"
+                  ],
+        "url":  "product-mounting-block-high.html"
+    },
+    {
+        "id":  "mounting-triangle-south-g",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "Трикутники «Південь» з Г-профілю",
+        "producer":  "METON",
+        "price":  "1200-1500 грн",
+        "old":  "",
+        "image":  "assets/mounting-triangle-south.png",
+        "badge":  "Південь",
+        "summary":  "Трикутна конструкція для орієнтації панелей на південь. Підходить для пласких дахів і майданчиків, де потрібен фіксований кут нахилу.",
+        "specs":  [
+                      "Комплектація: трикутник «Південь» з Г-профілю",
+                      "Комплектація: монтажні вузли, болти та гайки М8",
+                      "Орієнтація: південь",
+                      "Матеріал: оцинкована сталь",
+                      "Застосування: пласкі дахи та майданчики",
+                      "Підбір: під кут, модуль і розкладку"
+                  ],
+        "url":  "product-mounting-triangle-south-g.html"
+    },
+    {
+        "id":  "mounting-triangle-south-p",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "Трикутники «Південь» з П-профілю",
+        "producer":  "METON",
+        "price":  "під замовлення",
+        "old":  "",
+        "image":  "assets/mounting-triangle-south.png",
+        "badge":  "П-профіль",
+        "summary":  "Посилений варіант трикутної системи «Південь» на П-профілі. Використовується, коли потрібна інша жорсткість або окремі вимоги до монтажу.",
+        "specs":  [
+                      "Комплектація: трикутник «Південь» з П-профілю",
+                      "Комплектація: монтажні вузли, болти та гайки М8",
+                      "Орієнтація: південь",
+                      "Матеріал: оцинкована сталь",
+                      "Статус: під замовлення",
+                      "Розрахунок: після схеми розкладки"
+                  ],
+        "url":  "product-mounting-triangle-south-p.html"
+    },
+    {
+        "id":  "mounting-triangle-east-west-g",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "Трикутники «Схід-Захід» з Г-профілю",
+        "producer":  "METON",
+        "price":  "від 2100 грн",
+        "old":  "",
+        "image":  "assets/mounting-triangle-east-west.png",
+        "badge":  "Схід-Захід",
+        "summary":  "Система «Схід-Захід» для щільного розміщення панелей на пласкому даху. Дає рівномірнішу генерацію протягом дня та зменшує висоту конструкції.",
+        "specs":  [
+                      "Комплектація: пара трикутників «Схід-Захід» з Г-профілю",
+                      "Комплектація: рейки, прижими, болти та гайки М8",
+                      "Орієнтація: схід-захід",
+                      "Застосування: пласкі дахи",
+                      "Перевага: щільна розкладка панелей",
+                      "Розрахунок: за кількістю панелей"
+                  ],
+        "url":  "product-mounting-triangle-east-west-g.html"
+    },
+    {
+        "id":  "mounting-triangle-east-west-p",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Кріплення для панелей",
+        "name":  "Трикутники «Схід-Захід» з П-профілю",
+        "producer":  "METON",
+        "price":  "від 2400 грн",
+        "old":  "",
+        "image":  "assets/mounting-triangle-east-west.png",
+        "badge":  "П-профіль",
+        "summary":  "Посилений варіант системи «Схід-Захід» на П-профілі. Доцільний для проектів із підвищеними вимогами до жорсткості.",
+        "specs":  [
+                      "Комплектація: пара трикутників «Схід-Захід» з П-профілю",
+                      "Комплектація: рейки, прижими, болти та гайки М8",
+                      "Орієнтація: схід-захід",
+                      "Застосування: пласкі дахи та технічні майданчики",
+                      "Перевага: посилена жорсткість",
+                      "Розрахунок: за кількістю панелей"
+                  ],
+        "url":  "product-mounting-triangle-east-west-p.html"
+    },
+    {
+        "id":  "mounting-ground-one-row",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Наземні конструкції",
+        "name":  "Наземна конструкція однорядна",
+        "producer":  "METON",
+        "price":  "від 1800 грн",
+        "old":  "",
+        "image":  "assets/mounting-ground-one-row.png",
+        "badge":  "1 ряд",
+        "summary":  "Однорядна наземна конструкція для встановлення сонячних панелей на ґрунті або підготовленій основі.",
+        "specs":  [
+                      "Комплектація: однорядна наземна рама",
+                      "Комплектація: вертикальні стійки, поперечини, діагональні розкоси",
+                      "Комплектація: рейки, прижими, болти та гайки",
+                      "Ряди: 1",
+                      "Матеріал: оцинкована сталь / алюмінієві елементи",
+                      "Розрахунок: під кількість панелей, ґрунт, вітер і сніг"
+                  ],
+        "url":  "product-mounting-ground-one-row.html"
+    },
+    {
+        "id":  "mounting-ground-two-row",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Наземні конструкції",
+        "name":  "Наземна конструкція дворядна",
+        "producer":  "METON",
+        "price":  "1500-2000 грн",
+        "old":  "",
+        "image":  "assets/mounting-ground-two-row.png",
+        "badge":  "2 ряди",
+        "summary":  "Дворядна наземна конструкція для більшої кількості модулів у компактній розкладці.",
+        "specs":  [
+                      "Комплектація: дворядна наземна рама",
+                      "Комплектація: стійки, поперечини, діагональні розкоси",
+                      "Комплектація: рейки, прижими, болти та гайки",
+                      "Ряди: 2",
+                      "Застосування: приватні та комерційні СЕС",
+                      "Розрахунок: за розкладкою модулів"
+                  ],
+        "url":  "product-mounting-ground-two-row.html"
+    },
+    {
+        "id":  "mounting-ground-three-row",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Наземні конструкції",
+        "name":  "Наземна конструкція трирядна",
+        "producer":  "METON",
+        "price":  "1700-2600 грн",
+        "old":  "",
+        "image":  "assets/mounting-ground-three-row.png",
+        "badge":  "3 ряди",
+        "summary":  "Трирядна наземна конструкція для полів сонячних панелей із більшою потужністю.",
+        "specs":  [
+                      "Комплектація: трирядна наземна рама",
+                      "Комплектація: стійки, поперечини, діагональні розкоси",
+                      "Комплектація: рейки, прижими, болти та гайки",
+                      "Ряди: 3",
+                      "Застосування: більші приватні та бізнес-СЕС",
+                      "Підбір: за вітровим і сніговим навантаженням"
+                  ],
+        "url":  "product-mounting-ground-three-row.html"
+    },
+    {
+        "id":  "mounting-ground-four-row",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Наземні конструкції",
+        "name":  "Наземна конструкція чотирирядна",
+        "producer":  "METON",
+        "price":  "2200-2800+ грн",
+        "old":  "",
+        "image":  "assets/mounting-ground-four-row.png",
+        "badge":  "4 ряди",
+        "summary":  "Чотирирядна конструкція для наземних станцій, де потрібно розмістити багато модулів на одній секції.",
+        "specs":  [
+                      "Комплектація: чотирирядна наземна рама",
+                      "Комплектація: стійки, поперечини, діагональні розкоси",
+                      "Комплектація: рейки, прижими, болти та гайки",
+                      "Ряди: 4",
+                      "Застосування: наземні СЕС",
+                      "Розрахунок: індивідуально під проект"
+                  ],
+        "url":  "product-mounting-ground-four-row.html"
+    },
+    {
+        "id":  "mounting-stud-a2",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Комплектуючі кріплення",
+        "name":  "Шпилька A2 нержавіюча",
+        "producer":  "METON",
+        "price":  "від 52 грн",
+        "old":  "",
+        "image":  "assets/mounting-stud-a2.png",
+        "badge":  "A2",
+        "summary":  "Нержавіюча шпилька A2 для монтажних вузлів сонячних конструкцій. Доступні типорозміри уточнюються при замовленні.",
+        "specs":  [
+                      "Матеріал: нержавіюча сталь A2",
+                      "Розміри: 55 / 60 / 65 / 70 / 80 мм",
+                      "Ціна: від 52 / 65 грн залежно від розміру",
+                      "Застосування: кріплення рейок і вузлів",
+                      "Підбір: за конструкцією"
+                  ],
+        "url":  "product-mounting-stud-a2.html"
+    },
+    {
+        "id":  "mounting-stud-zinc",
+        "group":  "mounting",
+        "category":  "mounting-systems",
+        "categoryTitle":  "Комплектуючі кріплення",
+        "name":  "Шпилька цинк",
+        "producer":  "METON",
+        "price":  "від 30 грн",
+        "old":  "",
+        "image":  "assets/mounting-stud-zinc.png",
+        "badge":  "Цинк",
+        "summary":  "Оцинкована шпилька для стандартних монтажних вузлів сонячних панелей.",
+        "specs":  [
+                      "Матеріал: оцинкована сталь",
+                      "Розміри: 30 / 35 / 40 / 45 / 50 мм",
+                      "Ціна: від 30 / 32 / 35 грн залежно від розміру",
+                      "Застосування: дахові та наземні конструкції",
+                      "Підбір: за профілем"
+                  ],
+        "url":  "product-mounting-stud-zinc.html"
+    },
+    {
+        "id":  "battery-deye-rw-m6",
+        "group":  "batteries",
+        "category":  "batteries-lifepo4",
+        "categoryTitle":  "Низьковольтні акумулятори",
+        "name":  "Акумулятор Deye RW-M6.1 48В",
+        "producer":  "Deye",
+        "price":  "49 170 грн",
+        "old":  "",
+        "image":  "assets/battery-deye-wall-clean.png",
+        "badge":  "Хіт",
+        "summary":  "Настінний LiFePO4 акумулятор Deye для гібридних систем резервного живлення та сонячних станцій.",
+        "specs":  [
+                      "Тип: LiFePO4",
+                      "Напруга класу: 48 В",
+                      "Застосування: гібридні СЕС і резерв",
+                      "Категорія на METON: акумуляторні батареї LiFePO4",
+                      "BMS: вбудована система керування акумулятором",
+                      "Комунікація: CAN / RS485 залежно від моделі",
+                      "Циклічний ресурс: звіряється з datasheet виробника",
+                      "Монтаж: настінний, стійковий або підлоговий залежно від моделі",
+                      "Сумісність: підбирається під інвертор і потрібний резерв"
+                  ],
+        "url":  "product-battery-deye-rw-m6.html"
+    },
+    {
+        "id":  "battery-deye-se-g5",
+        "group":  "batteries",
+        "category":  "batteries-lifepo4",
+        "categoryTitle":  "Низьковольтні акумулятори",
+        "name":  "Акумуляторна батарея DEYE SE-G5.1 Pro-B LiFePO4 LV 51.2v 100AH 5.12kWh",
+        "producer":  "Deye",
+        "price":  "40 230 грн",
+        "old":  "41 571 грн",
+        "image":  "assets/battery-deye-wall-clean.png",
+        "badge":  "-3%",
+        "summary":  "Модульний акумулятор Deye 5.12 кВт·год для гібридних інверторів і резервного живлення будинку.",
+        "specs":  [
+                      "Тип: LiFePO4",
+                      "Енергія: 5.12 кВт·год",
+                      "Напруга: 51.2 В",
+                      "Ємність: 100 Ah",
+                      "Категорія на METON: акумуляторні батареї LiFePO4",
+                      "BMS: вбудована система керування акумулятором",
+                      "Комунікація: CAN / RS485 залежно від моделі",
+                      "Циклічний ресурс: звіряється з datasheet виробника",
+                      "Монтаж: настінний, стійковий або підлоговий залежно від моделі",
+                      "Сумісність: підбирається під інвертор і потрібний резерв"
+                  ],
+        "url":  "product-battery-deye-se-g5.html"
+    },
+    {
+        "id":  "battery-pylontech-us2000c",
+        "group":  "batteries",
+        "category":  "batteries-lifepo4",
+        "categoryTitle":  "Низьковольтні акумулятори",
+        "name":  "Акумуляторна батарея Pylontech US2000C 2.4 kW LifePO4",
+        "producer":  "Pylontech",
+        "price":  "37 700 грн",
+        "old":  "",
+        "image":  "assets/battery-pylontech-rack-clean.png",
+        "badge":  "2.4 кВт·год",
+        "summary":  "Стійковий LiFePO4 модуль Pylontech для резерву та масштабованих акумуляторних систем.",
+        "specs":  [
+                      "Тип: LiFePO4",
+                      "Енергія: 2.4 кВт·год",
+                      "Формат: стійковий модуль",
+                      "Категорія на METON: акумуляторні батареї LiFePO4",
+                      "BMS: вбудована система керування акумулятором",
+                      "Комунікація: CAN / RS485 залежно від моделі",
+                      "Циклічний ресурс: звіряється з datasheet виробника",
+                      "Монтаж: настінний, стійковий або підлоговий залежно від моделі",
+                      "Сумісність: підбирається під інвертор і потрібний резерв"
+                  ],
+        "url":  "product-battery-pylontech-us2000c.html"
+    },
+    {
+        "id":  "battery-pylontech-us5000",
+        "group":  "batteries",
+        "category":  "batteries-lifepo4",
+        "categoryTitle":  "Низьковольтні акумулятори",
+        "name":  "Акумуляторна батарея Pylontech US5000 5 kW LifePO4",
+        "producer":  "Pylontech",
+        "price":  "51 200 грн",
+        "old":  "",
+        "image":  "assets/battery-pylontech-rack-clean.png",
+        "badge":  "5 кВт·год",
+        "summary":  "Pylontech US5000 для систем, де потрібна більша ємність і можливість нарощування резерву.",
+        "specs":  [
+                      "Тип: LiFePO4",
+                      "Енергія: 5 кВт·год",
+                      "Формат: стійковий модуль",
+                      "Категорія на METON: акумуляторні батареї LiFePO4",
+                      "BMS: вбудована система керування акумулятором",
+                      "Комунікація: CAN / RS485 залежно від моделі",
+                      "Циклічний ресурс: звіряється з datasheet виробника",
+                      "Монтаж: настінний, стійковий або підлоговий залежно від моделі",
+                      "Сумісність: підбирається під інвертор і потрібний резерв"
+                  ],
+        "url":  "product-battery-pylontech-us5000.html"
+    },
+    {
+        "id":  "battery-litime-12v-100ah",
+        "group":  "batteries",
+        "category":  "batteries-lifepo4",
+        "categoryTitle":  "Низьковольтні акумулятори",
+        "name":  "Акумулятор 12V 100Ah LiFePO4",
+        "producer":  "LiTime",
+        "price":  "13 000 грн",
+        "old":  "14 200 грн",
+        "image":  "assets/battery-lifepo4-compact-clean.png",
+        "badge":  "-8%",
+        "summary":  "Компактний LiFePO4 акумулятор 12V 100Ah для малих резервних систем та автономних рішень.",
+        "specs":  [
+                      "Тип: LiFePO4",
+                      "Напруга: 12 В",
+                      "Ємність: 100 Ah",
+                      "Категорія на METON: акумуляторні батареї LiFePO4",
+                      "BMS: вбудована система керування акумулятором",
+                      "Комунікація: CAN / RS485 залежно від моделі",
+                      "Циклічний ресурс: звіряється з datasheet виробника",
+                      "Монтаж: настінний, стійковий або підлоговий залежно від моделі",
+                      "Сумісність: підбирається під інвертор і потрібний резерв"
+                  ],
+        "url":  "product-battery-litime-12v-100ah.html"
+    },
+    {
+        "id":  "battery-deye-se-f16",
+        "group":  "batteries",
+        "category":  "batteries-lifepo4",
+        "categoryTitle":  "Низьковольтні акумулятори",
+        "name":  "Акумуляторна батарея SE-F16-С Deye (LiFePO4 51,2V 314Ah 16.0 kWh)",
+        "producer":  "Deye",
+        "price":  "91 635 грн",
+        "old":  "961 050 грн",
+        "image":  "assets/battery.png",
+        "badge":  "-90%",
+        "summary":  "Великий LiFePO4 акумулятор Deye 16 кВт·год для тривалого резерву та потужних гібридних систем.",
+        "specs":  [
+                      "Тип: LiFePO4",
+                      "Енергія: 16.0 кВт·год",
+                      "Напруга: 51.2 В",
+                      "Ємність: 314 Ah",
+                      "Категорія на METON: акумуляторні батареї LiFePO4",
+                      "BMS: вбудована система керування акумулятором",
+                      "Комунікація: CAN / RS485 залежно від моделі",
+                      "Циклічний ресурс: звіряється з datasheet виробника",
+                      "Монтаж: настінний, стійковий або підлоговий залежно від моделі",
+                      "Сумісність: підбирається під інвертор і потрібний резерв"
+                  ],
+        "url":  "product-battery-deye-se-f16.html"
+    },
+    {
+        "id":  "battery-lp-24v-100ah",
+        "group":  "batteries",
+        "category":  "batteries-lifepo4",
+        "categoryTitle":  "Низьковольтні акумулятори",
+        "name":  "Акумулятор LP LiFePO4 для ДБЖ 24V (25,6V) - 100 Ah (2560Wh) (Smart BMS 100А) с BT пластик",
+        "producer":  "LogicPower",
+        "price":  "39 990 грн",
+        "old":  "",
+        "image":  "assets/battery-lifepo4-compact-clean.png",
+        "badge":  "24V",
+        "summary":  "LiFePO4 акумулятор LogicPower 24V 100Ah зі Smart BMS для резервних систем і ДБЖ.",
+        "specs":  [
+                      "Тип: LiFePO4",
+                      "Напруга: 25.6 В",
+                      "Ємність: 100 Ah",
+                      "Енергія: 2560 Wh",
+                      "Категорія на METON: акумуляторні батареї LiFePO4",
+                      "BMS: вбудована система керування акумулятором",
+                      "Комунікація: CAN / RS485 залежно від моделі",
+                      "Циклічний ресурс: звіряється з datasheet виробника",
+                      "Монтаж: настінний, стійковий або підлоговий залежно від моделі",
+                      "Сумісність: підбирається під інвертор і потрібний резерв"
+                  ],
+        "url":  "product-battery-lp-24v-100ah.html"
+    },
+    {
+        "id":  "battery-lp-24v-200ah",
+        "group":  "batteries",
+        "category":  "batteries-lifepo4",
+        "categoryTitle":  "Низьковольтні акумулятори",
+        "name":  "Акумулятор LP LiFePO4 для ДБЖ 24V (25,6V) - 200 Ah (5120Wh) (Smart BMS 100А) с BT пластик",
+        "producer":  "LogicPower",
+        "price":  "57 600 грн",
+        "old":  "",
+        "image":  "assets/battery-lifepo4-compact-clean.png",
+        "badge":  "5.12 кВт·год",
+        "summary":  "LiFePO4 акумулятор LogicPower 24V 200Ah для більшого запасу енергії в резервній системі.",
+        "specs":  [
+                      "Тип: LiFePO4",
+                      "Напруга: 25.6 В",
+                      "Ємність: 200 Ah",
+                      "Енергія: 5120 Wh",
+                      "Категорія на METON: акумуляторні батареї LiFePO4",
+                      "BMS: вбудована система керування акумулятором",
+                      "Комунікація: CAN / RS485 залежно від моделі",
+                      "Циклічний ресурс: звіряється з datasheet виробника",
+                      "Монтаж: настінний, стійковий або підлоговий залежно від моделі",
+                      "Сумісність: підбирається під інвертор і потрібний резерв"
+                  ],
+        "url":  "product-battery-lp-24v-200ah.html"
+    },
+    {
+        "id":  "battery-pylontech-us3000c",
+        "group":  "batteries",
+        "category":  "batteries-lifepo4",
+        "categoryTitle":  "Низьковольтні акумулятори",
+        "name":  "Акумуляторна батарея Pylontech US3000C 3 kW LifePO4",
+        "producer":  "Pylontech",
+        "price":  "50 200 грн",
+        "old":  "62 000 грн",
+        "image":  "assets/battery-pylontech-rack-clean.png",
+        "badge":  "-19%",
+        "summary":  "Стійковий LiFePO4 модуль Pylontech US3000C для резервних систем із можливістю масштабування.",
+        "specs":  [
+                      "Тип: LiFePO4",
+                      "Енергія: 3 кВт·год",
+                      "Формат: стійковий модуль",
+                      "Категорія на METON: акумуляторні батареї LiFePO4",
+                      "BMS: вбудована система керування акумулятором",
+                      "Комунікація: CAN / RS485 залежно від моделі",
+                      "Циклічний ресурс: звіряється з datasheet виробника",
+                      "Монтаж: настінний, стійковий або підлоговий залежно від моделі",
+                      "Сумісність: підбирається під інвертор і потрібний резерв"
+                  ],
+        "url":  "product-battery-pylontech-us3000c.html"
+    }
+];
+const hints = {
+  panels: 'Для панелей дивіться не лише ціну: важливі потужність, тип модуля, виробник, розміри й сумісність із кріпленням. Якщо площа даху обмежена, частіше виграє панель з більшою потужністю на модуль.',
+  inverters: 'Для інверторів ключові параметри: фаза, потужність, гібридний чи мережевий тип, робота з акумуляторами та запас по навантаженню. Не беріть модель тільки за ціною, якщо потрібен резерв під час відключень.',
+  batteries: 'Для акумуляторів порівнюйте тип LiFePO4, ємність, напругу, сумісність з інвертором і можливість нарощування. Для резерву важлива не тільки кВт·год, а й які прилади потрібно живити.',
+  stations: 'Для станцій порівнюйте потужність, тип рішення, наявність акумуляторів і мету: зелений тариф, власне споживання або резерв. Остаточний вибір залежить від об’єкта й графіка споживання.',
+  mounting: 'Для кріплення важливі тип даху, профіль, товщина панелі, вітрове навантаження й чи потрібна баластна або наземна система.'
+};
+const params = new URLSearchParams(location.search);
+const groupSelect = document.getElementById('compareGroup');
+const listEl = document.getElementById('compareList');
+const resultEl = document.getElementById('compareResult');
+const hintEl = document.getElementById('compareHint');
+let selected = [];
+
+function productGroup(id) {
+  const p = products.find(item => item.id === id);
+  return p ? p.group : null;
+}
+function specMap(product) {
+  const map = {};
+  product.specs.forEach(row => {
+    const parts = row.split(':');
+    if (parts.length > 1) {
+      const key = parts.shift().trim();
+      map[key] = parts.join(':').trim();
+    } else {
+      map[row] = '';
+    }
+  });
+  return map;
+}
+function setInitialState() {
+  const add = params.get('add');
+  const ids = params.get('ids');
+  const group = params.get('group');
+  if (add && productGroup(add)) {
+    groupSelect.value = productGroup(add);
+    selected = [add];
+  } else if (ids) {
+    selected = ids.split(',').filter(Boolean).slice(0, 4);
+    const firstGroup = productGroup(selected[0]);
+    if (firstGroup) groupSelect.value = firstGroup;
+    selected = selected.filter(id => productGroup(id) === groupSelect.value);
+  } else if (group && ['panels','inverters','batteries','stations','mounting'].includes(group)) {
+    groupSelect.value = group;
+  }
+}
+function renderList() {
+  const group = groupSelect.value;
+  hintEl.textContent = hints[group];
+  const items = products.filter(p => p.group === group);
+  listEl.innerHTML = items.map(p => {
+    const checked = selected.includes(p.id) ? 'checked' : '';
+    return `<label class="compare-option"><input type="checkbox" value="${p.id}" ${checked}><img src="${p.image}" alt=""><span><strong>${p.name}</strong><small>${p.price}</small></span></label>`;
+  }).join('');
+  listEl.querySelectorAll('input').forEach(input => {
+    input.addEventListener('change', () => {
+      if (input.checked) {
+        if (selected.length >= 4) {
+          input.checked = false;
+          alert('Для зручного порівняння оберіть до 4 товарів.');
+          return;
+        }
+        selected.push(input.value);
+      } else {
+        selected = selected.filter(id => id !== input.value);
+      }
+      renderResult();
+    });
+  });
+}
+function renderResult() {
+  const chosen = selected.map(id => products.find(p => p.id === id)).filter(Boolean);
+  const url = chosen.length ? `compare.html?ids=${chosen.map(p => p.id).join(',')}` : `compare.html?group=${groupSelect.value}`;
+  history.replaceState(null, '', url);
+  if (chosen.length < 2) {
+    resultEl.innerHTML = '<div class="compare-empty"><h3>Оберіть щонайменше два товари</h3><p>Можна почати з одного товару з каталогу, а тут додати ще моделі для порівняння.</p></div>';
+    return;
+  }
+  const maps = chosen.map(specMap);
+  const keys = Array.from(new Set(chosen.flatMap((p, index) => Object.keys(maps[index]))));
+  const rows = [
+    ['Ціна', ...chosen.map(p => p.price)],
+    ['Виробник', ...chosen.map(p => p.producer)],
+    ['Категорія', ...chosen.map(p => p.categoryTitle)],
+    ['Коротко', ...chosen.map(p => p.summary)]
+  ].concat(keys.map(key => [key, ...maps.map(map => map[key] || '—')]));
+  resultEl.innerHTML = `<div class="compare-table-wrap"><table class="compare-table"><thead><tr><th>Параметр</th>${chosen.map(p => `<th class="compare-product"><img src="${p.image}" alt=""><a href="${p.url}">${p.name}</a><br><span class="badge">${p.badge}</span></th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr><th>${row[0]}</th>${row.slice(1).map(value => `<td>${value}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+groupSelect.addEventListener('change', () => {
+  selected = [];
+  renderList();
+  renderResult();
+});
+document.getElementById('clearCompare').addEventListener('click', () => {
+  selected = [];
+  renderList();
+  renderResult();
+});
+setInitialState();
+renderList();
+renderResult();
+</script><footer class="footer">
+  <div><strong>METON</strong><p>Сонячні електростанції, панелі, інвертори та акумулятори для дому й бізнесу.</p></div>
+  <div class="footer-links"><h4>Клієнту</h4><a href="cart.html">Кошик</a><a href="account.html">Вхід і реєстрація</a><a href="compare.html">Порівняння</a><a href="blog.html">Блог</a></div>
+  <div class="footer-links"><h4>Контакти</h4><a href="contacts.html">Контактна інформація</a><a href="tel:+380960735059">+38 096 073 50 59</a><a href="tel:+380931562257">+38 093 156 22 57</a><a href="mailto:meton.com.ua@mail.com">meton.com.ua@mail.com</a></div>
+</footer>
+<script>
+(function(){
+  function getCart(){ try { return JSON.parse(localStorage.getItem('metonCart') || '[]'); } catch(e) { return []; } }
+  function getUser(){ try { return JSON.parse(localStorage.getItem('metonUser') || 'null'); } catch(e) { return null; } }
+  var count = getCart().reduce(function(sum, item){ return sum + (item.qty || 1); }, 0);
+  document.querySelectorAll('[data-cart-count]').forEach(function(el){ el.textContent = count; });
+  var user = getUser();
+  var accountName = user ? (user.name || 'Unnamed user') : 'Unnamed user';
+  document.querySelectorAll('[data-account-link]').forEach(function(el){ el.textContent = accountName; });
+  document.querySelectorAll('[data-account-avatar]').forEach(function(el){
+    var seed = user ? (user.name || user.email || 'U') : 'U';
+    el.textContent = String(seed).trim().charAt(0).toUpperCase() || 'U';
+  });
+  var ratings = {};
+  try { ratings = JSON.parse(localStorage.getItem('metonRatings') || '{}'); } catch(e) {}
+  document.querySelectorAll('[data-card-rating]').forEach(function(box){
+    var id = box.getAttribute('data-card-rating');
+    var value = ratings[id] || 0;
+    var status = box.querySelector('[data-card-rating-status]');
+    var visual = box.querySelector('[data-card-rating-visual]');
+    function starsText(nextValue){
+      var full = Number(nextValue || 0);
+      var text = '';
+      for (var i = 1; i <= 5; i++) text += i <= full ? '★' : '☆';
+      return text;
+    }
+    if (!user) {
+      if (visual) visual.textContent = starsText(value || 0);
+      if (status) status.innerHTML = value ? (value + '.0 · ваша оцінка') : 'Оцінка після <a href="account.html">входу</a>';
+      return;
+    }
+    if (visual) visual.textContent = starsText(value || 0);
+    if (status) status.textContent = value ? (value + '.0 · ваша оцінка') : 'Ще немає вашої оцінки';
+  });
+})();
+</script>
+<script src="catalog-details.js" defer></script>
+<script src="ai-consultant.js" defer></script>
+</body>
+</html>
