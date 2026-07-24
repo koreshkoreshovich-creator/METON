@@ -125,17 +125,17 @@
   var brand=document.getElementById('brandFilter');
   if(brand&&!brand.querySelector('option[value="solax"]'))brand.insertAdjacentHTML('beforeend','<option value="solax">SolaX</option>');
   var products=[
-    ['X1-BOOST-6K-G4','6 кВт','1','780','https://www.solaxpower.com/uploadfile/1/202506/9216268c62.png','2 MPPT','https://www.solaxpower.com/our-products/x1-boost-g4.html'],
-    ['X3-PRO 10K-G2','10 кВт','3','963','https://www.solaxpower.com/uploadfile/1/202505/461e9932e1.png','3-фазний','https://uk.solaxpower.com/uploads/file/solax-x3-pro-g2-datasheet-en.pdf'],
-    ['X3-PRO 15K-G2','15 кВт','3','1083','https://www.solaxpower.com/uploadfile/1/202505/512466cd74.png','3-фазний','https://uk.solaxpower.com/uploads/file/solax-x3-pro-g2-datasheet-en.pdf'],
-    ['X3-PRO 20K-G2','20 кВт','3','1204','https://www.solaxpower.com/uploadfile/1/202505/8648d1427b.png','3-фазний','https://uk.solaxpower.com/uploads/file/solax-x3-pro-g2-datasheet-en.pdf'],
-    ['X3-PRO 30K-G2','30 кВт','3','1500','https://www.solaxpower.com/uploadfile/1/202505/2f0f4ca539.png','3-фазний','https://uk.solaxpower.com/uploads/file/solax-x3-pro-g2-datasheet-en.pdf'],
-    ['X3-MGA-50K-G2','50 кВт','3','2048','solax-x3-mega-g2.png','комерційний','https://www.solaxpower.com/uploads/file/solax-x3-mega-g2-datasheet-en.pdf'],
-    ['X3-FTH-100K','100 кВт','3','3374','solax-x3-forth.png','комерційний','https://ua.solaxpower.com/uploads/file/solax-x3-forth-datasheet-for-au-en-cec.pdf'],
-    ['X3-FTH-110K','110 кВт','3','3613','solax-x3-forth.png','комерційний','https://ua.solaxpower.com/uploads/file/solax-x3-forth-datasheet-for-au-en-cec.pdf'],
-    ['X3-FTH-125K','125 кВт','3','3856','solax-x3-forth.png','комерційний','https://ua.solaxpower.com/uploads/file/solax-x3-forth-datasheet-for-au-en-cec.pdf'],
-    ['X3-FTH-150K-P','150 кВт','3','4458','solax-x3-forth.png','комерційний','https://ua.solaxpower.com/uploads/file/solax-x3-forth-datasheet-for-au-en-cec.pdf'],
-    ['X3-GRD-350K-HV','350 кВт','3','','solax-x3-grand-hv.png','під замовлення','https://www.solaxpower.com/downloads.html']
+    ['X1-BOOST-6K-G4','6 кВт','1','780','solax-x1-boost-g4-hq.png','2 MPPT','https://www.solaxpower.com/our-products/x1-boost-g4.html'],
+    ['X3-PRO 10K-G2','10 кВт','3','963','solax-x3-pro-g2-hq.png','3-фазний','https://uk.solaxpower.com/uploads/file/solax-x3-pro-g2-datasheet-en.pdf'],
+    ['X3-PRO 15K-G2','15 кВт','3','1083','solax-x3-pro-g2-hq.png','3-фазний','https://uk.solaxpower.com/uploads/file/solax-x3-pro-g2-datasheet-en.pdf'],
+    ['X3-PRO 20K-G2','20 кВт','3','1204','solax-x3-pro-g2-hq.png','3-фазний','https://uk.solaxpower.com/uploads/file/solax-x3-pro-g2-datasheet-en.pdf'],
+    ['X3-PRO 30K-G2','30 кВт','3','1500','solax-x3-pro-g2-hq.png','3-фазний','https://uk.solaxpower.com/uploads/file/solax-x3-pro-g2-datasheet-en.pdf'],
+    ['X3-MGA-50K-G2','50 кВт','3','2048','solax-x3-mega-g2-hq.png','комерційний','https://www.solaxpower.com/uploads/file/solax-x3-mega-g2-datasheet-en.pdf'],
+    ['X3-FTH-100K','100 кВт','3','3374','solax-x3-forth-hq.png','комерційний','https://ua.solaxpower.com/uploads/file/solax-x3-forth-datasheet-for-au-en-cec.pdf'],
+    ['X3-FTH-110K','110 кВт','3','3613','solax-x3-forth-hq.png','комерційний','https://ua.solaxpower.com/uploads/file/solax-x3-forth-datasheet-for-au-en-cec.pdf'],
+    ['X3-FTH-125K','125 кВт','3','3856','solax-x3-forth-hq.png','комерційний','https://ua.solaxpower.com/uploads/file/solax-x3-forth-datasheet-for-au-en-cec.pdf'],
+    ['X3-FTH-150K-P','150 кВт','3','4458','solax-x3-forth-hq.png','комерційний','https://ua.solaxpower.com/uploads/file/solax-x3-forth-datasheet-for-au-en-cec.pdf'],
+    ['X3-GRD-350K-HV','350 кВт','3','','solax-x3-grand-hv-hq.png','під замовлення','https://www.solaxpower.com/downloads.html']
   ],grid=document.getElementById('filterableGrid');
   if(!grid)return;
   products.forEach(function(p){

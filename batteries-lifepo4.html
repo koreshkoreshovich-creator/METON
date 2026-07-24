@@ -189,7 +189,7 @@
 (function(){
   var grid=document.querySelector('.product-grid');
   if(!grid)return;
-  var p=['T-BAT-LV D53','5,3 кВт·год','964','battery-solax-t-bat-lv-d53.png','https://www.solaxpower.com/uploads/file/solax-t-bat-sys-lv-d53-datasheet-en.pdf'];
+  var p=['T-BAT-LV D53','5,3 кВт·год','964','battery-solax-t-bat-lv-d53-hq.png','https://www.solaxpower.com/uploads/file/solax-t-bat-sys-lv-d53-datasheet-en.pdf'];
   var c=document.createElement('article'); c.className='product-card'; c.dataset.productCard=''; c.dataset.brand='solax';
   c.innerHTML='<div class="product-media"><img src="assets/'+p[3]+'" alt="Акумулятор SolaX '+p[0]+'" loading="lazy"></div><div class="product-body"><span class="badge">SolaX · LV · '+p[1]+'</span><h3>Акумулятор SolaX '+p[0]+'</h3><p>Низьковольтний LiFePO4 модуль із захистом IP65 та можливістю паралельного масштабування.</p><div class="price-row"><strong>'+p[2]+' $</strong><span>роздріб</span></div><div class="actions"><a class="btn primary" href="consultation.html">Замовити</a><a class="btn ghost" href="'+p[4]+'" target="_blank" rel="noopener">Datasheet</a></div></div>';
   grid.appendChild(c);

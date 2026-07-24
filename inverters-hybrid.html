@@ -241,20 +241,20 @@
   var brand=document.getElementById('brandFilter');
   if(brand&&!brand.querySelector('option[value="solax"]'))brand.insertAdjacentHTML('beforeend','<option value="solax">SolaX</option>');
   var products=[
-    ['X1-HYB-6.0-LV','6 кВт','1','936','https://www.solaxpower.com/uploadfile/1/202505/e1978f6700.png','низьковольтний','https://www.solaxpower.com/uploads/file/solax-x1-hybrid-lv-datasheet-en.pdf'],
-    ['X1-Lite-8.0-LV','8 кВт','1','1325','https://www.solaxpower.com/uploadfile/1/202505/44ff1369f2.png','низьковольтний','https://www.solaxpower.com/uploads/file/x1-lite-lv-ficha-de-dados-ptbr.pdf'],
-    ['X1-Lite-10.0-LV','10 кВт','1','1687','https://www.solaxpower.com/uploadfile/1/202505/2656fff320.png','низьковольтний','https://www.solaxpower.com/uploads/file/x1-lite-lv-ficha-de-dados-ptbr.pdf'],
-    ['X1-Lite-12.0-LV','12 кВт','1','1806','https://www.solaxpower.com/uploadfile/1/202505/e3a1b8240e.png','низьковольтний','https://www.solaxpower.com/uploads/file/x1-lite-lv-ficha-de-dados-ptbr.pdf'],
-    ['X3-NEO-12K-LV','12 кВт','3','2048','https://www.solaxpower.com/uploadfile/1/202505/6d4741df1c.png','низьковольтний','https://support.solaxpower.com/uploads/file/20240805/solax-x3-neo-lv-datasheet-en-v1.0-20240719_20240805.pdf'],
-    ['X3-NEO-15K-LV','15 кВт','3','2530','https://www.solaxpower.com/uploadfile/1/202505/efebec5638.png','низьковольтний','https://support.solaxpower.com/uploads/file/20240805/solax-x3-neo-lv-datasheet-en-v1.0-20240719_20240805.pdf'],
-    ['X3-NEO-20K-LV','20 кВт','3','2940','https://www.solaxpower.com/uploadfile/1/202505/3c2bb31119.png','низьковольтний','https://www.solaxpower.com/our-products/x3-neo-lv.html'],
-    ['X1-HYBRID 6.0M / 6.0D','6 кВт','1','1084','https://www.solaxpower.com/uploadfile/1/202505/f9ee6a1427.png','високовольтний','https://es.solaxpower.com/uploads/file/x1-hybrid-g4-datasheet-en.pdf'],
-    ['X1-HYBRID 7.5M / 7.5D','7,5 кВт','1','1205','https://www.solaxpower.com/uploadfile/1/202506/504ff2daf1.png','високовольтний','https://es.solaxpower.com/uploads/file/x1-hybrid-g4-datasheet-en.pdf'],
-    ['X3-HYBRID 15.0M / 15.0D','15 кВт','3','1807','solax-x3-hybrid-g4.png','високовольтний','https://uk.solaxpower.com/uploads/file/solax-x3-hybrid-g4-datasheet-en.pdf'],
-    ['X3-HYBRID-15K G4 PRO','15 кВт','3','2169','solax-x3-hybrid-g4.png','G4 PRO','https://www.solaxpower.com/downloads.html'],
-    ['X3-ULT-30K','30 кВт','3','3856','https://www.solaxpower.com/uploadfile/1/202505/4e158a9d1e.png','високовольтний','https://www.solaxpower.com/uploads/file/solax-x3-ultra-datasheet-en.pdf'],
-    ['X3-AELIO-50K','50 кВт','3','4483','https://www.solaxpower.com/uploadfile/1/202505/5e14b1bce8.png','промисловий','https://www.solaxpower.com/products/x3-aelio-hybrid-inverter.html'],
-    ['X3-AELIO-60K','60 кВт','3','4713','https://www.solaxpower.com/uploadfile/1/202505/0f6fbcbaff.png','промисловий','https://www.solaxpower.com/products/x3-aelio-hybrid-inverter.html']
+    ['X1-HYB-6.0-LV','6 кВт','1','936','solax-x1-hyb-lv-hq.png','низьковольтний','https://www.solaxpower.com/uploads/file/solax-x1-hybrid-lv-datasheet-en.pdf'],
+    ['X1-Lite-8.0-LV','8 кВт','1','1325','solax-x1-lite-lv-hq.png','низьковольтний','https://www.solaxpower.com/uploads/file/x1-lite-lv-ficha-de-dados-ptbr.pdf'],
+    ['X1-Lite-10.0-LV','10 кВт','1','1687','solax-x1-lite-lv-hq.png','низьковольтний','https://www.solaxpower.com/uploads/file/x1-lite-lv-ficha-de-dados-ptbr.pdf'],
+    ['X1-Lite-12.0-LV','12 кВт','1','1806','solax-x1-lite-lv-hq.png','низьковольтний','https://www.solaxpower.com/uploads/file/x1-lite-lv-ficha-de-dados-ptbr.pdf'],
+    ['X3-NEO-12K-LV','12 кВт','3','2048','solax-x3-neo-lv-hq.png','низьковольтний','https://support.solaxpower.com/uploads/file/20240805/solax-x3-neo-lv-datasheet-en-v1.0-20240719_20240805.pdf'],
+    ['X3-NEO-15K-LV','15 кВт','3','2530','solax-x3-neo-lv-hq.png','низьковольтний','https://support.solaxpower.com/uploads/file/20240805/solax-x3-neo-lv-datasheet-en-v1.0-20240719_20240805.pdf'],
+    ['X3-NEO-20K-LV','20 кВт','3','2940','solax-x3-neo-lv-hq.png','низьковольтний','https://www.solaxpower.com/our-products/x3-neo-lv.html'],
+    ['X1-HYBRID 6.0M / 6.0D','6 кВт','1','1084','solax-x1-hybrid-g4-hq.png','високовольтний','https://es.solaxpower.com/uploads/file/x1-hybrid-g4-datasheet-en.pdf'],
+    ['X1-HYBRID 7.5M / 7.5D','7,5 кВт','1','1205','solax-x1-hybrid-g4-hq.png','високовольтний','https://es.solaxpower.com/uploads/file/x1-hybrid-g4-datasheet-en.pdf'],
+    ['X3-HYBRID 15.0M / 15.0D','15 кВт','3','1807','solax-x3-hybrid-g4-hq.png','високовольтний','https://uk.solaxpower.com/uploads/file/solax-x3-hybrid-g4-datasheet-en.pdf'],
+    ['X3-HYBRID-15K G4 PRO','15 кВт','3','2169','solax-x3-hybrid-g4-hq.png','G4 PRO','https://www.solaxpower.com/downloads.html'],
+    ['X3-ULT-30K','30 кВт','3','3856','solax-x3-ultra-hq.png','високовольтний','https://www.solaxpower.com/uploads/file/solax-x3-ultra-datasheet-en.pdf'],
+    ['X3-AELIO-50K','50 кВт','3','4483','solax-x3-aelio-hq.png','промисловий','https://www.solaxpower.com/products/x3-aelio-hybrid-inverter.html'],
+    ['X3-AELIO-60K','60 кВт','3','4713','solax-x3-aelio-hq.png','промисловий','https://www.solaxpower.com/products/x3-aelio-hybrid-inverter.html']
   ],grid=document.getElementById('filterableGrid');
   if(!grid)return;
   products.forEach(function(p){
