@@ -67,6 +67,24 @@
       </div>
     </div>
   </section>
+  <section class="section" id="order-status">
+    <div class="section-head">
+      <div><span class="kicker">Мої звернення</span><h2>Перевірити статус замовлення</h2></div>
+      <p>Введіть номер, який отримали після оформлення, та телефон. Повна історія не відкривається без збігу обох даних.</p>
+    </div>
+    <form class="lead-form" id="statusForm">
+      <div class="form-grid">
+        <label>Номер замовлення або звернення<input name="orderId" required placeholder="METON-… або CFG-…" /></label>
+        <label>Телефон<input name="phone" type="tel" required placeholder="+380…" /></label>
+      </div>
+      <button class="btn primary" type="submit">Перевірити статус</button>
+      <div id="orderStatusResult" class="order-status-card" hidden></div>
+    </form>
+  </section>
+  <section class="section">
+    <div class="section-head"><div><span class="kicker">Останній підбір</span><h2>Збережена конфігурація</h2></div><a class="btn ghost" href="configurator.html">Новий розрахунок</a></div>
+    <div class="order-status-card" id="savedConfiguration"><p class="muted">Збереженої конфігурації ще немає.</p></div>
+  </section>
 </main>
 <script>
 const products = [
@@ -1833,6 +1851,25 @@ document.getElementById('loginForm').addEventListener('submit', function(e){
   setUser({name:'Клієнт METON', phone:'', email:email});
 });
 document.getElementById('logoutBtn').addEventListener('click', function(){ localStorage.removeItem('metonUser'); renderAccount(); });
+const APPS_SCRIPT_ENDPOINT='https://script.google.com/macros/s/AKfycbwS0-3y7yTZIiQIpn0jqJhrLiBZzVCaMMaM5rG4TeKWFcPbB-N3rCqgVSDShJdPO1TXHQ/exec';
+const statusSteps=['Нове','Зв’язалися','Очікує оплату','Оплачено','Виконано'];
+function escapeStatus(value){return String(value==null?'':value).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function renderSavedConfiguration(){
+  let c=null;try{c=JSON.parse(localStorage.getItem('metonLastConfiguration')||'null');}catch(e){}
+  if(!c)return;
+  document.getElementById('savedConfiguration').innerHTML='<h3>'+c.type+' '+c.systemKw+' кВт</h3><p>'+c.panels+' панелей · близько '+Number(c.annualGeneration).toLocaleString('uk-UA')+' кВт·год/рік · '+(c.batteryKwh?c.batteryKwh+' кВт·год АКБ':'без обов’язкового АКБ')+'</p>';
+}
+document.getElementById('statusForm').addEventListener('submit',function(e){
+  e.preventDefault();const d=new FormData(e.currentTarget),box=document.getElementById('orderStatusResult'),callback='__metonStatus'+Date.now(),script=document.createElement('script');
+  box.hidden=false;box.textContent='Перевіряємо…';
+  const timer=setTimeout(function(){cleanup();box.textContent='Не вдалося отримати статус. Спробуйте ще раз.';},10000);
+  function cleanup(){clearTimeout(timer);if(script.parentNode)script.parentNode.removeChild(script);try{delete window[callback];}catch(err){}}
+  window[callback]=function(result){cleanup();if(!result.ok){box.textContent=result.error||'Замовлення не знайдено.';return;}const current=statusSteps.indexOf(result.status);box.innerHTML='<span class="kicker">Замовлення '+escapeStatus(result.orderId)+'</span><h3>'+escapeStatus(result.status)+'</h3><p>'+escapeStatus(result.date)+'</p><div class="order-status-track">'+statusSteps.map(function(step,i){return '<span class="'+(i<=current?'active':'')+'">'+step+'</span>';}).join('')+'</div><p>'+escapeStatus(result.summary||'').replace(/\n/g,'<br>')+'</p>';};
+  script.onerror=function(){cleanup();box.textContent='Не вдалося отримати статус.';};
+  script.src=APPS_SCRIPT_ENDPOINT+'?action=status&callback='+encodeURIComponent(callback)+'&orderId='+encodeURIComponent(d.get('orderId'))+'&phone='+encodeURIComponent(d.get('phone'));
+  document.head.appendChild(script);
+});
+renderSavedConfiguration();
 renderAccount();
 </script><footer class="footer">
   <div><strong>METON</strong><p>Сонячні електростанції, панелі, інвертори та акумулятори для дому й бізнесу.</p></div>

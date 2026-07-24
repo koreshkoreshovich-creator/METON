@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Конфігуратор сонячної станції | METON</title>
+  <meta name="description" content="Попередній підбір потужності сонячної станції, панелей, акумулятора та прогноз генерації без прив’язки до мінливих цін." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="header">
+  <a class="brand" href="index.html"><span class="mark">M</span><span>METON</span></a>
+  <nav class="nav">
+    <div class="nav-item"><a href="stations-hybrid.html">Станції</a><div class="dropdown"><a href="stations-grid.html">Мережеві станції</a><a href="stations-hybrid.html">Гібридні станції</a></div></div>
+    <div class="nav-item"><a href="panels-one-sided.html">Панелі</a><div class="dropdown"><a href="panels-one-sided.html">Односторонні</a><a href="panels-bifacial.html">Двосторонні</a></div></div>
+    <div class="nav-item"><a href="inverters-hybrid.html">Інвертори</a><div class="dropdown"><a href="inverters-hybrid.html">Гібридні</a><a href="inverters-grid.html">Мережеві</a></div></div>
+    <div class="nav-item"><a href="batteries-lifepo4.html">Акумулятори</a><div class="dropdown"><a href="batteries-lifepo4.html">Низьковольтні</a><a href="batteries-high-voltage.html">Високовольтні</a></div></div>
+    <div class="nav-item"><a href="configurator.html">Конфігуратор</a></div>
+    <div class="nav-item"><a href="about.html">Компанія</a><div class="dropdown"><a href="about.html">Про нас</a><a href="contacts.html">Контакти</a><a href="blog.html">Блог</a></div></div>
+  </nav>
+  <a class="account-pill" href="account.html"><span class="account-avatar" data-account-avatar>U</span><span class="account-copy"><span>Кабінет</span><strong data-account-link>Клієнт</strong></span></a>
+</header>
+<a class="floating-cart" href="cart.html" aria-label="Кошик"><span class="cart-glyph"></span><span class="floating-cart-count" data-cart-count>0</span></a>
+<main>
+  <section class="page-hero configurator-hero">
+    <div>
+      <span class="kicker">Розумний підбір METON</span>
+      <h1>Яка сонячна станція потрібна саме вам</h1>
+      <p>Вкажіть споживання, сценарій роботи та параметри об’єкта. Конфігуратор оцінить потужність, кількість панелей, резерв і генерацію — без цін та без нав’язування конкретної партії обладнання.</p>
+    </div>
+    <div class="configurator-hero-card"><strong>Результат за 2–3 хвилини</strong><span>Попередній інженерний орієнтир</span><span>Без цін, які швидко змінюються</span><span>Фінальна перевірка спеціалістом</span></div>
+  </section>
+
+  <section class="section">
+    <form class="configurator-layout" id="configuratorForm">
+      <div class="configurator-steps">
+        <fieldset class="config-step">
+          <legend><span>1</span> Мета станції</legend>
+          <label><input type="radio" name="goal" value="economy" checked /> Зменшення споживання з мережі</label>
+          <label><input type="radio" name="goal" value="reserve" /> Резерв під час відключень</label>
+          <label><input type="radio" name="goal" value="both" /> Економія та резерв</label>
+        </fieldset>
+        <fieldset class="config-step">
+          <legend><span>2</span> Споживання й електромережа</legend>
+          <div class="form-grid">
+            <label>Споживання за місяць, кВт·год<input name="monthly" type="number" min="100" max="100000" step="10" value="1200" required /></label>
+            <label>Мережа<select name="phase"><option value="1">Однофазна</option><option value="3" selected>Трифазна</option><option value="unknown">Не знаю</option></select></label>
+            <label>Область<select name="region"><option value="north">Північ / Київ</option><option value="west">Захід</option><option value="center" selected>Центр</option><option value="east">Схід</option><option value="south">Південь</option></select></label>
+            <label>Бажане покриття споживання<select name="coverage"><option value="0.7">Близько 70%</option><option value="1" selected>Близько 100%</option><option value="1.2">Із запасом до 120%</option></select></label>
+          </div>
+        </fieldset>
+        <fieldset class="config-step">
+          <legend><span>3</span> Розміщення та резерв</legend>
+          <div class="form-grid">
+            <label>Місце монтажу<select name="mount"><option value="roof">Дах</option><option value="ground">Наземна конструкція</option><option value="flat">Плоский дах / баласт</option><option value="unknown">Ще не визначено</option></select></label>
+            <label>Доступна площа, м²<input name="area" type="number" min="0" max="10000" step="1" placeholder="Якщо відомо" /></label>
+            <label>Критичне навантаження, кВт<input name="criticalLoad" type="number" min="0" max="200" step="0.5" value="3" /></label>
+            <label>Бажаний час резерву, год<input name="reserveHours" type="number" min="1" max="48" step="1" value="4" /></label>
+          </div>
+        </fieldset>
+        <button class="btn primary config-submit" type="submit">Розрахувати систему</button>
+      </div>
+
+      <aside class="config-result" id="configResult" aria-live="polite">
+        <span class="kicker">Попередній результат</span>
+        <h2>Заповніть параметри</h2>
+        <p>Ми покажемо технічний орієнтир без вартості обладнання.</p>
+      </aside>
+    </form>
+  </section>
+
+  <section class="section calculator-section" id="calculator">
+    <div class="section-head"><div><span class="kicker">Генерація та окупність</span><h2>Перевірте економіку системи</h2></div><p>Генерація розраховується орієнтовно. Для окупності можна ввести суму вже отриманої комерційної пропозиції — сайт не підтягує мінливі ціни обладнання.</p></div>
+    <div class="calculator-grid">
+      <form class="lead-form" id="paybackForm">
+        <label>Потужність станції, кВт<input name="systemKw" type="number" min="1" max="1000" step="0.5" value="10" /></label>
+        <label>Область<select name="region"><option value="north">Північ / Київ</option><option value="west">Захід</option><option value="center" selected>Центр</option><option value="east">Схід</option><option value="south">Південь</option></select></label>
+        <label>Ваш тариф, грн/кВт·год<input name="tariff" type="number" min="0.01" max="100" step="0.01" value="4.32" /></label>
+        <label>Вартість пропозиції, грн <small>(необов’язково)</small><input name="investment" type="number" min="0" step="1000" placeholder="Вкажіть після отримання пропозиції" /></label>
+        <button class="btn primary" type="submit">Розрахувати генерацію</button>
+      </form>
+      <div class="calculator-result" id="paybackResult"></div>
+    </div>
+  </section>
+
+  <section class="section dark config-lead-section">
+    <div class="section-head"><div><span class="kicker">Перевірка інженером</span><h2>Передати результат менеджеру</h2></div><p>Менеджер отримає параметри об’єкта, але остаточну модель, сумісність і комплектацію підтвердить після уточнення.</p></div>
+    <form class="lead-form config-lead-form" id="configLeadForm">
+      <div class="form-grid">
+        <label>Ім’я<input name="name" required maxlength="80" /></label>
+        <label>Телефон<input name="phone" type="tel" required placeholder="+380…" pattern="^\+?[0-9\s()\-]{10,20}$" /></label>
+        <label class="full-span">Коментар<textarea name="comment" maxlength="1000" placeholder="Що ще важливо врахувати"></textarea></label>
+      </div>
+      <button class="btn primary" type="submit">Надіслати конфігурацію</button>
+      <p class="form-status" id="configLeadStatus" role="status"></p>
+    </form>
+  </section>
+</main>
+<footer class="footer"><div><strong>METON</strong><p>Сонячні рішення для дому й бізнесу.</p></div><div class="footer-links"><h4>Підбір</h4><a href="configurator.html">Конфігуратор</a><a href="#calculator">Калькулятор</a><a href="cart.html">Кошик</a></div><div class="footer-links"><h4>Контакти</h4><a href="tel:+380960735059">+38 096 073 50 59</a><a href="contacts.html">Контактна інформація</a></div></footer>
+<script src="configurator.js"></script>
+<script src="ai-consultant.js" defer></script>
+</body>
+</html>

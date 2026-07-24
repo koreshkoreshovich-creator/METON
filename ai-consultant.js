@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+  var APPS_SCRIPT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwS0-3y7yTZIiQIpn0jqJhrLiBZzVCaMMaM5rG4TeKWFcPbB-N3rCqgVSDShJdPO1TXHQ/exec';
 
   var state = {
     consumption: 0,
@@ -17,19 +18,18 @@
 
   var catalog = {
     inverter: {
-      6: { name: 'Deye SUN-6K-SG03LP1-EU', price: 750, voltage: 'LV', url: 'product-deye-6k-1p.html' },
-      8: { name: 'Deye SUN-8K-SG01LP1-EU', price: 1000, voltage: 'LV', url: 'product-deye-8k-1p.html' },
-      10: { name: 'Deye 10 кВт', price: 1510, voltage: 'LV', url: 'product-deye-10k-lp1.html' },
-      12: { name: 'Deye 12 кВт', price: 1550, voltage: 'LV', url: 'product-deye-12k-3p.html' },
-      15: { name: 'Deye 15 кВт', price: 1780, voltage: 'HV', url: 'product-deye-15k-3p.html' },
-      20: { name: 'Deye SUN-20K-SG01HP3-EU-AM2', price: 2350, voltage: 'HV', url: 'product-deye-20k-3p.html' },
-      30: { name: 'Deye 30 кВт', price: 2500, voltage: 'HV', url: 'product-deye-30k-3p.html' },
-      50: { name: 'Deye 50 кВт', price: 4050, voltage: 'HV', url: 'product-deye-50k-3p.html' }
+      6: { name: 'Deye SUN-6K-SG03LP1-EU', voltage: 'LV', url: 'product-deye-6k-1p.html' },
+      8: { name: 'Deye SUN-8K-SG01LP1-EU', voltage: 'LV', url: 'product-deye-8k-1p.html' },
+      10: { name: 'Deye 10 кВт', voltage: 'LV', url: 'product-deye-10k-lp1.html' },
+      12: { name: 'Deye 12 кВт', voltage: 'LV', url: 'product-deye-12k-3p.html' },
+      15: { name: 'Deye 15 кВт', voltage: 'HV', url: 'product-deye-15k-3p.html' },
+      20: { name: 'Deye SUN-20K-SG01HP3-EU-AM2', voltage: 'HV', url: 'product-deye-20k-3p.html' },
+      30: { name: 'Deye 30 кВт', voltage: 'HV', url: 'product-deye-30k-3p.html' },
+      50: { name: 'Deye 50 кВт', voltage: 'HV', url: 'product-deye-50k-3p.html' }
     },
     panel: {
       name: 'LONGi Solar LR7-72HTH-620M',
       watts: 620,
-      priceUah: 5006,
       url: 'product-panel-longi-620.html'
     },
     battery: {
@@ -337,11 +337,14 @@
       localStorage.setItem('metonAiLeads', JSON.stringify(leads.slice(-50)));
     } catch (error) {}
 
-    var endpoint = window.METON_LEAD_ENDPOINT || '';
+    lead.action = 'lead';
+    lead.leadId = 'AI-' + Date.now().toString(36).toUpperCase();
+    var endpoint = window.METON_LEAD_ENDPOINT || APPS_SCRIPT_ENDPOINT;
     if (endpoint) {
       fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(lead)
       }).catch(function () {});
     }
@@ -406,25 +409,25 @@
     input.value = '';
     setQuick([]);
 
-    var endpoint = window.METON_AI_ENDPOINT || '';
+    var endpoint = window.METON_AI_ENDPOINT || APPS_SCRIPT_ENDPOINT;
     if (!endpoint) {
       window.setTimeout(function () { localReply(text); }, 350);
       return;
     }
-    fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: text, state: state })
-    }).then(function (response) {
-      if (!response.ok) throw new Error('AI endpoint unavailable');
-      return response.json();
-    }).then(function (data) {
+    var callbackName = '__metonAi' + Date.now();
+    var script = document.createElement('script');
+    var timer = window.setTimeout(function(){ cleanup(); localReply(text); }, 12000);
+    function cleanup(){ window.clearTimeout(timer); if(script.parentNode) script.parentNode.removeChild(script); try{delete window[callbackName];}catch(e){window[callbackName]=undefined;} }
+    window[callbackName] = function (data) {
+      cleanup();
+      if (!data || !data.ok) { localReply(text); return; }
       if (data.state) state = data.state;
       message(data.answer || 'Уточніть, будь ласка, ваше місячне споживання.', 'bot', data.links || []);
       setQuick(data.quickReplies || []);
-    }).catch(function () {
-      localReply(text);
-    });
+    };
+    script.onerror = function(){ cleanup(); localReply(text); };
+    script.src = endpoint + '?action=ai&callback=' + encodeURIComponent(callbackName) + '&message=' + encodeURIComponent(text) + '&state=' + encodeURIComponent(JSON.stringify(state).slice(0,1800));
+    document.head.appendChild(script);
   }
 
   launch.addEventListener('click', function () { setOpen(!root.classList.contains('is-open')); });
