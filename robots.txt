@@ -1,5 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: https://koreshkoreshovich-creator.github.io/metontest/sitemap.xml
-
+Sitemap: https://koreshkoreshovich-creator.github.io/METON/sitemap.xml
