@@ -1,6 +1,16 @@
 (function () {
   'use strict';
 
+  document.querySelectorAll('[data-account-link]').forEach(function (element) {
+    if (element.textContent.trim() === 'Unnamed user') {
+      element.textContent = 'Увійти';
+    }
+  });
+})();
+
+(function () {
+  'use strict';
+
   if (!document.querySelector('link[href="social-video.css"]')) {
     var stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
