@@ -33,3 +33,12 @@
 
   brandColumn.appendChild(social);
 })();
+
+(function () {
+  if (document.querySelector('script[data-meton-catalog]')) return;
+  var script = document.createElement('script');
+  script.src = 'catalog-overlay.js';
+  script.defer = true;
+  script.setAttribute('data-meton-catalog', 'true');
+  document.head.appendChild(script);
+})();

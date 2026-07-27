@@ -1,0 +1,35 @@
+name: Оновлення каталогу з Google Sheets
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 5 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Завантажити сайт
+        uses: actions/checkout@v4
+
+      - name: Налаштувати Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Синхронізувати каталог
+        env:
+          CATALOG_SHEET_CSV_URL: ${{ vars.CATALOG_SHEET_CSV_URL }}
+        run: node tools/catalog/sync-from-sheet.mjs
+
+      - name: Зберегти зміни
+        run: |
+          git config user.name "METON Catalog Bot"
+          git config user.email "catalog-bot@users.noreply.github.com"
+          git add catalog-data.json sitemap.xml product-*.html
+          if [ -d assets/catalog ]; then git add assets/catalog; fi
+          git diff --cached --quiet || git commit -m "Автоматично оновити каталог"
+          git push

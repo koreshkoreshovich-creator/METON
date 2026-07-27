@@ -45,6 +45,43 @@
     }
   };
 
+  fetch('catalog-data.json', { cache: 'no-store' })
+    .then(function (response) { return response.ok ? response.json() : Promise.reject(); })
+    .then(function (data) {
+      var products = (data.products || []).filter(function (product) {
+        return product.active === 'Так' && product.publication !== 'Не публікувати';
+      });
+      Object.keys(catalog.inverter).forEach(function (power) {
+        var candidate = products.find(function (product) {
+          return product.type === 'inverter' &&
+            /deye/i.test(product.brand + ' ' + product.name) &&
+            new RegExp('(^|\\D)' + power + '\\s*кВт', 'i').test(product.power + ' ' + product.name);
+        });
+        if (candidate) {
+          catalog.inverter[power].name = candidate.name;
+          catalog.inverter[power].url = candidate.page;
+        }
+      });
+      var panel = products.find(function (product) {
+        return product.type === 'panel' && /longi/i.test(product.brand + ' ' + product.name) && /620\s*Вт/i.test(product.power + ' ' + product.name);
+      });
+      if (panel) {
+        catalog.panel.name = panel.name;
+        catalog.panel.url = panel.page;
+      }
+      var lowBattery = products.find(function (product) { return /pro-c/i.test(product.name); });
+      if (lowBattery) {
+        catalog.battery.name = lowBattery.name;
+        catalog.battery.url = lowBattery.page;
+      }
+      var highBattery = products.find(function (product) { return /bos-g/i.test(product.name); });
+      if (highBattery) {
+        catalog.highVoltageBattery.name = highBattery.name;
+        catalog.highVoltageBattery.url = highBattery.page;
+      }
+    })
+    .catch(function () {});
+
   var root = document.createElement('div');
   root.className = 'meton-ai';
   root.innerHTML =

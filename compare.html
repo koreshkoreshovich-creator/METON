@@ -1900,9 +1900,52 @@ document.getElementById('clearCompare').addEventListener('click', () => {
   renderList();
   renderResult();
 });
-setInitialState();
-renderList();
-renderResult();
+function compareGroup(product) {
+  if (product.type === 'panel') return 'panels';
+  if (product.type === 'inverter') return 'inverters';
+  if (product.type === 'battery') return 'batteries';
+  if (product.type === 'station') return 'stations';
+  if (product.type === 'mounting') return 'mounting';
+  return '';
+}
+function comparePrice(product) {
+  if (!Number(product.price)) return 'Ціну уточнюйте';
+  const value = Number(product.price).toLocaleString('uk-UA');
+  if (product.currency === 'USD') return value + ' $';
+  if (product.currency === 'EUR') return value + ' €';
+  return value + ' грн';
+}
+fetch('catalog-data.json', {cache:'no-store'})
+  .then(response => response.ok ? response.json() : Promise.reject())
+  .then(catalog => {
+    (catalog.products || []).forEach(product => {
+      if (product.active !== 'Так' || product.publication === 'Не публікувати') return;
+      const next = {
+        id: product.id,
+        group: compareGroup(product),
+        category: product.category,
+        categoryTitle: product.category,
+        name: product.name,
+        producer: product.brand || 'METON',
+        price: comparePrice(product),
+        old: '',
+        image: product.image,
+        badge: product.power || product.category,
+        summary: product.description || '',
+        specs: String(product.specs || '').split('|').map(item => item.trim()).filter(Boolean),
+        url: product.page
+      };
+      const index = products.findIndex(item => item.id === product.id);
+      if (index >= 0) products[index] = Object.assign({}, products[index], next);
+      else if (next.group) products.push(next);
+    });
+  })
+  .catch(() => {})
+  .finally(() => {
+    setInitialState();
+    renderList();
+    renderResult();
+  });
 </script><footer class="footer">
   <div><strong>METON</strong><p>Сонячні електростанції, панелі, інвертори та акумулятори для дому й бізнесу.</p></div>
   <div class="footer-links"><h4>Клієнту</h4><a href="cart.html">Кошик</a><a href="account.html">Вхід і реєстрація</a><a href="compare.html">Порівняння</a><a href="blog.html">Блог</a></div>

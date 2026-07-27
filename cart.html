@@ -1832,7 +1832,33 @@ const products = [
     }
 ];
 products.push(...(window.stockPanelProducts || []));
-const productMap = Object.fromEntries(products.map(function(p){ return [p.id, p]; }));
+let productMap = Object.fromEntries(products.map(function(p){ return [p.id, p]; }));
+function catalogPrice(product) {
+  if (!Number(product.price)) return 'Ціну уточнюйте';
+  const value = Number(product.price).toLocaleString('uk-UA');
+  if (product.currency === 'USD') return value + ' $';
+  if (product.currency === 'EUR') return value + ' €';
+  return value + ' грн';
+}
+function loadLiveCatalog(){
+  return fetch('catalog-data.json', {cache:'no-store'})
+    .then(function(response){ return response.ok ? response.json() : Promise.reject(); })
+    .then(function(catalog){
+      (catalog.products || []).forEach(function(product){
+        if (product.active !== 'Так' || product.publication === 'Не публікувати') return;
+        productMap[product.id] = {
+          id: product.id,
+          name: product.name,
+          producer: product.brand || 'METON',
+          price: catalogPrice(product),
+          image: product.image,
+          badge: product.power || product.category,
+          url: product.page
+        };
+      });
+    })
+    .catch(function(){});
+}
 function getCart(){ try { return JSON.parse(localStorage.getItem('metonCart') || '[]'); } catch(e) { return []; } }
 function saveCart(cart){ localStorage.setItem('metonCart', JSON.stringify(cart)); }
 function priceNumber(price){
@@ -1953,8 +1979,10 @@ checkoutForm.addEventListener('submit', async function(event){
     submitButton.disabled = false;
   }
 });
-addFromUrl();
-renderCart();
+loadLiveCatalog().finally(function(){
+  addFromUrl();
+  renderCart();
+});
 </script><footer class="footer">
   <div><strong>METON</strong><p>Сонячні електростанції, панелі, інвертори та акумулятори для дому й бізнесу.</p></div>
   <div class="footer-links"><h4>Клієнту</h4><a href="cart.html">Кошик</a><a href="account.html">Вхід і реєстрація</a><a href="compare.html">Порівняння</a><a href="blog.html">Блог</a></div>
