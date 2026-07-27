@@ -86,6 +86,7 @@
     <div class="order-status-card" id="savedConfiguration"><p class="muted">Збереженої конфігурації ще немає.</p></div>
   </section>
 </main>
+<script src="stock-panel-products.js"></script>
 <script>
 const products = [
     {
@@ -1824,6 +1825,7 @@ const products = [
         "url":  "product-battery-pylontech-us3000c.html"
     }
 ];
+products.push(...(window.stockPanelProducts || []));
 const productMap = Object.fromEntries(products.map(function(p){ return [p.id, p]; }));
 function getUser(){ try { return JSON.parse(localStorage.getItem('metonUser') || 'null'); } catch(e) { return null; } }
 function setUser(user){ localStorage.setItem('metonUser', JSON.stringify(user)); renderAccount(); }

@@ -91,6 +91,7 @@
     </div>
   </section>
 </main>
+<script src="stock-panel-products.js"></script>
 <script>
 const products = [
     {
@@ -1829,6 +1830,7 @@ const products = [
         "url":  "product-battery-pylontech-us3000c.html"
     }
 ];
+products.push(...(window.stockPanelProducts || []));
 const productMap = Object.fromEntries(products.map(function(p){ return [p.id, p]; }));
 function getCart(){ try { return JSON.parse(localStorage.getItem('metonCart') || '[]'); } catch(e) { return []; } }
 function saveCart(cart){ localStorage.setItem('metonCart', JSON.stringify(cart)); }
