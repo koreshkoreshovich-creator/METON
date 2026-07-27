@@ -13,51 +13,59 @@
 
   var header = document.querySelector('.header');
   var desktopNav = header && header.querySelector('.nav');
-  if (!header || !desktopNav || header.querySelector('.mobile-catalog-nav')) return;
+  if (!header || !desktopNav || header.querySelector('.mobile-subcategory-panel')) return;
 
-  var wrapper = document.createElement('div');
-  wrapper.className = 'mobile-catalog-nav';
+  var panel = document.createElement('div');
+  panel.className = 'mobile-subcategory-panel';
+  panel.hidden = true;
+  desktopNav.insertAdjacentElement('afterend', panel);
 
-  var label = document.createElement('label');
-  label.setAttribute('for', 'mobileCatalogSelect');
-  label.textContent = 'Каталог';
+  function isMobileNavigation() {
+    return window.matchMedia('(max-width: 1120px)').matches;
+  }
 
-  var select = document.createElement('select');
-  select.id = 'mobileCatalogSelect';
-  select.setAttribute('aria-label', 'Вибрати категорію обладнання');
+  function closeMobileSubmenu() {
+    panel.hidden = true;
+    panel.innerHTML = '';
+    desktopNav.querySelectorAll('.nav-item.mobile-open').forEach(function (item) {
+      item.classList.remove('mobile-open');
+      var trigger = item.querySelector(':scope > a');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  }
 
-  [
-    ['Оберіть категорію', '', true],
-    ['Станції — мережеві', 'stations-grid.html'],
-    ['Станції — гібридні', 'stations-hybrid.html'],
-    ['Панелі — односторонні', 'panels-one-sided.html'],
-    ['Панелі — двосторонні', 'panels-bifacial.html'],
-    ['Інвертори — гібридні', 'inverters-hybrid.html'],
-    ['Інвертори — мережеві', 'inverters-grid.html'],
-    ['Акумулятори — низьковольтні', 'batteries-lifepo4.html'],
-    ['Акумулятори — високовольтні', 'batteries-high-voltage.html'],
-    ['Кріплення — комплекти', 'mounting-kits.html'],
-    ['Кріплення — баластні системи', 'mounting-ballast.html'],
-    ['Кріплення — наземні конструкції', 'mounting-ground.html'],
-    ['Кріплення — комплектуючі', 'mounting-components.html']
-  ].forEach(function (item) {
-    var option = document.createElement('option');
-    option.textContent = item[0];
-    option.value = item[1];
-    if (item[2]) {
-      option.disabled = true;
-      option.selected = true;
-    }
-    select.appendChild(option);
+  desktopNav.querySelectorAll('.nav-item').forEach(function (item) {
+    var trigger = item.querySelector(':scope > a');
+    var dropdown = item.querySelector(':scope > .dropdown');
+    if (!trigger || !dropdown) return;
+
+    trigger.setAttribute('aria-haspopup', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.addEventListener('click', function (event) {
+      if (!isMobileNavigation()) return;
+      event.preventDefault();
+
+      var isOpen = item.classList.contains('mobile-open');
+      closeMobileSubmenu();
+      if (isOpen) return;
+
+      item.classList.add('mobile-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      panel.innerHTML = '<strong>' + trigger.textContent.trim() + '</strong>';
+      var links = document.createElement('div');
+      links.className = 'mobile-subcategory-links';
+      dropdown.querySelectorAll('a').forEach(function (sourceLink) {
+        var link = sourceLink.cloneNode(true);
+        links.appendChild(link);
+      });
+      panel.appendChild(links);
+      panel.hidden = false;
+    });
   });
 
-  select.addEventListener('change', function () {
-    if (select.value) window.location.href = select.value;
+  window.addEventListener('resize', function () {
+    if (!isMobileNavigation()) closeMobileSubmenu();
   });
-
-  wrapper.appendChild(label);
-  wrapper.appendChild(select);
-  header.appendChild(wrapper);
 })();
 
 (function () {
