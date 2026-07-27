@@ -129,9 +129,80 @@ function answerWithAI_(message, stateText) {
 
 function sendTelegram_(title,data,details) {
   const props=PropertiesService.getScriptProperties(),token=props.getProperty('TELEGRAM_BOT_TOKEN'),chatId=props.getProperty('TELEGRAM_CHAT_ID');
-  if (!token || !chatId) return;
-  const text=[title+' '+(data.orderId || ''),'','Клієнт: '+data.name,'Телефон: '+data.phone,'Місто: '+(data.city || 'не вказано'),'','Деталі:',details,'','Коментар: '+(data.comment || 'немає')].join('\n').slice(0,4000);
-  UrlFetchApp.fetch(`https://api.telegram.org/bot${token}/sendMessage`,{method:'post',contentType:'application/json',payload:JSON.stringify({chat_id:chatId,text:text}),muteHttpExceptions:true});
+  if (!token || !chatId) {
+    console.warn('Telegram не налаштований: додайте TELEGRAM_BOT_TOKEN і TELEGRAM_CHAT_ID');
+    return {ok:false,error:'Telegram не налаштований'};
+  }
+  const text=[
+    title+' '+(data.orderId || ''),
+    '',
+    'Клієнт: '+data.name,
+    'Телефон: '+data.phone,
+    'Бажаний зв’язок: '+(data.contactMethod || 'Телефон'),
+    'Місто: '+(data.city || 'не вказано'),
+    '',
+    'Деталі:',
+    details,
+    '',
+    'Коментар: '+(data.comment || 'немає'),
+    'Джерело: '+(data.source || 'METON')
+  ].join('\n').slice(0,4000);
+  const telegramPayload={chat_id:chatId,text:text,disable_web_page_preview:true};
+  const threadId=props.getProperty('TELEGRAM_THREAD_ID');
+  if (threadId) telegramPayload.message_thread_id=Number(threadId);
+  const response=UrlFetchApp.fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
+    method:'post',
+    contentType:'application/json',
+    payload:JSON.stringify(telegramPayload),
+    muteHttpExceptions:true
+  });
+  const result=JSON.parse(response.getContentText() || '{}');
+  if (response.getResponseCode() >= 300 || !result.ok) {
+    console.error('Telegram: '+(result.description || response.getContentText()));
+    return {ok:false,error:result.description || 'Помилка Telegram'};
+  }
+  return {ok:true,messageId:result.result && result.result.message_id};
+}
+
+function testTelegramSetup() {
+  const result=sendTelegram_(
+    '✅ Тест сповіщень METON',
+    {
+      orderId:'TEST-'+Date.now(),
+      name:'Тестове замовлення',
+      phone:'+380000000000',
+      city:'Львів',
+      contactMethod:'Telegram',
+      comment:'Якщо ви бачите це повідомлення, сповіщення налаштовані.',
+      source:'Google Apps Script'
+    },
+    'Тест без оформлення реального замовлення'
+  );
+  if (!result || !result.ok) throw new Error((result && result.error) || 'Telegram не відповів');
+  console.log('Telegram працює. Message ID: '+result.messageId);
+}
+
+function listTelegramChatIds() {
+  const token=PropertiesService.getScriptProperties().getProperty('TELEGRAM_BOT_TOKEN');
+  if (!token) throw new Error('Спочатку додайте TELEGRAM_BOT_TOKEN у властивості сценарію');
+  const response=UrlFetchApp.fetch(`https://api.telegram.org/bot${token}/getUpdates`,{muteHttpExceptions:true});
+  const body=JSON.parse(response.getContentText() || '{}');
+  if (!body.ok) throw new Error(body.description || 'Telegram не повернув список чатів');
+  const chats={};
+  (body.result || []).forEach(update => {
+    const message=update.message || update.channel_post || update.edited_message;
+    if (!message || !message.chat) return;
+    const chat=message.chat;
+    chats[chat.id]={
+      id:chat.id,
+      type:chat.type,
+      name:chat.title || [chat.first_name,chat.last_name].filter(Boolean).join(' ') || chat.username || 'Без назви'
+    };
+  });
+  const found=Object.keys(chats).map(id => chats[id]);
+  if (!found.length) throw new Error('Напишіть боту /start або повідомлення в групі, а потім запустіть цю функцію ще раз');
+  console.log(JSON.stringify(found,null,2));
+  return found;
 }
 
 function validPhone_(value){ return /^\+?[0-9\s()\-]{10,20}$/.test(String(value || '')); }
