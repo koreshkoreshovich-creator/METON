@@ -143,7 +143,7 @@ try {
   let sitemap = await fs.readFile(sitemapPath, 'utf8');
   sitemap = sitemap.replace(/\s*<url>\s*<loc>[^<]*\/product-[^<]+\.html<\/loc>[\s\S]*?<\/url>/gi, '');
   const productUrls = products.map((product) =>
-    `  <url><loc>https://koreshkoreshovich-creator.github.io/METON/${product.page}</loc></url>`
+    `  <url><loc>https://metongroup.com/${product.page}</loc></url>`
   ).join('\n');
   sitemap = sitemap.replace(/\s*<\/urlset>\s*$/i, `\n${productUrls}\n</urlset>\n`);
   await fs.writeFile(sitemapPath, sitemap, 'utf8');
