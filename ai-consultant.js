@@ -418,7 +418,7 @@
     }
 
     message('Заявку сформовано. Менеджер уже отримає ваше споживання та рекомендований комплект і зв’яжеться з вами для інженерного уточнення.', 'bot',
-      [{ label: 'Контакти МЕТОН', url: 'contacts.html' }, { label: 'Подзвонити зараз', url: 'tel:+380960735059' }]);
+      [{ label: 'Контакти МЕТОН', url: 'contacts.html' }, { label: 'Подзвонити зараз', url: 'tel:+380932852557' }]);
     setQuick(['Підібрати інший комплект']);
     state.waitingFor = 'done';
   }
@@ -430,7 +430,7 @@
   function localReply(text) {
     var lower = text.toLowerCase();
     if (lower.indexOf('зателефонувати') !== -1) {
-      window.location.href = 'tel:+380960735059';
+      window.location.href = 'tel:+380932852557';
       return;
     }
     if (lower.indexOf('інший комплект') !== -1) {
