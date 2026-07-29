@@ -1,5 +1,11 @@
 (function () {
   'use strict';
+  if (document.querySelector('.product-card, .detail, .product-detail')) {
+    var directusScript = document.createElement('script');
+    directusScript.src = 'directus-catalog.js';
+    directusScript.async = true;
+    document.head.appendChild(directusScript);
+  }
   if (/equipment-detail\.html$/i.test(location.pathname)) return;
 
   function text(el) {

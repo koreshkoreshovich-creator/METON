@@ -1839,28 +1839,54 @@ const products = [
 products.push(...(window.stockPanelProducts || []));
 let productMap = Object.fromEntries(products.map(function(p){ return [p.id, p]; }));
 function catalogPrice(product) {
-  if (!Number(product.price)) return 'Ціну уточнюйте';
+  if (!Number(product.price)) return product.price_note || 'Ціну уточнюйте';
   const value = Number(product.price).toLocaleString('uk-UA');
   if (product.currency === 'USD') return value + ' $';
   if (product.currency === 'EUR') return value + ' €';
   return value + ' грн';
 }
 function loadLiveCatalog(){
-  return fetch('catalog-data.json', {cache:'no-store'})
+  function applyCatalog(products){
+    (products || []).forEach(function(product){
+      if (product.active === 'Ні' || product.publication === 'Не публікувати' || product.status === 'archived') return;
+      const sourcePage = String(product.source_page || product.page || '');
+      const pageMatch = sourcePage.match(/product-[^/?#]+\.html/i);
+      const staticId = pageMatch ? pageMatch[0].replace(/^product-|\.html$/gi, '') : '';
+      const id = staticId || product.slug || product.sku || product.id;
+      const imageFile = product.image_file && (product.image_file.id || product.image_file);
+      const image = imageFile ? 'https://cms.metongroup.com/assets/' + encodeURIComponent(imageFile) : (product.image_url || product.image);
+      const normalized = {
+        id: id,
+        name: product.name || product.title || [product.brand, product.model].filter(Boolean).join(' '),
+        brand: product.brand,
+        price: product.price,
+        price_note: product.price_note,
+        currency: product.currency,
+        image: image,
+        power: product.power_w ? product.power_w + ' Вт' : (product.power_kw ? product.power_kw + ' кВт' : ''),
+        category: product.product_type || product.category,
+        page: pageMatch ? pageMatch[0] : ('product.html?id=' + encodeURIComponent(product.id))
+      };
+      productMap[id] = {
+        id: id,
+        name: normalized.name,
+        producer: normalized.brand || 'METON',
+        price: catalogPrice(normalized),
+        image: normalized.image || 'assets/station.png',
+        badge: normalized.power || normalized.category || '',
+        url: normalized.page
+      };
+    });
+  }
+  return fetch('https://cms.metongroup.com/items/products?limit=-1&fields=*&_=' + Date.now(), {cache:'no-store'})
     .then(function(response){ return response.ok ? response.json() : Promise.reject(); })
     .then(function(catalog){
-      (catalog.products || []).forEach(function(product){
-        if (product.active !== 'Так' || product.publication === 'Не публікувати') return;
-        productMap[product.id] = {
-          id: product.id,
-          name: product.name,
-          producer: product.brand || 'METON',
-          price: catalogPrice(product),
-          image: product.image,
-          badge: product.power || product.category,
-          url: product.page
-        };
-      });
+      applyCatalog(catalog.data || []);
+    })
+    .catch(function(){
+      return fetch('catalog-data.json', {cache:'no-store'})
+        .then(function(response){ return response.ok ? response.json() : Promise.reject(); })
+        .then(function(catalog){ applyCatalog(catalog.products || []); });
     })
     .catch(function(){});
 }

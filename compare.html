@@ -1914,36 +1914,70 @@ function compareGroup(product) {
   return '';
 }
 function comparePrice(product) {
-  if (!Number(product.price)) return 'Ціну уточнюйте';
+  if (!Number(product.price)) return product.price_note || 'Ціну уточнюйте';
   const value = Number(product.price).toLocaleString('uk-UA');
   if (product.currency === 'USD') return value + ' $';
   if (product.currency === 'EUR') return value + ' €';
   return value + ' грн';
 }
-fetch('catalog-data.json', {cache:'no-store'})
+function applyCompareCatalog(items, isDirectus) {
+  (items || []).forEach(product => {
+    if (product.active === 'Ні' || product.publication === 'Не публікувати' || product.status === 'archived') return;
+    const sourcePage = String(product.source_page || product.page || '');
+    const pageMatch = sourcePage.match(/product-[^/?#]+\.html/i);
+    const id = (pageMatch ? pageMatch[0].replace(/^product-|\.html$/gi, '') : '') || product.slug || product.id;
+    const imageFile = product.image_file && (product.image_file.id || product.image_file);
+    const category = String(product.category || '');
+    const inferredType = /panel/i.test(category) ? 'panel' :
+      /inverter/i.test(category) ? 'inverter' :
+      /batter/i.test(category) ? 'battery' :
+      /station/i.test(category) ? 'station' :
+      /mount/i.test(category) ? 'mounting' : product.product_type || product.type;
+    const rawSpecs = product.specifications && (product.specifications.raw || product.specifications);
+    const normalized = {
+      id: id,
+      type: inferredType,
+      category: category,
+      name: product.name || product.title || [product.brand, product.model].filter(Boolean).join(' '),
+      brand: product.brand,
+      price: product.price,
+      price_note: product.price_note,
+      currency: product.currency,
+      image: imageFile ? 'https://cms.metongroup.com/assets/' + encodeURIComponent(imageFile) : (product.image_url || product.image),
+      power: product.power_w ? product.power_w + ' Вт' : (product.power_kw ? product.power_kw + ' кВт' : product.power),
+      description: product.short_description || product.description,
+      specs: rawSpecs || product.specs,
+      page: pageMatch ? pageMatch[0] : ('product.html?id=' + encodeURIComponent(product.id))
+    };
+    const next = {
+      id: normalized.id,
+      group: compareGroup(normalized),
+      category: normalized.category,
+      categoryTitle: normalized.category,
+      name: normalized.name,
+      producer: normalized.brand || 'METON',
+      price: comparePrice(normalized),
+      old: '',
+      image: normalized.image || 'assets/station.png',
+      badge: normalized.power || normalized.category,
+      summary: normalized.description || '',
+      specs: String(normalized.specs || '').split('|').map(item => item.trim()).filter(Boolean),
+      url: normalized.page
+    };
+    const index = products.findIndex(item => item.id === normalized.id);
+    if (index >= 0) products[index] = Object.assign({}, products[index], next);
+    else if (next.group) products.push(next);
+  });
+}
+fetch('https://cms.metongroup.com/items/products?limit=-1&fields=*&_=' + Date.now(), {cache:'no-store'})
   .then(response => response.ok ? response.json() : Promise.reject())
   .then(catalog => {
-    (catalog.products || []).forEach(product => {
-      if (product.active !== 'Так' || product.publication === 'Не публікувати') return;
-      const next = {
-        id: product.id,
-        group: compareGroup(product),
-        category: product.category,
-        categoryTitle: product.category,
-        name: product.name,
-        producer: product.brand || 'METON',
-        price: comparePrice(product),
-        old: '',
-        image: product.image,
-        badge: product.power || product.category,
-        summary: product.description || '',
-        specs: String(product.specs || '').split('|').map(item => item.trim()).filter(Boolean),
-        url: product.page
-      };
-      const index = products.findIndex(item => item.id === product.id);
-      if (index >= 0) products[index] = Object.assign({}, products[index], next);
-      else if (next.group) products.push(next);
-    });
+    applyCompareCatalog(catalog.data || [], true);
+  })
+  .catch(() => {
+    return fetch('catalog-data.json', {cache:'no-store'})
+      .then(response => response.ok ? response.json() : Promise.reject())
+      .then(catalog => applyCompareCatalog(catalog.products || [], false));
   })
   .catch(() => {})
   .finally(() => {
