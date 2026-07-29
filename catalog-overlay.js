@@ -1,5 +1,9 @@
 (function () {
   'use strict';
+  var directusReady = false;
+  window.addEventListener('meton:catalog-ready', function () {
+    directusReady = true;
+  }, { once: true });
 
   var categoryPages = {
     'Односторонні сонячні панелі': 'panels-one-sided.html',
@@ -88,7 +92,8 @@
     return card;
   }
 
-  fetch('catalog-data.json', { cache: 'no-store' })
+  function loadStaticFallback() {
+    fetch('catalog-data.json', { cache: 'no-store' })
     .then(function (response) {
       if (!response.ok) throw new Error('Catalog unavailable');
       return response.json();
@@ -107,7 +112,12 @@
         grid.appendChild(createCard(product));
       });
     })
-    .catch(function () {
-      /* Статичний каталог залишається працездатним, якщо файл даних недоступний. */
-    });
+      .catch(function () {
+        /* Статичний HTML залишається працездатним, якщо резервний файл недоступний. */
+      });
+  }
+
+  window.setTimeout(function () {
+    if (!directusReady) loadStaticFallback();
+  }, 2500);
 })();
