@@ -12,6 +12,7 @@
   min-height: 42px;
   padding: 7px 12px;
   border: 1px solid #555;
+  border-radius: 12px;
   transition: border-color .18s, background .18s;
 }
 
@@ -27,6 +28,7 @@
   justify-content: center;
   width: 28px;
   height: 28px;
+  border-radius: 50%;
   background: #f4c542;
   color: #111;
   font-size: 11px;

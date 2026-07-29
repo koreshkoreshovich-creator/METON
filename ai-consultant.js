@@ -12,6 +12,7 @@
     name: '',
     phone: '',
     questions: [],
+    conversation: [],
     recommendationReady: false,
     waitingFor: ''
   };
@@ -116,6 +117,7 @@
   }
 
   function message(text, who, links) {
+    text = String(text || '');
     var wrap = document.createElement('div');
     wrap.className = 'meton-ai-message ' + (who === 'user' ? 'is-user' : 'is-bot');
     var bubble = document.createElement('div');
@@ -138,6 +140,12 @@
     }
     messages.appendChild(wrap);
     messages.scrollTop = messages.scrollHeight;
+    state.conversation = state.conversation || [];
+    state.conversation.push({
+      role: who === 'user' ? 'Клієнт' : 'AI-консультант',
+      text: text.slice(0, 500)
+    });
+    state.conversation = state.conversation.slice(-30);
   }
 
   function setQuick(items) {
@@ -385,7 +393,13 @@
       return;
     }
     state.phone = phone;
-    if (!state.name) state.name = 'Клієнт із AI-консультанта';
+    if (!state.name) {
+      state.name = String(text)
+        .replace(/[+\d\s()\-]{9,}/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 80) || 'Клієнт із AI-консультанта';
+    }
     var lead = {
       createdAt: new Date().toISOString(),
       source: 'AI-консультант сайту',
@@ -397,7 +411,11 @@
       panels: state.panels,
       panelModel: state.panelModel,
       reserve: state.reserve,
-      customerQuestions: state.questions || []
+      customerQuestions: state.questions || [],
+      conversationTranscript: (state.conversation || []).map(function (entry) {
+        return entry.role + ': ' + entry.text;
+      }).join('\n').slice(0, 3500),
+      pageUrl: window.location.href
     };
     try {
       var leads = JSON.parse(localStorage.getItem('metonAiLeads') || '[]');
@@ -434,7 +452,7 @@
       return;
     }
     if (lower.indexOf('інший комплект') !== -1) {
-      state = { consumption: 0, systemKw: 0, inverter: '', panels: 0, panelModel: '', reserve: null, name: '', phone: '', questions: [], recommendationReady: false, waitingFor: '' };
+      state = { consumption: 0, systemKw: 0, inverter: '', panels: 0, panelModel: '', reserve: null, name: '', phone: '', questions: [], conversation: [], recommendationReady: false, waitingFor: '' };
       message('Почнімо новий підбір. Яке ваше місячне споживання у кВт·год?', 'bot');
       setQuick(['600 кВт·год', '1200 кВт·год', '2000 кВт·год']);
       return;
