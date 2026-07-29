@@ -254,10 +254,30 @@
   }
 
   function phoneFrom(text) {
-    var normalized = String(text).replace(/[^\d+]/g, '');
-    var digits = normalized.replace(/\D/g, '');
-    if (digits.length >= 9 && digits.length <= 13) return normalized;
+    var digits = String(text).replace(/\D/g, '');
+    if (digits.length === 10 && digits.charAt(0) === '0') digits = '38' + digits;
+    if (digits.length === 12 && /^380(?:39|50|63|66|67|68|73|75|77|89|91|92|93|94|95|96|97|98|99)\d{7}$/.test(digits)) {
+      var subscriber = digits.slice(5);
+      if (!/^(\d)\1{6}$/.test(subscriber) && subscriber !== '1234567' && subscriber !== '7654321') {
+        return '+' + digits;
+      }
+    }
     return '';
+  }
+
+  function cleanName(text) {
+    return String(text || '')
+      .replace(/[+\d\s()\-]{9,}/g, ' ')
+      .replace(/^[\s,.;:!?]+|[\s,.;:!?]+$/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 60);
+  }
+
+  function validName(name) {
+    name = String(name || '').trim();
+    if (!/^[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]{2,30}(?:\s+[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]{2,30}){0,2}$/.test(name)) return false;
+    return !/(ху[йяєи]|п[іи]зд|бля|[єе]б[аеи]|сук[аи]|мудак|деб[іи]л|ідіот|гандон|хуйло)/i.test(name);
   }
 
   function answerProductQuestion(text) {
@@ -386,19 +406,37 @@
   function saveLead(text) {
     var phone = phoneFrom(text);
     if (!phone) {
+      if (/\d{7,}/.test(String(text))) {
+        message('Схоже, номер введено неправильно. Вкажіть чинний український мобільний номер у форматі +380 XX XXX XX XX.', 'bot');
+        setQuick(['Зателефонувати менеджеру']);
+        return;
+      }
+      var enteredName = cleanName(text);
+      if (!validName(enteredName)) {
+        message('Вкажіть, будь ласка, справжнє ім’я без цифр, образливих слів і випадкових символів.', 'bot');
+        return;
+      }
       state.waitingFor = 'phone';
-      state.name = String(text).trim().slice(0, 80);
+      state.name = enteredName;
       message('Дякую, ' + state.name + '. Тепер вкажіть номер телефону у форматі +380…', 'bot');
       setQuick(['Зателефонувати менеджеру']);
       return;
     }
+    if (!state.recommendationReady && !(state.questions || []).length && !state.consumption) {
+      message('Перед заявкою коротко опишіть, що саме потрібно: потужність станції, місячне споживання, резервне живлення або тип об’єкта.', 'bot');
+      state.waitingFor = '';
+      return;
+    }
     state.phone = phone;
     if (!state.name) {
-      state.name = String(text)
-        .replace(/[+\d\s()\-]{9,}/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .slice(0, 80) || 'Клієнт із AI-консультанта';
+      state.name = cleanName(text);
+    }
+    if (!validName(state.name)) {
+      state.phone = '';
+      state.name = '';
+      state.waitingFor = 'lead';
+      message('Напишіть справжнє ім’я та український мобільний номер у форматі +380 XX XXX XX XX.', 'bot');
+      return;
     }
     var lead = {
       createdAt: new Date().toISOString(),
