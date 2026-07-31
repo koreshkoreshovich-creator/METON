@@ -40,63 +40,7 @@
       <span class="badge">Гібридні інвертори</span>
       <h1>Гібридний інвертор Deye SUN-10K-SG02 LP1-EU-AM3</h1>
       <p>Потужний однофазний гібридний інвертор Deye для будинку з високим навантаженням.</p>
-<div class="price-row"><strong class="detail-price">1 510 $2
-          <span id="ratingVisual-deye-10k-lp1">☆☆☆☆☆</span>
-        </div>
-        <p id="ratingStatus-deye-10k-lp1">Оцінювати товар можуть тільки зареєстровані клієнти.</p>
-        <div class="rating-stars" id="ratingStars-deye-10k-lp1">
-          <button type="button" data-rate="1">★</button>
-          <button type="button" data-rate="2">★</button>
-          <button type="button" data-rate="3">★</button>
-          <button type="button" data-rate="4">★</button>
-          <button type="button" data-rate="5">★</button>
-        </div>
-        <div class="button-row"><a class="btn ghost" href="account.html">Увійти або зареєструватися</a></div>
-      </div>
-    </article>
-  </section>
-</main>
-<script>
-(function(){
-  var productId = "deye-10k-lp1";
-  var user = null;
-  try { user = JSON.parse(localStorage.getItem('metonUser') || 'null'); } catch(e) {}
-  var ratings = {};
-  try { ratings = JSON.parse(localStorage.getItem('metonRatings') || '{}'); } catch(e) {}
-  var status = document.getElementById('ratingStatus-' + productId);
-  var stars = document.getElementById('ratingStars-' + productId);
-  var valueEl = document.getElementById('ratingValue-' + productId);
-  var visualEl = document.getElementById('ratingVisual-' + productId);
-  function starsText(value){
-    var full = Number(value || 0);
-    var text = '';
-    for (var i = 1; i <= 5; i++) text += i <= full ? '★' : '☆';
-    return text;
-  }
-  function paint(value){
-    stars.querySelectorAll('button').forEach(function(btn){
-      btn.classList.toggle('active', Number(btn.dataset.rate) <= Number(value || 0));
-    });
-    if (valueEl) valueEl.textContent = value ? (Number(value).toFixed(1)) : '—';
-    if (visualEl) visualEl.textContent = starsText(value || 0);
-  }
-  if (user) {
-    status.textContent = ratings[productId] ? ('Ваша оцінка: ' + ratings[productId] + ' з 5') : 'Оберіть оцінку від 1 до 5.';
-    stars.querySelectorAll('button').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        ratings[productId] = Number(btn.dataset.rate);
-        localStorage.setItem('metonRatings', JSON.stringify(ratings));
-        status.textContent = 'Дякуємо, ваша оцінка: ' + ratings[productId] + ' з 5';
-        paint(ratings[productId]);
-      });
-    });
-    paint(ratings[productId]);
-  } else {
-    stars.querySelectorAll('button').forEach(function(btn){ btn.disabled = true; });
-  }
-})();
-</script><footer class="footer">
-  <div><strong>METON</strong><p>Сонячні електростанції, панелі, інвертори та акумулятори для дому й бізнесу.</p></div>
+<div class="price-row"><strong class="detail-price">1 510 $2<p>Сонячні електростанції, панелі, інвертори та акумулятори для дому й бізнесу.</p></div>
   <div class="footer-links"><h4>Клієнту</h4><a href="cart.html">Кошик</a><a href="account.html">Вхід і реєстрація</a><a href="compare.html">Порівняння</a><a href="blog.html">Блог</a></div>
   <div class="footer-links"><h4>Контакти</h4><a href="contacts.html">Контактна інформація</a><a href="tel:+380932852557">+380 93 285 25 57</a><a href="mailto:meton.com.ua@mail.com">meton.com.ua@mail.com</a></div>
 </footer>
