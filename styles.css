@@ -78,3 +78,65 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{overflow-x:hidden
 @media(hover:none) and (pointer:coarse){
   .btn,.nav-item>a,.footer a,.meton-ai-quick button{touch-action:manipulation}.category-card:hover,.meton-ai-launch:hover,.floating-cart:hover{transform:none}
 }
+
+/* METON soft UI refresh: gentler geometry without changing the brand palette. */
+:root{
+  --radius-xs:8px;
+  --radius-sm:12px;
+  --radius-md:18px;
+  --radius-lg:26px;
+  --soft-shadow:0 10px 30px rgba(17,17,17,.07);
+  --lift-shadow:0 18px 42px rgba(17,17,17,.12);
+}
+.mark{border-radius:12px}
+.header{box-shadow:0 4px 18px rgba(0,0,0,.055)}
+.dropdown{border-radius:16px;padding:10px;overflow:hidden;border-color:#d6d6d1;box-shadow:var(--lift-shadow)}
+.dropdown a{border-radius:9px;border-bottom:0}
+.btn{border-radius:12px;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(17,17,17,.12)}
+.badge{border-radius:999px;padding:7px 11px}
+.page-hero{margin:18px clamp(12px,2vw,28px) 0;border-radius:var(--radius-lg);overflow:hidden}
+.page-hero img{border-radius:var(--radius-md)}
+.category-card,.product-card,.trust-card,.blog-card,.contact-card,.solution-card,.project-card{
+  border-radius:var(--radius-md);border-color:#e2e2dd;box-shadow:var(--soft-shadow);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.category-card:hover,.product-card:hover,.blog-card:hover,.solution-card:hover,.project-card:hover{
+  transform:translateY(-4px);box-shadow:var(--lift-shadow);border-color:#d1d1ca;
+}
+.category-card img,.product-media,.product-media img,.solution-card>img,.project-card img{border-radius:var(--radius-md) var(--radius-md) 0 0}
+.product-media{margin:8px 8px 0;overflow:hidden;border-radius:14px}
+.detail-img{border-radius:var(--radius-lg);overflow:hidden;border-color:#e1e1dc;box-shadow:var(--soft-shadow)}
+.detail-img img{border-radius:inherit}
+.datasheet,.notice,.rating-box,.lead-form,.shop-card,.checkout-panel,.configurator-hero-card,.config-step,.config-result,.calculator-result,.order-status-card{
+  border-radius:var(--radius-md);border-color:#dfdfd9;box-shadow:var(--soft-shadow);
+}
+.lead-form input,.lead-form select,.lead-form textarea,.config-step input,.config-step select,.meton-ai-form input,.catalog-filter select{
+  border-radius:var(--radius-sm);border-color:#d1d1cb;background:#fff;outline:none;transition:border-color .18s,box-shadow .18s;
+}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus,.config-step input:focus,.config-step select:focus,.meton-ai-form input:focus,.catalog-filter select:focus{
+  border-color:#d4a600;box-shadow:0 0 0 4px rgba(244,197,66,.2);
+}
+.check-list li,.mini-item,.cart-row,.result-metrics div,.compare-panel,.catalog-filter{border-radius:var(--radius-sm)}
+.cart-row img,.compare-product img,.compare-option img{border-radius:10px}
+.qty-control button,.checkout-close{border-radius:10px}
+.config-step legend span,.value-grid article>span,.station-benefit-grid article>span{border-radius:12px}
+.result-metrics div{border-color:#ead78d}
+.value-grid article,.station-benefit-grid article{border-radius:var(--radius-md);overflow:hidden}
+.process-grid{gap:14px;border:0}
+.process-grid li{border:1px solid var(--line)!important;border-radius:var(--radius-md);background:#fff;box-shadow:var(--soft-shadow)}
+.station-result-panel,.station-final-cta,.finance-cta{border-radius:var(--radius-lg);overflow:hidden}
+.station-result-panel{box-shadow:0 18px 42px rgba(0,0,0,.16)}
+.power-links a,.catalog-chips span,.order-status-track span{border-radius:999px}
+.meton-ai-panel{border-radius:24px;border-color:#deded8;box-shadow:0 28px 70px rgba(0,0,0,.24)}
+.meton-ai-bubble{border-radius:16px 16px 16px 5px;border-color:#deded8}
+.meton-ai-message.is-user .meton-ai-bubble{border-radius:16px 16px 5px 16px}
+.meton-ai-links a,.meton-ai-quick button,.meton-ai-form button{border-radius:10px}
+[data-fixed-station-offer]{border-radius:var(--radius-md)!important;border-color:#e2e2dc!important;box-shadow:var(--soft-shadow)}
+@media(max-width:720px){
+  .page-hero{margin:10px 8px 0;border-radius:20px}
+  .mobile-subcategory-panel{border-radius:16px;border-color:#ddd;box-shadow:var(--soft-shadow)}
+  .mobile-subcategory-links a{border-radius:11px}
+  .meton-ai-panel{border-radius:0}
+  .category-card:hover,.product-card:hover,.blog-card:hover,.solution-card:hover,.project-card:hover,.btn:hover{transform:none}
+}
