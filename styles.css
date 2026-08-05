@@ -14,6 +14,34 @@
 .product-media.is-clickable{cursor:pointer}.product-media.is-clickable:focus{outline:3px solid var(--yellow);outline-offset:-3px}.equipment-dynamic-detail .badge{display:inline-flex;margin-top:14px}.equipment-dynamic-detail .detail-img{align-self:start}.equipment-dynamic-detail .detail-img img{max-height:650px;object-fit:contain}.equipment-dynamic-detail .spec-list strong{color:#111}
 .page-hero .panel-category-hero-img{object-fit:contain;background:#fff}
 
+/* Product-page polish: compact equipment media, clear purchase CTA and
+   edge-to-edge project photography for complete solar stations. */
+.detail.product-detail{max-width:1480px;margin:0 auto;align-items:start}
+.detail.product-detail article{min-width:0}
+.detail.product-detail h1{font-size:clamp(30px,3.7vw,50px);line-height:1.08}
+.detail.product-detail .detail-img{min-height:0;height:clamp(420px,52vw,610px);display:flex;align-items:center;justify-content:center}
+.detail.product-detail .detail-img img{min-height:0;height:100%;width:100%}
+.detail.inverter-detail .detail-img img{object-fit:contain;max-width:82%;padding:26px}
+.detail-img:has(img[src*="inverter-deye"]){min-height:0;height:clamp(420px,52vw,610px);display:flex;align-items:center;justify-content:center}
+.detail-img:has(img[src*="inverter-deye"]) img{min-height:0;height:100%;width:100%;object-fit:contain;max-width:82%;padding:26px}
+.detail.station-detail .detail-img{background:#111}
+.detail.station-detail .detail-img img{object-fit:cover;padding:0}
+.product-purchase-actions{margin:20px 0 8px}
+.product-purchase-actions .btn.primary{min-width:180px;font-size:17px;box-shadow:0 8px 22px rgba(244,197,66,.28)}
+@media(max-width:1120px){
+  .detail.product-detail .detail-img{height:min(62vw,560px)}
+}
+@media(max-width:640px){
+  .detail.product-detail{padding-top:26px}
+  .detail.product-detail .detail-img{height:340px}
+  .detail.product-detail h1{font-size:30px}
+  .detail.inverter-detail .detail-img img{max-width:88%;padding:20px}
+  .detail-img:has(img[src*="inverter-deye"]){height:340px}
+  .detail-img:has(img[src*="inverter-deye"]) img{max-width:88%;padding:20px}
+  .product-purchase-actions{display:grid;grid-template-columns:1fr}
+  .product-purchase-actions .btn{width:100%}
+}
+
 /* Mobile-first usability layer */
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{overflow-x:hidden}img{max-width:100%}button,a,input,select,textarea{-webkit-tap-highlight-color:rgba(244,197,66,.28)}input,select,textarea,button{font-family:inherit}.nav,.meton-ai-quick,.compare-table-wrap{-webkit-overflow-scrolling:touch}
 .mobile-subcategory-panel{display:none}

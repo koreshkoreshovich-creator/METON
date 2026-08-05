@@ -3,11 +3,6 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#0b0b0b" />
   <title>Гібридний інвертор Deye SUN-15K-SG01HP3-EU-AM2 | METON</title>
   <meta name="description" content="Гібридний інвертор Deye SUN-15K-SG01HP3-EU-AM2: ціна, характеристики, опис і технічні характеристики." />
   <meta name="robots" content="index, follow" />
@@ -40,7 +35,75 @@
       <span class="badge">Гібридні інвертори</span>
       <h1>Гібридний інвертор Deye SUN-15K-SG01HP3-EU-AM2</h1>
       <p>Трифазний високовольтний Deye 15 кВт для більших гібридних систем.</p>
-<div class="price-row"><strong class="detail-price">1 780 $2<p>Сонячні електростанції, панелі, інвертори та акумулятори для дому й бізнесу.</p></div>
+<div class="price-row"><strong class="detail-price">1 780 $</strong></div>
+      <div class="actions"><a class="btn primary" href="cart.html?add=deye-15k-3p">Додати в кошик</a><a class="btn ghost" href="consultation.html?product=deye-15k-3p">Отримати консультацію</a><a class="btn ghost" href="compare.html?add=deye-15k-3p">Порівняти</a></div>
+      <h2 class="spec-heading">Характеристики</h2>
+      <ul class="spec-list"><li>Тип: гібридний інвертор</li><li>Фаза: 3Ф</li><li>Потужність: 15 кВт</li><li>Категорія на METON: гібридні інвертори</li><li>MPPT: звіряється з datasheet конкретної моделі</li><li>PV-вхід: напруга та струм підбираються під стрінги панелей</li><li>Комунікація: Wi-Fi / RS485 / CAN залежно від моделі</li><li>Захист: DC/AC автоматика та SPD підбираються в щиті станції</li><li>Гарантія: за умовами виробника та партії постачання</li><li>Сумісність АКБ: за протоколом BMS і списком підтримуваних батарей</li></ul>
+      <div class="datasheet" id="datasheet">
+        <strong>Технічний паспорт:</strong> Сторінка товару METON<br />
+        <span>Для інверторів технічні характеристики можна відкрити окремим PDF-файлом.</span>
+        <div class="button-row"><a class='btn primary' href='technical-deye-15k-3p.html' target='_blank' rel='noopener'>Технічні характеристики</a><a class='btn ghost' href='https://meton.com.ua/hibrydnyi-invertor-deye-sun-15k-sg01hp3-eu-am2/' target='_blank' rel='noopener'>Джерело / сторінка товару</a></div>
+      </div>
+      <div class="rating-box" data-product-rating="deye-15k-3p">
+        <h2>Оцінка обладнання</h2>
+        <div class="rating-score">
+          <strong id="ratingValue-deye-15k-3p">—</strong>
+          <span id="ratingVisual-deye-15k-3p">☆☆☆☆☆</span>
+        </div>
+        <p id="ratingStatus-deye-15k-3p">Оцінювати товар можуть тільки зареєстровані клієнти.</p>
+        <div class="rating-stars" id="ratingStars-deye-15k-3p">
+          <button type="button" data-rate="1">★</button>
+          <button type="button" data-rate="2">★</button>
+          <button type="button" data-rate="3">★</button>
+          <button type="button" data-rate="4">★</button>
+          <button type="button" data-rate="5">★</button>
+        </div>
+        <div class="button-row"><a class="btn ghost" href="account.html">Увійти або зареєструватися</a></div>
+      </div>
+    </article>
+  </section>
+</main>
+<script>
+(function(){
+  var productId = "deye-15k-3p";
+  var user = null;
+  try { user = JSON.parse(localStorage.getItem('metonUser') || 'null'); } catch(e) {}
+  var ratings = {};
+  try { ratings = JSON.parse(localStorage.getItem('metonRatings') || '{}'); } catch(e) {}
+  var status = document.getElementById('ratingStatus-' + productId);
+  var stars = document.getElementById('ratingStars-' + productId);
+  var valueEl = document.getElementById('ratingValue-' + productId);
+  var visualEl = document.getElementById('ratingVisual-' + productId);
+  function starsText(value){
+    var full = Number(value || 0);
+    var text = '';
+    for (var i = 1; i <= 5; i++) text += i <= full ? '★' : '☆';
+    return text;
+  }
+  function paint(value){
+    stars.querySelectorAll('button').forEach(function(btn){
+      btn.classList.toggle('active', Number(btn.dataset.rate) <= Number(value || 0));
+    });
+    if (valueEl) valueEl.textContent = value ? (Number(value).toFixed(1)) : '—';
+    if (visualEl) visualEl.textContent = starsText(value || 0);
+  }
+  if (user) {
+    status.textContent = ratings[productId] ? ('Ваша оцінка: ' + ratings[productId] + ' з 5') : 'Оберіть оцінку від 1 до 5.';
+    stars.querySelectorAll('button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        ratings[productId] = Number(btn.dataset.rate);
+        localStorage.setItem('metonRatings', JSON.stringify(ratings));
+        status.textContent = 'Дякуємо, ваша оцінка: ' + ratings[productId] + ' з 5';
+        paint(ratings[productId]);
+      });
+    });
+    paint(ratings[productId]);
+  } else {
+    stars.querySelectorAll('button').forEach(function(btn){ btn.disabled = true; });
+  }
+})();
+</script><footer class="footer">
+  <div><strong>METON</strong><p>Сонячні електростанції, панелі, інвертори та акумулятори для дому й бізнесу.</p></div>
   <div class="footer-links"><h4>Клієнту</h4><a href="cart.html">Кошик</a><a href="account.html">Вхід і реєстрація</a><a href="compare.html">Порівняння</a><a href="blog.html">Блог</a></div>
   <div class="footer-links"><h4>Контакти</h4><a href="contacts.html">Контактна інформація</a><a href="tel:+380932852557">+380 93 285 25 57</a><a href="mailto:meton.com.ua@mail.com">meton.com.ua@mail.com</a></div>
 </footer>
