@@ -140,3 +140,92 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{overflow-x:hidden
   .meton-ai-panel{border-radius:0}
   .category-card:hover,.product-card:hover,.blog-card:hover,.solution-card:hover,.project-card:hover,.btn:hover{transform:none}
 }
+
+/* METON premium palette: warm solar surfaces, graphite engineering tones and green trust accents. */
+:root{
+  --black:#171a1f;
+  --ink:#24282d;
+  --white:#fff;
+  --soft:#f7f7f3;
+  --surface:#fff;
+  --surface-warm:#fbfaf5;
+  --line:#e3e4de;
+  --muted:#686e6b;
+  --yellow:#f2be32;
+  --yellow-hover:#dda91d;
+  --yellow-soft:#fff5d6;
+  --green:#1f5a46;
+  --green-bright:#2d7a5f;
+  --green-soft:#e9f3ee;
+  --graphite:#171a1f;
+  --graphite-soft:#24282d;
+}
+body{color:var(--graphite);background:var(--soft)}
+.header{background:rgba(255,255,252,.96);border-bottom-color:rgba(23,26,31,.09);backdrop-filter:blur(14px)}
+.mark,.account-avatar{background:var(--graphite)}
+.nav-item:hover>a,.nav-item.mobile-open>a{background:var(--graphite);color:#fff}
+.dropdown{background:#fffefb;border-color:var(--line)}
+.dropdown a:hover{background:var(--yellow-soft)}
+.hero{background-image:linear-gradient(90deg,rgba(18,22,25,.94) 0%,rgba(18,22,25,.82) 38%,rgba(18,22,25,.27) 68%,rgba(18,22,25,.08) 100%),url("assets/hero-meton.png")}
+.hero .kicker{color:#f6cf66}.hero p{color:#e6e8e5}
+.section{background:var(--soft)}
+.section:nth-of-type(even):not(.dark):not(.finance-cta):not(.calculator-section){background:var(--surface-warm)}
+.section.dark{background:linear-gradient(145deg,var(--graphite) 0%,#20262a 100%);color:#fff}
+.dark .section-head p{color:#cdd1ce}
+.category-card,.product-card,.trust-card,.blog-card,.contact-card,.solution-card,.project-card,
+.lead-form,.shop-card,.checkout-panel,.config-step,.calculator-result,.order-status-card,.compare-panel,.catalog-filter{
+  background:var(--surface);border-color:var(--line);
+}
+.category-card p,.product-card p,.trust-card p,.blog-card p,.solution-card p,.project-card p,.catalog-intro p{color:var(--muted)}
+.product-media,.detail-img,.compare-product img,.compare-option img,.cart-row img{background:#fbfbf8}
+.badge{background:var(--graphite);color:#fff}
+.btn{border-color:var(--graphite);color:var(--graphite)}
+.btn.primary{background:var(--yellow);border-color:var(--yellow);color:var(--graphite)}
+.btn.primary:hover{background:var(--yellow-hover);border-color:var(--yellow-hover)}
+.btn.green{background:var(--green);border-color:var(--green);color:#fff}
+.btn.green:hover{background:var(--green-bright);border-color:var(--green-bright)}
+.btn.ghost{background:#fff;color:var(--graphite);border-color:#cfd2cc}
+.price-row strong,.detail-price{color:var(--green)}
+.notice,.datasheet,.hint-box,.recommendation-box{background:var(--yellow-soft);border-color:#ead48d}
+.datasheet-link{border-color:#a8c2b5;color:var(--green)}
+.product-note{color:#65736d}
+.check-list li,.mini-item,.cart-row{background:#fff;border-color:var(--line)}
+.page-hero{background:linear-gradient(135deg,#f1f3ed 0%,#fbfaf5 58%,#fff3c7 100%)}
+.page-hero .kicker,.category-card .kicker{color:var(--green)}
+.configurator-hero{background:linear-gradient(135deg,#eef3ed 0%,#fff4ce 100%)}
+.configurator-hero-card,.station-result-panel{background:linear-gradient(145deg,var(--graphite) 0%,#252d30 100%);border-color:var(--graphite)}
+.config-step legend span{background:var(--green)}
+.config-result{background:linear-gradient(145deg,var(--yellow-soft),#fffdf6);border-color:#dcc05c}
+.result-metrics div{background:#fffdf8;border-color:#ead78d}
+.calculator-section{background:#eef1ec}
+.order-status-track span.active,.rating-stars button.active,.rating-stars button:hover{background:var(--yellow)}
+.card-rating span{color:var(--muted)}
+.rating-visual,.rating-score span{color:#d9a514}
+.finance-cta{background:linear-gradient(125deg,var(--yellow) 0%,#f6cf67 100%)}
+.finance-cta .btn.primary{background:var(--graphite);border-color:var(--graphite);color:#fff}
+.station-benefit-grid article{background:#fff;border-color:var(--line)}
+.station-benefit-grid article>span{background:var(--green);color:#fff}
+.value-grid article{background:#202529;border-color:#384044}
+.value-grid article>span{background:var(--yellow);color:var(--graphite)}
+.process-grid span{color:var(--green)}
+.station-final-cta{background:linear-gradient(130deg,#edf5f0 0%,#fff7db 100%);border-color:#b9cfc3}
+.power-links a:hover{background:var(--yellow-soft);border-color:#d9b84e}
+.catalog-chips span{border-color:#cfd2cc;background:#fff;color:var(--green)}
+.footer{background:linear-gradient(145deg,#14171b 0%,#202529 100%)}
+.footer p{color:#c6cbc8}.footer a:hover{color:#f5ca58}
+.floating-cart,.meton-ai-launch{background:var(--graphite)}
+.floating-cart:hover{background:var(--yellow);color:var(--graphite)}
+.meton-ai-head{background:linear-gradient(135deg,var(--graphite),#283033)}
+.meton-ai-messages{background:#f3f4f0}
+.meton-ai-message.is-user .meton-ai-bubble{background:var(--green);border-color:var(--green)}
+.meton-ai-links a{color:var(--green);border-color:#abc4b7;background:#fbfffc}
+.meton-ai-quick button:hover{background:var(--yellow-soft)}
+.meton-ai-status{background:#4bc58a;box-shadow:0 0 0 4px rgba(75,197,138,.15)}
+.account-status,.form-status{color:var(--green)}
+::selection{background:var(--yellow);color:var(--graphite)}
+@media(max-width:720px){
+  .nav-item>a{background:#fffefb;border-color:var(--line)}
+  .mobile-subcategory-panel{background:#fffefb}
+  .mobile-subcategory-links a{background:#f4f5f0;border-color:var(--line)}
+  .mobile-subcategory-links a:active{background:var(--yellow-soft);border-color:var(--yellow)}
+}
