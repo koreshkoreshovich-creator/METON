@@ -229,3 +229,37 @@ body{color:var(--graphite);background:var(--soft)}
   .mobile-subcategory-links a{background:#f4f5f0;border-color:var(--line)}
   .mobile-subcategory-links a:active{background:var(--yellow-soft);border-color:var(--yellow)}
 }
+
+/* Sticky product media: follows the specification column without leaving the product section. */
+@media(min-width:1121px){
+  .detail{align-items:start}
+  .detail>.detail-img{
+    position:sticky;
+    top:96px;
+    align-self:start;
+    width:100%;
+    height:clamp(360px,calc(100vh - 132px),580px);
+    min-height:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:clamp(12px,1.4vw,22px);
+    isolation:isolate;
+  }
+  .detail>.detail-img img,
+  .detail.product-detail>.detail-img img,
+  .equipment-dynamic-detail>.detail-img img{
+    width:100%;
+    height:100%;
+    min-height:0;
+    max-height:100%;
+    object-fit:contain;
+    object-position:center;
+    padding:0;
+  }
+  .detail.station-detail>.detail-img{padding:0}
+  .detail.station-detail>.detail-img img{object-fit:cover}
+}
+@media(max-width:1120px){
+  .detail>.detail-img{position:static;top:auto}
+}
