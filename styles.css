@@ -278,3 +278,26 @@ body{color:var(--graphite);background:var(--soft)}
   .detail.product-detail .spec-list li,
   .detail.product-detail .spec-list strong{font-size:15px}
 }
+
+/* Єдиний масштаб усіх сторінок товарів. !important навмисно захищає
+   інтерфейс навіть від помилково успадкованого <strong> у старій розмітці. */
+.detail article{min-width:0;font-size:16px!important;line-height:1.55!important;font-weight:400!important;color:var(--black)!important}
+.detail h1{font-size:clamp(30px,3.4vw,48px)!important;line-height:1.08!important;overflow-wrap:anywhere}
+.detail .spec-heading{font-size:26px!important;line-height:1.2!important;font-weight:800!important;color:var(--black)!important}
+.detail .spec-list{width:100%;min-width:0}
+.detail .spec-list li,
+.detail .spec-list li strong{font-size:16px!important;line-height:1.5!important;font-weight:400!important;color:var(--black)!important;overflow-wrap:anywhere;word-break:normal}
+.detail .spec-list li strong{font-weight:700!important}
+.detail .actions .btn,
+.detail .button-row .btn{font-size:16px!important;line-height:1.2!important;white-space:normal;text-align:center;max-width:100%}
+.detail .detail-price{font-size:clamp(25px,2.2vw,34px)!important;line-height:1.15!important;font-weight:900!important;color:#155f52!important}
+@media(max-width:900px){
+  .detail h1{font-size:clamp(28px,6vw,38px)!important}
+  .detail article{font-size:15px!important}
+  .detail .spec-list li,.detail .spec-list li strong{font-size:15px!important}
+}
+@media(max-width:640px){
+  .detail h1{font-size:30px!important}
+  .detail .actions{display:grid!important;grid-template-columns:1fr!important}
+  .detail .actions .btn{width:100%!important}
+}
