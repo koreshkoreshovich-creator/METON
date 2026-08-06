@@ -71,7 +71,10 @@
       name.appendChild(link);
 
       var media = card.querySelector('.product-media');
-      if (media && media.tagName !== 'A') {
+      if (media && media.tagName === 'A') {
+        var mediaHref = media.getAttribute('href') || '';
+        if (!isExistingProductLink(mediaHref)) media.href = url;
+      } else if (media) {
         media.classList.add('is-clickable');
         media.tabIndex = 0;
         media.setAttribute('role', 'link');
