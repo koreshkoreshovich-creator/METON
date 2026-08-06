@@ -166,6 +166,31 @@
         if (/datasheet|паспорт|технічн/i.test(link.textContent + ' ' + link.href)) link.href = sheetUrl;
       });
     }
+    var rawSpecs = value(product, ['specifications', 'specs'], '');
+    var specs = [];
+    if (Array.isArray(rawSpecs)) {
+      specs = rawSpecs.map(function (item) {
+        if (item && typeof item === 'object') {
+          return [item.label || item.name, item.value].filter(Boolean).join(': ');
+        }
+        return String(item || '').trim();
+      });
+    } else if (rawSpecs && typeof rawSpecs === 'object') {
+      specs = Object.keys(rawSpecs).map(function (key) {
+        return key + ': ' + rawSpecs[key];
+      });
+    } else if (rawSpecs) {
+      specs = String(rawSpecs).split(/\s*\|\s*|\r?\n/);
+    }
+    specs = specs.map(function (item) { return String(item).trim(); }).filter(Boolean);
+    var specList = document.querySelector('.spec-list');
+    if (specList && specs.length) {
+      specList.replaceChildren.apply(specList, specs.map(function (item) {
+        var li = document.createElement('li');
+        li.textContent = item;
+        return li;
+      }));
+    }
   }
 
   function createCard(product) {

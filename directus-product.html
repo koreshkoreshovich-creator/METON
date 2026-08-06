@@ -65,10 +65,13 @@
       var specs = p.specifications && (p.specifications.items || p.specifications.raw || p.specifications);
       if (Array.isArray(specs)) {
         document.querySelector('[data-specs]').innerHTML = specs.map(function (item) {
-          return '<li><strong>' + (item.label || '') + ':</strong> ' + (item.value || '') + '</li>';
+          if (item && typeof item === 'object') return '<li>' + [item.label || item.name, item.value].filter(Boolean).join(': ') + '</li>';
+          return '<li>' + String(item || '') + '</li>';
         }).join('');
+      } else if (specs && typeof specs === 'object') {
+        document.querySelector('[data-specs]').innerHTML = Object.keys(specs).map(function (key) { return '<li>' + key + ': ' + specs[key] + '</li>'; }).join('');
       } else if (specs) {
-        document.querySelector('[data-specs]').innerHTML = String(specs).split('|').map(function (item) { return '<li>' + item.trim() + '</li>'; }).join('');
+        document.querySelector('[data-specs]').innerHTML = String(specs).split(/\s*\|\s*|\r?\n/).map(function (item) { return '<li>' + item.trim() + '</li>'; }).join('');
       }
     })
     .catch(function () { document.querySelector('h1').textContent = 'Товар тимчасово недоступний'; });
