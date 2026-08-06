@@ -185,11 +185,21 @@
     specs = specs.map(function (item) { return String(item).trim(); }).filter(Boolean);
     var specList = document.querySelector('.spec-list');
     if (specList && specs.length) {
-      specList.replaceChildren.apply(specList, specs.map(function (item) {
-        var li = document.createElement('li');
-        li.textContent = item;
-        return li;
-      }));
+      var staticSpecs = Array.prototype.map.call(specList.querySelectorAll('li'), function (item) {
+        return String(item.textContent || '').trim();
+      }).filter(Boolean);
+
+      // Не дозволяємо старому або неповному запису Directus стирати
+      // детальні характеристики, вбудовані у сторінку товару.
+      // Коли в CMS буде не менше параметрів, ніж на сторінці, Directus
+      // знову стане головним джерелом цього списку.
+      if (!staticSpecs.length || specs.length >= staticSpecs.length) {
+        specList.replaceChildren.apply(specList, specs.map(function (item) {
+          var li = document.createElement('li');
+          li.textContent = item;
+          return li;
+        }));
+      }
     }
   }
 
