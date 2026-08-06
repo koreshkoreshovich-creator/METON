@@ -26,14 +26,14 @@
           </div>
           <div class="solution-grid">
             <article class="solution-card solution-card-home">
-              <img src="assets/station-own-home-10.png" alt="Сонячна електростанція для приватного будинку" loading="lazy">
+              <img src="assets/station-own-home-10.webp" alt="Сонячна електростанція для приватного будинку" loading="lazy">
               <div class="solution-card-body"><span class="badge">Для дому</span><h3>Економія та резервне живлення</h3><p>Гібридні рішення для щоденного споживання, роботи основних приладів під час відключень і накопичення сонячної енергії.</p>
                 <div class="power-links"><a href="product-hybrid-deye-6kw-turnkey.html">6 кВт</a><a href="product-own-10kw.html">10 кВт</a><a href="product-own-15kw.html">15 кВт</a><a href="product-own-20kw.html">20 кВт</a><a href="product-own-30kw.html">30 кВт</a></div>
                 <a class="btn primary" href="configurator.html">Підібрати для дому</a>
               </div>
             </article>
             <article class="solution-card solution-card-business">
-              <img src="assets/station-own-industrial.png" alt="Сонячна електростанція для підприємства" loading="lazy">
+              <img src="assets/station-own-industrial.webp" alt="Сонячна електростанція для підприємства" loading="lazy">
               <div class="solution-card-body"><span class="badge">Для бізнесу</span><h3>Менші витрати на електроенергію</h3><p>Мережеві та гібридні СЕС для денного споживання підприємства, керування піками навантаження і масштабування.</p>
                 <div class="power-links"><a href="product-own-50kw.html">50 кВт</a><a href="product-own-150kw.html">150 кВт</a><a href="product-own-200kw.html">200 кВт</a><a href="stations-grid.html">Інші рішення</a></div>
                 <a class="btn primary" href="${consultationLink('СЕС для підприємства')}">Розрахувати для бізнесу</a>
@@ -55,9 +55,9 @@
         <section class="section project-showcase" aria-labelledby="projects-title">
           <div class="section-head"><div><span class="kicker">Рішення в роботі</span><h2 id="projects-title">Об’єкти та формати монтажу</h2></div><p>Показуємо не лише товар, а логіку готової системи: панелі, інвертор, захист, кріплення, монтаж і запуск.</p></div>
           <div class="project-grid">
-            <a class="project-card" href="product-own-10kw.html"><img src="assets/station-own-home-10.png" alt="Дахова СЕС 10 кВт" loading="lazy"><div><span>Приватний будинок</span><h3>Дахова СЕС 10 кВт</h3><p>Власне споживання та можливість подальшого резервування.</p></div></a>
-            <a class="project-card" href="product-own-50kw.html"><img src="assets/station-own-50kw-new.png" alt="Комерційна СЕС 50 кВт" loading="lazy"><div><span>Комерційний об’єкт</span><h3>СЕС 50 кВт для бізнесу</h3><p>Зменшення закупівлі електроенергії у денні години.</p></div></a>
-            <a class="project-card" href="mounting-ground.html"><img src="assets/station-grid.png" alt="Наземна сонячна електростанція" loading="lazy"><div><span>Наземний монтаж</span><h3>Конструкція під ділянку</h3><p>Проєктування розкладки, фундаменту та кабельних трас.</p></div></a>
+            <a class="project-card" href="product-own-10kw.html"><img src="assets/station-own-home-10.webp" alt="Дахова СЕС 10 кВт" loading="lazy"><div><span>Приватний будинок</span><h3>Дахова СЕС 10 кВт</h3><p>Власне споживання та можливість подальшого резервування.</p></div></a>
+            <a class="project-card" href="product-own-50kw.html"><img src="assets/station-own-50kw-new.webp" alt="Комерційна СЕС 50 кВт" loading="lazy"><div><span>Комерційний об’єкт</span><h3>СЕС 50 кВт для бізнесу</h3><p>Зменшення закупівлі електроенергії у денні години.</p></div></a>
+            <a class="project-card" href="mounting-ground.html"><img src="assets/station-grid.webp" alt="Наземна сонячна електростанція" loading="lazy"><div><span>Наземний монтаж</span><h3>Конструкція під ділянку</h3><p>Проєктування розкладки, фундаменту та кабельних трас.</p></div></a>
           </div>
         </section>
 

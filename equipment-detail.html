@@ -59,7 +59,7 @@
     document.getElementById('equipmentDescription').textContent=description;
     document.getElementById('equipmentPrice').textContent=value('price','Ціну уточнюйте');
     var img=document.getElementById('equipmentImage');
-    img.src=safeHref(value('image'),'assets/inverter.png');
+    img.src=safeHref(value('image'),'assets/inverter.webp');
     img.alt=name;
     document.getElementById('backLink').href=safeHref(value('source'),'index.html');
     document.getElementById('consultLink').href='consultation.html?product='+encodeURIComponent(name);

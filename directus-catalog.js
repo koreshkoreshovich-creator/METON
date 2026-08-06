@@ -212,7 +212,7 @@
     var id = productId(product);
     var name = productName(product);
     var page = productPage(product) || ('directus-product.html?id=' + encodeURIComponent(product.id));
-    var image = productImage(product) || 'assets/station.png';
+    var image = productImage(product) || 'assets/station.webp';
     var description = String(value(product, ['short_description', 'description'], '')).trim();
     var sheet = datasheetUrl(product);
     var card = document.createElement('article');
