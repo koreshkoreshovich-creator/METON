@@ -301,3 +301,25 @@ body{color:var(--graphite);background:var(--soft)}
   .detail .actions{display:grid!important;grid-template-columns:1fr!important}
   .detail .actions .btn{width:100%!important}
 }
+/* Основна ціна в гривнях і довідковий еквівалент у доларах. */
+.price-uah-main {
+  display: inline;
+}
+
+.price-usd-small {
+  display: inline-block;
+  margin-left: 0.55rem;
+  color: #64706b;
+  font-size: 0.56em;
+  font-weight: 650;
+  line-height: 1.2;
+  white-space: nowrap;
+  vertical-align: 0.12em;
+}
+
+@media (max-width: 640px) {
+  .price-usd-small {
+    margin-left: 0.4rem;
+    font-size: 0.6em;
+  }
+}
