@@ -263,3 +263,18 @@ body{color:var(--graphite);background:var(--soft)}
 @media(max-width:1120px){
   .detail>.detail-img{position:static;top:auto}
 }
+
+/* Product typography guardrails: malformed or remote content must never inflate the whole page. */
+.detail.product-detail article{font-size:16px;line-height:1.55}
+.detail.product-detail .actions .btn,
+.detail.product-detail .button-row .btn{font-size:16px;line-height:1.2;max-width:100%}
+.detail.product-detail .spec-list li,
+.detail.product-detail .spec-list strong{font-size:16px;line-height:1.5}
+.detail.product-detail .detail-price{font-size:clamp(25px,2.4vw,34px);line-height:1.15}
+@media(max-width:640px){
+  .detail.product-detail article{font-size:15px}
+  .detail.product-detail .actions{display:grid;grid-template-columns:1fr}
+  .detail.product-detail .actions .btn{width:100%;font-size:15px}
+  .detail.product-detail .spec-list li,
+  .detail.product-detail .spec-list strong{font-size:15px}
+}
