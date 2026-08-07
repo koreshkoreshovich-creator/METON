@@ -300,7 +300,29 @@ body{color:var(--graphite);background:var(--soft)}
 .home-generation-saving strong{color:#126847;font-size:17px;white-space:nowrap}
 
 .home-product-battery img{width:auto;height:auto;max-width:82%;max-height:82%;object-fit:contain;transform:none}
-.home-panel-visual img{width:auto;height:auto;max-width:74%;max-height:70%;object-fit:contain;transform:translateY(-8px)}
+.home-panel-visual img{width:auto;height:auto;max-width:74%;max-height:70%;object-fit:contain;transform:none}
+
+.home-before-after-card{display:grid;grid-template-rows:auto auto auto auto 1fr;gap:13px;width:100%;height:100%;min-height:0;padding:22px;border-radius:20px;background:rgba(255,255,255,.97);color:#173f37;box-shadow:0 18px 36px rgba(3,19,14,.16)}
+.home-before-after-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding-bottom:2px}
+.home-before-after-head strong,.home-before-after-head small{display:block}
+.home-before-after-head strong{font-size:19px;line-height:1.15}
+.home-before-after-head small{margin-top:4px;color:#65736c;font-size:10px}
+.home-before-after-head b{flex:0 0 auto;padding:7px 10px;border-radius:999px;background:#173f37;color:#fff;font-size:10px;letter-spacing:.04em;text-transform:uppercase}
+.home-cost-state{padding:12px 14px;border:1px solid #dde2de;border-radius:14px;background:#f6f7f4}
+.home-cost-state>div:first-child{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.home-cost-state span{color:#66716b!important;font-size:11px!important;font-weight:900!important}
+.home-cost-state strong{font-size:17px;line-height:1.2;text-align:right}
+.home-cost-bar{height:11px;margin-top:9px;overflow:hidden;border-radius:999px;background:#e1e5e1}
+.home-cost-bar i{display:block;width:var(--value);height:100%;border-radius:inherit;background:#7b8580}
+.home-cost-state.is-after{border-color:#a9cdbb;background:#edf7f1}
+.home-cost-state.is-after span{color:#126847!important}
+.home-cost-state.is-after .home-cost-bar i{background:linear-gradient(90deg,#f2be32,#16905f)}
+.home-business-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.home-business-result-grid article{padding:12px 13px;border-radius:14px;background:#173f37;color:#fff}
+.home-business-result-grid span,.home-business-result-grid strong{display:block}
+.home-business-result-grid span{color:#bdd1c8!important;font-size:10px!important;font-weight:850!important;text-transform:uppercase;letter-spacing:.035em}
+.home-business-result-grid strong{margin-top:5px;color:#f7cc54;font-size:15px;line-height:1.2}
+.home-before-after-note{align-self:end;color:#65736c;font-size:9px;line-height:1.35}
 
 @media(max-width:980px){
   .home-slide-business{grid-template-columns:minmax(0,1.18fr) minmax(280px,.82fr)}
@@ -316,7 +338,7 @@ body{color:var(--graphite);background:var(--soft)}
   .home-slide-business .home-business-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
   .home-slide-business .home-business-metrics strong{font-size:14px}
   .home-slide-business .home-business-metrics span{font-size:9px}
-  .home-business-visual{height:330px;padding:9px}
+  .home-business-visual{height:390px;padding:9px}
   .home-generation-card{padding:14px}
   .home-generation-chart{min-height:178px;gap:3px;margin-top:8px;padding:8px 2px 2px}
   .home-generation-saving{align-items:flex-start;flex-direction:column;gap:3px}
@@ -325,7 +347,14 @@ body{color:var(--graphite);background:var(--soft)}
   .home-quiz-options{grid-template-columns:1fr}
   .home-quiz-options article{padding:8px 10px}
   .home-product-battery img{max-width:78%;max-height:78%}
-  .home-panel-visual img{max-width:70%;max-height:66%;transform:translateY(-6px)}
+  .home-panel-visual img{max-width:70%;max-height:66%;transform:none}
+  .home-before-after-card{gap:9px;padding:13px}
+  .home-before-after-head strong{font-size:16px}
+  .home-before-after-head b{padding:6px 8px;font-size:9px}
+  .home-cost-state{padding:10px 11px}
+  .home-cost-state strong{font-size:14px}
+  .home-business-result-grid strong{font-size:13px}
+  .home-before-after-note{font-size:8px}
 }
 .footer{background:linear-gradient(145deg,#14171b 0%,#202529 100%)}
 .footer p{color:#c6cbc8}.footer a:hover{color:#f5ca58}
