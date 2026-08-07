@@ -90,6 +90,11 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{overflow-x:hidden
 }
 .mark{border-radius:12px}
 .header{box-shadow:0 4px 18px rgba(0,0,0,.055)}
+
+/* Верхня інформаційна смуга та дворівневе меню обладнання */
+.site-info-bar{min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:7px clamp(16px,4vw,58px);background:#171a1f;color:#fff;font-size:12px;line-height:1.25}.site-info-links{display:flex;align-items:center;gap:18px;min-width:0}.site-info-bar a{color:#fff;white-space:nowrap}.site-info-bar a:hover{text-decoration:underline;text-underline-offset:3px}.site-info-company{font-weight:900;color:#f4c542!important}.site-info-phone{font-weight:900;font-size:13px}.equipment-menu{min-width:275px;overflow:visible}.menu-branch{position:relative}.menu-branch>a{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px;border-bottom:1px solid var(--line);font-weight:800}.menu-branch:hover>a,.menu-branch:focus-within>a{background:#f4f4f1}.submenu{position:absolute;left:calc(100% + 8px);top:-10px;min-width:270px;padding:10px;background:#fff;border:1px solid #222;border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,.2);display:grid;gap:4px;opacity:0;pointer-events:none;transform:translateX(8px);transition:.18s}.submenu:before{content:"";position:absolute;left:-10px;top:0;bottom:0;width:10px}.menu-branch:hover>.submenu,.menu-branch:focus-within>.submenu{opacity:1;pointer-events:auto;transform:translateX(0)}.submenu a{padding:12px;border-bottom:1px solid var(--line);font-weight:800}.submenu a:last-child{border-bottom:0}
+@media(max-width:1120px){.site-info-bar{overflow-x:auto;justify-content:flex-start;scrollbar-width:none}.site-info-bar::-webkit-scrollbar{display:none}.site-info-links{gap:14px}.site-info-phone{margin-left:auto}.equipment-menu .submenu{display:none}.equipment-menu .menu-branch>a span{display:none}}
+@media(max-width:640px){.site-info-bar{padding:8px 14px}.site-info-company{display:none}.site-info-links{gap:14px}.site-info-phone{font-size:12px}.site-info-links a{font-size:11px}}
 .dropdown{border-radius:16px;padding:10px;overflow:hidden;border-color:#d6d6d1;box-shadow:var(--lift-shadow)}
 .dropdown a{border-radius:9px;border-bottom:0}
 .btn{border-radius:12px;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}

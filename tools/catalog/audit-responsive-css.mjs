@@ -10,7 +10,7 @@ for (const file of htmlFiles) {
   if (!html.includes('class="detail')) continue;
   detailPages.push(file);
   if (!/<meta name="viewport"[^>]*width=device-width/i.test(html)) failures.push(`${file}: немає viewport`);
-  if (!html.includes('styles.css?v=20260807-5')) failures.push(`${file}: застаріла версія CSS`);
+  if (!html.includes('styles.css?v=20260807-6')) failures.push(`${file}: застаріла версія CSS`);
 
   for (const tag of ['strong', 'article', 'section']) {
     const opened = (html.match(new RegExp(`<${tag}\\b`, 'gi')) || []).length;
