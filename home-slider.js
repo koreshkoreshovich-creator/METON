@@ -96,25 +96,53 @@
     var result = quiz.querySelector('[data-quiz-result]');
     var quizOptions = quiz.querySelector('[data-quiz-options]');
     var quizConsult = quiz.querySelector('[data-quiz-consult]');
+    var consumptionQuestion = quiz.querySelector('[data-quiz-question="consumption"]');
+
+    function resetQuizResult() {
+      result.classList.add('is-disabled');
+      result.querySelector('[data-quiz-result-note]').textContent = 'Спочатку оберіть 3 відповіді';
+      result.querySelector('[data-quiz-result-title]').textContent = 'Отримати 3 варіанти';
+      quizOptions.hidden = true;
+      quizConsult.hidden = true;
+    }
+
+    function updateConsumptionOptions(objectType) {
+      var options = objectType === 'Бізнес' ? [
+        { value: '3000', label: '3 000 кВт·год' },
+        { value: '10000', label: '10 000 кВт·год' },
+        { value: '30000', label: '30 000 кВт·год' }
+      ] : [
+        { value: '250', label: '250 кВт·год' },
+        { value: '500', label: '500 кВт·год' },
+        { value: '1000', label: '1 000 кВт·год' }
+      ];
+      delete answers.consumption;
+      consumptionQuestion.querySelectorAll('[data-quiz-value]').forEach(function (button, index) {
+        button.classList.remove('is-selected');
+        button.setAttribute('data-quiz-value', options[index].value);
+        button.textContent = options[index].label;
+      });
+      resetQuizResult();
+    }
 
     function renderQuizResult() {
       var isBusiness = answers.object === 'Бізнес';
       var powerTable = isBusiness ? {
-        'до 3000': [30, 30, 50],
-        '3000-7000': [30, 50, 80],
-        'понад 7000': [50, 100, 150]
+        '3000': [20, 30, 50],
+        '10000': [80, 100, 120],
+        '30000': [100, 150, 200]
       } : {
-        'до 3000': [5, 6, 8],
-        '3000-7000': [8, 10, 12],
-        'понад 7000': [12, 15, 20]
+        '250': [3, 5, 6],
+        '500': [5, 6, 8],
+        '1000': [8, 10, 12]
       };
-      var powers = powerTable[answers.bill];
+      var powers = powerTable[answers.consumption];
       var reserve = answers.backup === 'Так';
-      var batteries = isBusiness ? ['20,48', '40,96'] : ['5,12', '10,24'];
+      var batteries = isBusiness ? ['20,48', '40,96', '81,92'] : ['5,12', '10,24', '15,36'];
       var variants = reserve ? [
-        powers[0] + ' кВт, АКБ опційно',
-        powers[1] + ' кВт + АКБ ' + batteries[0] + ' кВт·год',
-        powers[2] + ' кВт + АКБ ' + batteries[1] + ' кВт·год'
+        powers[0] + ' кВт + АКБ ' + batteries[0] + ' кВт·год',
+        powers[1] + ' кВт + АКБ ' + batteries[1] + ' кВт·год',
+        powers[2] + ' кВт + АКБ ' + batteries[2] + ' кВт·год'
       ] : [
         powers[0] + ' кВт мережева',
         powers[1] + ' кВт мережева',
@@ -122,13 +150,13 @@
       ];
 
       result.classList.remove('is-disabled');
-      result.querySelector('[data-quiz-result-note]').textContent = 'Попередній результат для: ' + answers.object.toLowerCase();
+      result.querySelector('[data-quiz-result-note]').textContent = answers.object + ' · ' + Number(answers.consumption).toLocaleString('uk-UA') + ' кВт·год/міс.';
       result.querySelector('[data-quiz-result-title]').textContent = powers[0] + '–' + powers[2] + ' кВт залежно від режиму';
       quizOptions.hidden = false;
       quizOptions.querySelectorAll('[data-quiz-option]').forEach(function (node, index) {
         node.textContent = variants[index];
       });
-      var query = new URLSearchParams({ source: 'home-quiz', object: answers.object, bill: answers.bill, backup: answers.backup });
+      var query = new URLSearchParams({ source: 'home-quiz', object: answers.object, consumption: answers.consumption, backup: answers.backup });
       quizConsult.href = 'consultation.html?' + query.toString();
       quizConsult.hidden = false;
     }
@@ -139,6 +167,7 @@
           question.querySelectorAll('[data-quiz-value]').forEach(function (item) { item.classList.remove('is-selected'); });
           button.classList.add('is-selected');
           answers[key] = button.getAttribute('data-quiz-value');
+          if (key === 'object') updateConsumptionOptions(answers.object);
           var count = Object.keys(answers).length;
           quizProgress.textContent = count + ' / 3';
           interactionPauseUntil = Date.now() + 30000;
