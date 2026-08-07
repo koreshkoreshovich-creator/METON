@@ -94,6 +94,44 @@
     var answers = {};
     var quizProgress = quiz.querySelector('[data-quiz-progress]');
     var result = quiz.querySelector('[data-quiz-result]');
+    var quizOptions = quiz.querySelector('[data-quiz-options]');
+    var quizConsult = quiz.querySelector('[data-quiz-consult]');
+
+    function renderQuizResult() {
+      var isBusiness = answers.object === 'Бізнес';
+      var powerTable = isBusiness ? {
+        'до 3000': [30, 30, 50],
+        '3000-7000': [30, 50, 80],
+        'понад 7000': [50, 100, 150]
+      } : {
+        'до 3000': [5, 6, 8],
+        '3000-7000': [8, 10, 12],
+        'понад 7000': [12, 15, 20]
+      };
+      var powers = powerTable[answers.bill];
+      var reserve = answers.backup === 'Так';
+      var batteries = isBusiness ? ['20,48', '40,96'] : ['5,12', '10,24'];
+      var variants = reserve ? [
+        powers[0] + ' кВт, АКБ опційно',
+        powers[1] + ' кВт + АКБ ' + batteries[0] + ' кВт·год',
+        powers[2] + ' кВт + АКБ ' + batteries[1] + ' кВт·год'
+      ] : [
+        powers[0] + ' кВт мережева',
+        powers[1] + ' кВт мережева',
+        powers[2] + ' кВт із запасом потужності'
+      ];
+
+      result.classList.remove('is-disabled');
+      result.querySelector('[data-quiz-result-note]').textContent = 'Попередній результат для: ' + answers.object.toLowerCase();
+      result.querySelector('[data-quiz-result-title]').textContent = powers[0] + '–' + powers[2] + ' кВт залежно від режиму';
+      quizOptions.hidden = false;
+      quizOptions.querySelectorAll('[data-quiz-option]').forEach(function (node, index) {
+        node.textContent = variants[index];
+      });
+      var query = new URLSearchParams({ source: 'home-quiz', object: answers.object, bill: answers.bill, backup: answers.backup });
+      quizConsult.href = 'consultation.html?' + query.toString();
+      quizConsult.hidden = false;
+    }
     quiz.querySelectorAll('[data-quiz-question]').forEach(function (question) {
       var key = question.getAttribute('data-quiz-question');
       question.querySelectorAll('[data-quiz-value]').forEach(function (button) {
@@ -105,18 +143,11 @@
           quizProgress.textContent = count + ' / 3';
           interactionPauseUntil = Date.now() + 30000;
           if (count === 3) {
-            var query = new URLSearchParams({ object: answers.object, bill: answers.bill, backup: answers.backup });
-            result.href = 'configurator.html?' + query.toString();
-            result.classList.remove('is-disabled');
-            result.setAttribute('aria-disabled', 'false');
-            result.querySelector('span').textContent = 'Відповіді збережено';
+            renderQuizResult();
           }
           schedule();
         });
       });
-    });
-    result.addEventListener('click', function (event) {
-      if (result.classList.contains('is-disabled')) event.preventDefault();
     });
   }
 

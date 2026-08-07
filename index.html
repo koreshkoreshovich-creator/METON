@@ -11,7 +11,7 @@
   <title>METON | Сонячні електростанції та обладнання</title>
   <meta name="description" content="Сонячні електростанції, панелі, інвертори й акумулятори METON для дому та бізнесу." />
   <meta name="robots" content="index, follow" />
-  <link rel="stylesheet" href="styles.css?v=20260807-8" />
+  <link rel="stylesheet" href="styles.css?v=20260807-9" />
   <link rel="stylesheet" href="social-video.css" />
 </head>
 <body><div class="site-info-bar" aria-label="Інформація та контакти METON">
@@ -59,9 +59,10 @@
     <div class="home-showcase-track">
       <article class="home-slide home-slide-kit is-active" data-home-slide aria-label="1 з 4: комплект тижня">
         <div class="home-slide-copy">
-          <span class="home-slide-eyebrow">Комплект тижня</span>
+          <span class="home-slide-eyebrow home-slide-eyebrow-loud">Комплект тижня</span>
           <h1>Deye 6 кВт + акумулятор Pro-C 5,12 кВт·год</h1>
-          <p>Готова гібридна збірка під найчастіший запит для будинку: резерв під час відключень і керування власною генерацією.</p>
+          <p><strong>Комплект для блекауту</strong> під найчастіший запит для будинку: живлення основних приладів під час відключень і готовність до підключення сонячних панелей.</p>
+          <div class="home-offer-price home-kit-price"><strong>71 808 грн</strong><span>$1 600 за комплект</span></div>
           <div class="home-benefits"><span>Безкоштовна доставка</span><span>Офіційна гарантія</span><span>Перевірена сумісність</span></div>
           <div class="button-row"><a class="btn primary" href="consultation.html?offer=week-kit">Отримати пропозицію</a><a class="btn ghost" href="product-deye-6k-1p.html">Переглянути інвертор</a></div>
         </div>
@@ -76,7 +77,7 @@
         <div class="home-slide-copy">
           <span class="home-slide-eyebrow">Розумний підбір</span>
           <h2>Дізнайся, яке рішення потрібне твоїй оселі, за 30 секунд</h2>
-          <p>Дай відповідь на три короткі питання — покажемо три варіанти комплектації та підготуємо кошторис без зобов’язань.</p>
+          <p>Дай відповідь на три короткі питання — одразу покажемо рекомендовану потужність і три варіанти рішення без переходу на іншу сторінку.</p>
           <a class="home-text-link" href="configurator.html">Відкрити повний конфігуратор →</a>
         </div>
         <form class="home-mini-quiz" data-home-quiz>
@@ -84,16 +85,20 @@
           <fieldset data-quiz-question="object"><legend>1. Для якого об’єкта?</legend><div><button type="button" data-quiz-value="Будинок">Будинок</button><button type="button" data-quiz-value="Бізнес">Бізнес</button></div></fieldset>
           <fieldset data-quiz-question="bill"><legend>2. Рахунок за світло на місяць?</legend><div><button type="button" data-quiz-value="до 3000">до 3 000</button><button type="button" data-quiz-value="3000-7000">3–7 тис.</button><button type="button" data-quiz-value="понад 7000">понад 7 тис.</button></div></fieldset>
           <fieldset data-quiz-question="backup"><legend>3. Потрібен резерв при відключеннях?</legend><div><button type="button" data-quiz-value="Так">Так</button><button type="button" data-quiz-value="Ні">Ні</button></div></fieldset>
-          <a class="home-quiz-result is-disabled" data-quiz-result href="configurator.html" aria-disabled="true"><span>Спочатку оберіть 3 відповіді</span><strong>Отримати 3 варіанти</strong></a>
+          <div class="home-quiz-result is-disabled" data-quiz-result aria-live="polite"><span data-quiz-result-note>Спочатку оберіть 3 відповіді</span><strong data-quiz-result-title>Отримати 3 варіанти</strong></div>
+          <div class="home-quiz-options" data-quiz-options hidden><article><span>Раціональний</span><strong data-quiz-option="0"></strong></article><article><span>Збалансований</span><strong data-quiz-option="1"></strong></article><article><span>Максимум</span><strong data-quiz-option="2"></strong></article></div>
+          <a class="home-quiz-consult" data-quiz-consult href="consultation.html?source=home-quiz" hidden>Отримати точний кошторис →</a>
         </form>
       </article>
 
       <article class="home-slide home-slide-business" data-home-slide aria-label="3 з 4: сонячні рішення для бізнесу" hidden>
         <div class="home-slide-copy">
-          <span class="home-slide-eyebrow">Енергія для бізнесу</span>
-          <h2>Високі тарифи не мають керувати вашим прибутком</h2>
-          <p>Платите за електроенергію понад 3 000 грн щомісяця? Власна СЕС зменшує закупівлю енергії з мережі та працює на бізнес десятиліттями.</p>
-          <div class="home-business-metrics"><div><strong>25 років</strong><span>ресурс сонячних панелей</span></div><div><strong>0 грн</strong><span>вартість власної сонячної кВт·год після окупності</span></div></div>
+          <span class="home-slide-eyebrow home-slide-eyebrow-loud">Енергія для бізнесу</span>
+          <h2>СЕС 100 кВт: енергія, яка працює на прибуток</h2>
+          <p>Для підприємства з високим денним споживанням орієнтовна окупність сонячної станції може становити <strong>до 3 років</strong>.</p>
+          <div class="home-business-comparison" aria-label="Порівняння підприємства без сонячної станції та із СЕС 100 кВт"><article><span>Без сонячної станції</span><strong>100% енергії з мережі</strong><small>Повна залежність від тарифу та його подальшого зростання.</small></article><article class="is-solar"><span>Із СЕС 100 кВт</span><strong>до 100–110 МВт·год/рік</strong><small>Власна генерація вдень, менше закупівлі з мережі та прогнозованіші витрати.</small></article></div>
+          <div class="home-business-metrics"><div><strong>до 3 років*</strong><span>орієнтовна окупність</span></div><div><strong>25+ років</strong><span>роботи сонячних панелей</span></div><div><strong>Менше ризиків</strong><span>від зростання тарифів</span></div></div>
+          <small class="home-business-note">* Для об’єктів із високим денним споживанням. Точний результат залежить від тарифу, графіка навантаження та умов монтажу.</small>
           <div class="button-row"><a class="btn primary" href="business.html">Рішення для бізнесу</a><a class="btn ghost" href="consultation.html?request=business">Замовити розрахунок</a></div>
         </div>
         <div class="home-slide-visual home-business-visual"><img src="assets/station-own-commercial.webp" alt="Комерційна сонячна електростанція METON" /><span>Станції від 30 до 200 кВт</span></div>
@@ -101,7 +106,7 @@
 
       <article class="home-slide home-slide-offer" data-home-slide aria-label="4 з 4: спеціальна ціна на панель Tongwei" hidden>
         <div class="home-slide-copy">
-          <span class="home-slide-eyebrow">Спецпропозиція до кінця тижня</span>
+          <span class="home-slide-eyebrow home-slide-eyebrow-loud">Спецпропозиція до кінця тижня</span>
           <h2>Tongwei Solar Bifacial 625 Вт</h2>
           <p>Потужна двостороння N-type панель для дахових і наземних станцій. Акційна кількість обмежена складським залишком.</p>
           <div class="home-offer-price"><strong>4 264 грн</strong><span>$95 за панель</span></div>
@@ -274,7 +279,7 @@
 })();
 </script>
 <script src="catalog-details.js" defer></script>
-<script src="home-slider.js?v=20260807-1" defer></script>
+  <script src="home-slider.js?v=20260807-2" defer></script>
 <script src="ai-consultant.js" defer></script>
 <script src="site-social.js" defer></script>
 <script src="site-growth.js" defer></script>
