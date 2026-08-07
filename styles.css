@@ -323,3 +323,30 @@ body{color:var(--graphite);background:var(--soft)}
     font-size: 0.6em;
   }
 }
+
+/* Keep desktop catalog dropdowns connected to their navigation item.
+   A short closing delay also lets the pointer cross the menu edge reliably. */
+@media (min-width:1121px) {
+  .dropdown {
+    top:100%;
+    transform:none;
+    visibility:hidden;
+    transition:opacity .16s ease, visibility 0s linear .22s;
+  }
+  .dropdown:before {
+    top:-4px;
+    height:4px;
+  }
+  .nav-item:hover .dropdown,
+  .nav-item:focus-within .dropdown {
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:none;
+    transition-delay:0s;
+  }
+  .nav-item:focus-within>a {
+    background:var(--graphite);
+    color:#fff;
+  }
+}

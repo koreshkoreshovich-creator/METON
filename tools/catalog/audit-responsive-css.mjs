@@ -10,7 +10,7 @@ for (const file of htmlFiles) {
   if (!html.includes('class="detail')) continue;
   detailPages.push(file);
   if (!/<meta name="viewport"[^>]*width=device-width/i.test(html)) failures.push(`${file}: немає viewport`);
-  if (!html.includes('styles.css?v=20260806-4')) failures.push(`${file}: застаріла версія CSS`);
+  if (!html.includes('styles.css?v=20260807-5')) failures.push(`${file}: застаріла версія CSS`);
 
   for (const tag of ['strong', 'article', 'section']) {
     const opened = (html.match(new RegExp(`<${tag}\\b`, 'gi')) || []).length;
@@ -25,7 +25,11 @@ const requiredGuards = [
   '.detail .spec-list li,',
   'font-size:16px!important;line-height:1.5!important',
   '@media(max-width:900px)',
-  '@media(max-width:640px)'
+  '@media(max-width:640px)',
+  '@media (min-width:1121px)',
+  'top:100%',
+  '.nav-item:focus-within .dropdown',
+  'visibility:visible'
 ];
 for (const guard of requiredGuards) {
   if (!styles.includes(guard)) failures.push(`styles.css: немає захисту «${guard}»`);
