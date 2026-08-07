@@ -87,7 +87,6 @@
       '<div class="button-row">' +
         '<a class="btn primary" href="cart.html?add=' + encodeURIComponent(product.id) + '">В кошик</a>' +
         '<a class="btn ghost" href="' + product.page + '">Детальніше</a>' +
-        '<a class="btn ghost" href="compare.html?add=' + encodeURIComponent(product.id) + '">Порівняти</a>' +
       '</div>';
     return card;
   }
