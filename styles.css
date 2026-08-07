@@ -495,3 +495,21 @@ body{color:var(--graphite);background:var(--soft)}
     color:#fff;
   }
 }
+
+/* The equipment menu has a second fly-out level. Keep it outside the rounded
+   first-level card instead of clipping it with the generic dropdown rule. */
+@media (min-width:721px) {
+  .dropdown.equipment-menu {
+    overflow:visible;
+    z-index:200;
+  }
+  .equipment-menu .submenu {
+    display:grid;
+    z-index:201;
+    visibility:hidden;
+  }
+  .equipment-menu .menu-branch:hover > .submenu,
+  .equipment-menu .menu-branch:focus-within > .submenu {
+    visibility:visible;
+  }
+}
