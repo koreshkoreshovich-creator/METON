@@ -25,6 +25,13 @@ jobs:
           CATALOG_SHEET_CSV_URL: ${{ vars.CATALOG_SHEET_CSV_URL }}
         run: node tools/catalog/sync-from-sheet.mjs
 
+      - name: Verify catalog before publishing
+        run: |
+          node tools/catalog/audit-equipment.mjs
+          node tools/catalog/audit-equipment-strict.mjs
+          node tools/catalog/audit-responsive-css.mjs
+          node tools/catalog/audit-dual-prices.mjs
+
       - name: Зберегти зміни
         run: |
           git config user.name "METON Catalog Bot"

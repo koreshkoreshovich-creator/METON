@@ -58,10 +58,18 @@ async function localizeImage(product) {
 }
 
 function updatePage(html, product) {
+  // Repair legacy pages where an older updater lost the closing price tag.
+  html = html.replace(
+    /(<strong class=["']detail-price["'][^>]*>)([^<]*)(<\/div>)/i,
+    (_match, open, value, close) => `${open}${value}</strong>${close}`
+  );
   const price = product.price ? `${Number(product.price).toLocaleString('uk-UA')} ${product.currency === 'USD' ? '$' : product.currency === 'EUR' ? '€' : 'грн'}` : 'Ціну уточнюйте';
   html = html.replace(/(<h1[^>]*>)[\s\S]*?(<\/h1>)/i, `$1${escapeHtml(product.name)}$2`);
   html = html.replace(/(<h1[^>]*>[\s\S]*?<\/h1>\s*<p[^>]*>)[\s\S]*?(<\/p>)/i, `$1${escapeHtml(product.description)}$2`);
-  html = html.replace(/(<strong class=["']detail-price["'][^>]*>)[\s\S]*?(<\/strong>)/i, `$1${price}$2`);
+  html = html.replace(
+    /(<strong class=["']detail-price["'][^>]*>)[\s\S]*?(<\/strong>)/i,
+    (_match, open, close) => `${open}${price}${close}`
+  );
   html = html.replace(/(<div class=["']detail-img["'][^>]*>\s*<img[^>]+src=["'])[^"']+(["'])/i, `$1${product.image}$2`);
   html = html.replace(/(<div class=["']detail-img["'][^>]*>\s*<img[^>]+alt=["'])[^"']*(["'])/i, `$1${escapeHtml(product.image_alt || product.name)}$2`);
   if (product.specs) {
@@ -82,11 +90,14 @@ const records = rows.map((row) => Object.fromEntries(headers.map((header, index)
 const previous = JSON.parse(await fs.readFile(path.join(siteDir, 'catalog-data.json'), 'utf8'));
 const previousById = new Map(previous.products.map((product) => [product.id, product]));
 const products = [];
+const seenIds = new Set();
 
 for (const record of records) {
   const id = record.ID || slug(record.Назва);
-  if (!id || record.Активний === 'Ні') continue;
+  if (!id) continue;
   const old = previousById.get(id) || {};
+  const sheetImage = record['Основне фото'] || '';
+  const preferredImage = old.image || sheetImage;
   const product = {
     ...old,
     id,
@@ -96,20 +107,20 @@ for (const record of records) {
     brand: record.Бренд || old.brand || '',
     name: record.Назва || old.name || '',
     description: record['Короткий опис'] || old.description || '',
-    price: Number(String(record.Ціна || 0).replace(/\s/g, '').replace(',', '.')) || 0,
+    price: Number(String(record.Ціна || old.price || 0).replace(/\s/g, '').replace(',', '.')) || 0,
     currency: record.Валюта || old.currency || 'UAH',
-    availability: record.Наявність || 'В наявності',
-    power: record.Потужність || '',
-    image: record['Основне фото'] || old.image || '',
-    image_alt: record['Alt фото'] || record.Назва || '',
-    gallery: record.Галерея || '',
-    datasheet: record.Datasheet || '',
+    availability: record.Наявність || old.availability || 'В наявності',
+    power: old.power || record.Потужність || '',
+    image: preferredImage,
+    image_alt: old.image_alt || record['Alt фото'] || record.Назва || '',
+    gallery: old.gallery || record.Галерея || '',
+    datasheet: old.datasheet || record.Datasheet || '',
     page: record.Сторінка || old.page || `product-${slug(id)}.html`,
-    specs: record.Характеристики || '',
-    photo_status: record.Фото || (record['Основне фото'] ? 'Є' : 'Немає'),
-    datasheet_status: record['Datasheet статус'] || (record.Datasheet ? 'Є' : 'Немає'),
-    publication: record.Публікація || 'Потребує перевірки',
-    errors: record.Помилки || '',
+    specs: old.specs || record.Характеристики || '',
+    photo_status: record.Фото || old.photo_status || (preferredImage ? 'Є' : 'Немає'),
+    datasheet_status: record['Datasheet статус'] || old.datasheet_status || (record.Datasheet ? 'Є' : 'Немає'),
+    publication: record.Публікація || old.publication || 'Потребує перевірки',
+    errors: record.Помилки || old.errors || '',
     updated_at: new Date().toISOString()
   };
   if (!product.name || !product.image) {
@@ -118,6 +129,7 @@ for (const record of records) {
   }
   product.image = await localizeImage(product);
   products.push(product);
+  seenIds.add(id);
 
   const pagePath = path.join(siteDir, product.page);
   let html;
@@ -130,6 +142,13 @@ for (const record of records) {
     html = html.split(exemplar.id).join(product.id);
   }
   await fs.writeFile(pagePath, updatePage(html, product), 'utf8');
+}
+
+// The stock sheet can contain only the current supplier list. Products already
+// published on the site must not disappear merely because a row is temporarily
+// absent from that sheet. They remain editable in Directus and in the catalog.
+for (const old of previous.products) {
+  if (!seenIds.has(old.id)) products.push(old);
 }
 
 await fs.writeFile(
