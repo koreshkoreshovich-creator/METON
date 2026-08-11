@@ -599,6 +599,7 @@ body{color:var(--graphite);background:var(--soft)}
 .credit-panel-head h2{font-size:clamp(28px,3.3vw,43px);line-height:1.08;margin:0}
 .credit-panel-head p{margin:0;color:var(--muted);font-size:16px;line-height:1.65}
 .credit-panel.business .credit-panel-head p{color:#d8e2dc}
+.credit-panel .credit-panel-head p.credit-audience-label{display:block;width:100%;margin:0 0 5px;padding:14px 18px;border-radius:14px;background:linear-gradient(135deg,#ffd84f,#f4bd20);color:#17201d;font-size:clamp(20px,2.2vw,30px);font-weight:950;line-height:1.12;letter-spacing:-.02em;text-transform:uppercase;box-shadow:0 10px 24px rgba(190,139,0,.2)}
 .credit-benefits{display:grid;gap:10px;padding:0;margin:0}
 .credit-benefits li{position:relative;list-style:none;padding:14px 15px 14px 42px;border:1px solid var(--line);border-radius:var(--radius-sm);line-height:1.5;background:#fafbf8}
 .credit-benefits li:before{content:"✓";position:absolute;left:15px;top:13px;color:var(--green);font-weight:950}

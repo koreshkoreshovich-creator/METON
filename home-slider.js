@@ -8,25 +8,9 @@
   var dots = Array.prototype.slice.call(root.querySelectorAll('[data-slider-dot]'));
   var prev = root.querySelector('[data-slider-prev]');
   var next = root.querySelector('[data-slider-next]');
-  var toggle = root.querySelector('[data-slider-toggle]');
-  var progress = root.querySelector('[data-slider-progress]');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var delay = 7500;
   var current = 0;
-  var timer = null;
-  var pausedByUser = reduceMotion;
-  var interactionPauseUntil = 0;
 
-  function resetProgress() {
-    if (!progress) return;
-    progress.style.animation = 'none';
-    progress.offsetWidth;
-    if (!pausedByUser && Date.now() >= interactionPauseUntil) {
-      progress.style.animation = 'homeSliderProgress ' + delay + 'ms linear forwards';
-    }
-  }
-
-  function showSlide(index, userInitiated) {
+  function showSlide(index) {
     current = (index + slides.length) % slides.length;
     slides.forEach(function (slide, slideIndex) {
       var active = slideIndex === current;
@@ -39,45 +23,13 @@
       dot.classList.toggle('is-active', active);
       dot.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    if (userInitiated) interactionPauseUntil = Date.now() + 12000;
-    schedule();
   }
 
-  function schedule() {
-    window.clearTimeout(timer);
-    resetProgress();
-    if (pausedByUser || document.hidden) return;
-    var wait = Math.max(delay, interactionPauseUntil - Date.now());
-    timer = window.setTimeout(function () {
-      if (Date.now() < interactionPauseUntil) {
-        schedule();
-        return;
-      }
-      showSlide(current + 1, false);
-    }, wait);
-  }
-
-  function setPaused(value) {
-    pausedByUser = value;
-    toggle.textContent = value ? 'Відтворити' : 'Пауза';
-    toggle.setAttribute('aria-label', value ? 'Увімкнути автоматичну зміну' : 'Призупинити автоматичну зміну');
-    root.classList.toggle('is-paused', value);
-    schedule();
-  }
-
-  prev.addEventListener('click', function () { showSlide(current - 1, true); });
-  next.addEventListener('click', function () { showSlide(current + 1, true); });
+  prev.addEventListener('click', function () { showSlide(current - 1); });
+  next.addEventListener('click', function () { showSlide(current + 1); });
   dots.forEach(function (dot) {
-    dot.addEventListener('click', function () { showSlide(Number(dot.getAttribute('data-slider-dot')), true); });
+    dot.addEventListener('click', function () { showSlide(Number(dot.getAttribute('data-slider-dot'))); });
   });
-  toggle.addEventListener('click', function () { setPaused(!pausedByUser); });
-  root.addEventListener('mouseenter', function () { window.clearTimeout(timer); });
-  root.addEventListener('mouseleave', schedule);
-  root.addEventListener('focusin', function () { window.clearTimeout(timer); });
-  root.addEventListener('focusout', function (event) {
-    if (!root.contains(event.relatedTarget)) schedule();
-  });
-  document.addEventListener('visibilitychange', schedule);
 
   var touchStartX = null;
   root.addEventListener('touchstart', function (event) { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
@@ -86,7 +38,7 @@
     var distance = event.changedTouches[0].clientX - touchStartX;
     touchStartX = null;
     if (Math.abs(distance) < 55) return;
-    showSlide(current + (distance < 0 ? 1 : -1), true);
+    showSlide(current + (distance < 0 ? 1 : -1));
   }, { passive: true });
 
   var quiz = root.querySelector('[data-home-quiz]');
@@ -170,11 +122,9 @@
           if (key === 'object') updateConsumptionOptions(answers.object);
           var count = Object.keys(answers).length;
           quizProgress.textContent = count + ' / 3';
-          interactionPauseUntil = Date.now() + 30000;
           if (count === 3) {
             renderQuizResult();
           }
-          schedule();
         });
       });
     });
@@ -202,6 +152,5 @@
 
   updateCountdown();
   window.setInterval(updateCountdown, 1000);
-  showSlide(0, false);
-  if (reduceMotion) setPaused(true);
+  showSlide(0);
 })();
