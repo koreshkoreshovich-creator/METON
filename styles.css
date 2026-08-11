@@ -513,3 +513,120 @@ body{color:var(--graphite);background:var(--soft)}
     visibility:visible;
   }
 }
+
+/* Audience and financing navigation. The compact second line makes every
+   power range visible before the visitor opens a catalogue page. */
+.audience-menu{
+  min-width:310px;
+  gap:6px;
+}
+.audience-menu>a{
+  display:grid;
+  gap:4px;
+  padding:13px 14px;
+}
+.audience-menu>a span{
+  font-weight:900;
+}
+.audience-menu>a small{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+  line-height:1.35;
+  text-transform:none;
+}
+.audience-menu>a:hover small,
+.audience-menu>a:focus small{
+  color:#38433e;
+}
+.dropdown.equipment-menu{overflow:visible}
+@media(max-width:1120px){
+  .nav>.nav-item>.dropdown{display:none!important}
+  .mobile-subcategory-panel{
+    grid-column:1/-1;
+    display:block;
+    margin:2px 0 7px;
+    padding:12px;
+    border:1px solid var(--graphite);
+    border-radius:16px;
+    background:#fff;
+    box-shadow:var(--soft-shadow);
+  }
+  .mobile-subcategory-panel[hidden]{display:none}
+  .mobile-subcategory-panel>strong{display:block;margin-bottom:9px;font-size:12px;text-transform:uppercase}
+  .mobile-subcategory-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .mobile-subcategory-links a{display:grid;gap:2px;align-content:center;min-height:44px;padding:10px 12px;border:1px solid #ccc;border-radius:11px;background:#f7f7f4;font-size:14px;font-weight:800;white-space:normal}
+  .mobile-subcategory-links a small{font-size:11px;color:var(--muted)}
+}
+.section-anchor{scroll-margin-top:150px}
+.audience-route-section{padding-top:32px;padding-bottom:10px}
+.audience-route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.audience-route-card{
+  position:relative;
+  display:grid;
+  gap:12px;
+  min-height:210px;
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(145deg,#fffefb 0%,#f3f5ef 100%);
+  box-shadow:var(--soft-shadow);
+  overflow:hidden;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.audience-route-card:after{content:"→";position:absolute;right:24px;bottom:21px;font-size:26px;font-weight:900;color:var(--green)}
+.audience-route-card:hover{transform:translateY(-3px);border-color:#9aa9a1;box-shadow:var(--lift-shadow)}
+.audience-route-card .kicker{color:var(--green)}
+.audience-route-card h2{font-size:clamp(26px,3vw,38px);margin:0;max-width:620px}
+.audience-route-card p{margin:0;max-width:680px;color:var(--muted);font-size:16px;line-height:1.55}
+.power-range{display:flex;flex-wrap:wrap;gap:8px;padding-right:40px}
+.power-range span{padding:7px 10px;border-radius:999px;background:#fff;border:1px solid #ccd2ce;font-size:12px;font-weight:900}
+
+/* Financing page: two clear client paths, followed by the shared process. */
+.credit-intro{max-width:820px}
+.credit-audience-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+.credit-panel{
+  display:grid;
+  gap:22px;
+  padding:clamp(24px,3vw,38px);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  background:#fff;
+  box-shadow:var(--soft-shadow);
+}
+.credit-panel.business{background:linear-gradient(145deg,#14221d,#1b342a);color:#fff;border-color:#29493c}
+.credit-panel-head{display:grid;gap:10px}
+.credit-panel-head h2{font-size:clamp(28px,3.3vw,43px);line-height:1.08;margin:0}
+.credit-panel-head p{margin:0;color:var(--muted);font-size:16px;line-height:1.65}
+.credit-panel.business .credit-panel-head p{color:#d8e2dc}
+.credit-benefits{display:grid;gap:10px;padding:0;margin:0}
+.credit-benefits li{position:relative;list-style:none;padding:14px 15px 14px 42px;border:1px solid var(--line);border-radius:var(--radius-sm);line-height:1.5;background:#fafbf8}
+.credit-benefits li:before{content:"✓";position:absolute;left:15px;top:13px;color:var(--green);font-weight:950}
+.credit-panel.business .credit-benefits li{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.17)}
+.credit-panel.business .credit-benefits li:before{color:var(--yellow)}
+.credit-terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.credit-term{display:grid;gap:5px;padding:14px;border-radius:var(--radius-sm);background:var(--yellow-soft);border:1px solid #ecd58f}
+.credit-term span{font-size:11px;font-weight:900;text-transform:uppercase;color:#6c6140}
+.credit-term strong{font-size:17px;line-height:1.25}
+.credit-panel.business .credit-term{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
+.credit-panel.business .credit-term span{color:#bad0c4}
+.credit-panel .button-row{margin-top:0}
+.credit-panel.business .btn.ghost{border-color:#fff}
+.credit-helper{margin:0;padding-top:15px;border-top:1px solid var(--line);font-size:13px;line-height:1.55;color:var(--muted)}
+.credit-panel.business .credit-helper{border-color:rgba(255,255,255,.18);color:#d8e2dc}
+.credit-disclaimer{margin-top:20px}
+
+@media(max-width:900px){
+  .audience-route-grid,.credit-audience-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .audience-route-section{padding-top:20px}
+  .audience-route-card{min-height:0;padding:21px}
+  .audience-route-card:after{right:19px;bottom:16px}
+  .credit-panel{padding:22px 18px}
+  .credit-terms{grid-template-columns:1fr}
+  .credit-panel .button-row{display:grid}
+  .credit-panel .btn{width:100%}
+  .mobile-subcategory-links a{display:grid;gap:2px}
+  .mobile-subcategory-links a small{font-size:11px;color:var(--muted)}
+}
