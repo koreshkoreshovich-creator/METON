@@ -91,12 +91,30 @@
 
   var header = document.querySelector('.header');
   var desktopNav = header && header.querySelector('.nav');
-  if (!header || !desktopNav || header.querySelector('.mobile-subcategory-panel')) return;
+  if (!header || !desktopNav) return;
 
-  var panel = document.createElement('div');
-  panel.className = 'mobile-subcategory-panel';
-  panel.hidden = true;
-  desktopNav.insertAdjacentElement('afterend', panel);
+  if (!desktopNav.id) desktopNav.id = 'site-navigation';
+
+  var menuButton = header.querySelector('.mobile-nav-toggle');
+  if (!menuButton) {
+    menuButton = document.createElement('button');
+    menuButton.type = 'button';
+    menuButton.className = 'mobile-nav-toggle';
+    menuButton.setAttribute('aria-controls', desktopNav.id);
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.innerHTML = '<span class="mobile-nav-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>Меню</span>';
+    desktopNav.insertAdjacentElement('beforebegin', menuButton);
+  }
+
+  var panel = header.querySelector('.mobile-subcategory-panel');
+  if (!panel) {
+    panel = document.createElement('div');
+    panel.className = 'mobile-subcategory-panel';
+    panel.hidden = true;
+    desktopNav.insertAdjacentElement('afterend', panel);
+  }
+  // Keep the opened submenu below the top-level choices in the header grid.
+  panel.style.order = '4';
 
   function isMobileNavigation() {
     return window.matchMedia('(max-width: 1120px)').matches;
@@ -111,6 +129,45 @@
       if (trigger) trigger.setAttribute('aria-expanded', 'false');
     });
   }
+
+  function closeMobileNavigation() {
+    header.classList.remove('mobile-nav-open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    closeMobileSubmenu();
+  }
+
+  function addEquipmentGroups(dropdown, container) {
+    dropdown.querySelectorAll(':scope > .menu-branch').forEach(function (branch) {
+      var mainLink = branch.querySelector(':scope > a');
+      var submenu = branch.querySelector(':scope > .submenu');
+      if (!mainLink) return;
+
+      if (!submenu) {
+        container.appendChild(mainLink.cloneNode(true));
+        return;
+      }
+
+      var group = document.createElement('details');
+      group.className = 'mobile-menu-group';
+      var summary = document.createElement('summary');
+      summary.textContent = mainLink.textContent.replace('›', '').trim();
+      var groupLinks = document.createElement('div');
+      groupLinks.className = 'mobile-menu-group-links';
+      submenu.querySelectorAll('a').forEach(function (sourceLink) {
+        groupLinks.appendChild(sourceLink.cloneNode(true));
+      });
+      group.appendChild(summary);
+      group.appendChild(groupLinks);
+      container.appendChild(group);
+    });
+  }
+
+  menuButton.addEventListener('click', function () {
+    var willOpen = !header.classList.contains('mobile-nav-open');
+    header.classList.toggle('mobile-nav-open', willOpen);
+    menuButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    if (!willOpen) closeMobileSubmenu();
+  });
 
   desktopNav.querySelectorAll('.nav-item').forEach(function (item) {
     var trigger = item.querySelector(':scope > a');
@@ -132,17 +189,28 @@
       panel.innerHTML = '<strong>' + trigger.textContent.trim() + '</strong>';
       var links = document.createElement('div');
       links.className = 'mobile-subcategory-links';
-      dropdown.querySelectorAll('a').forEach(function (sourceLink) {
-        var link = sourceLink.cloneNode(true);
-        links.appendChild(link);
-      });
+      if (dropdown.classList.contains('equipment-menu')) {
+        addEquipmentGroups(dropdown, links);
+      } else {
+        dropdown.querySelectorAll(':scope > a').forEach(function (sourceLink) {
+          links.appendChild(sourceLink.cloneNode(true));
+        });
+      }
       panel.appendChild(links);
       panel.hidden = false;
     });
   });
 
+  panel.addEventListener('click', function (event) {
+    if (event.target.closest('a')) closeMobileNavigation();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeMobileNavigation();
+  });
+
   window.addEventListener('resize', function () {
-    if (!isMobileNavigation()) closeMobileSubmenu();
+    if (!isMobileNavigation()) closeMobileNavigation();
   });
 })();
 

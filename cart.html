@@ -10,7 +10,8 @@
   <meta name="theme-color" content="#0b0b0b" />
   <title>Кошик | METON</title>
   <meta name="description" content="Кошик METON для сонячних панелей, інверторів, акумуляторів, станцій та кріплення." />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://metongroup.com/cart.html" />
   <link rel="stylesheet" href="styles.css?v=20260807-16" />
   <link rel="stylesheet" href="social-video.css" />
 </head>
@@ -2031,8 +2032,12 @@ checkoutForm.addEventListener('submit', async function(event){
     submitButton.disabled = false;
   }
 });
-loadLiveCatalog().finally(function(){
-  addFromUrl();
+// The cart must stay usable even when the optional Directus catalogue is offline.
+// Add the requested static product immediately, then refresh the presentation
+// once live catalogue data becomes available.
+addFromUrl();
+renderCart();
+loadLiveCatalog().then(function(){
   renderCart();
 });
 </script><footer class="footer">
