@@ -61,8 +61,50 @@
   }
 
   function productImage(product) {
-    return fileUrl(product.image_file) ||
-      String(value(product, ['image_url', 'image'], '')).trim();
+    return normalizeCatalogImageUrl(fileUrl(product.image_file) ||
+      String(value(product, ['image_url', 'image'], '')).trim());
+  }
+
+  function normalizeCatalogImageUrl(imageUrl) {
+    var source = String(imageUrl || '').trim();
+    if (!source) return '';
+
+    // Після оптимізації каталогу файли в /assets були переведені з PNG у WebP,
+    // але частина старих записів Directus досі містить попередні .png URL.
+    // Для власних зображень METON використовуємо актуальний локальний файл.
+    try {
+      var parsed = new URL(source, location.href);
+      if (/^(?:www\.)?metongroup\.com$/i.test(parsed.hostname) &&
+          /^\/assets\//i.test(parsed.pathname)) {
+        return parsed.pathname.slice(1).replace(/\.png$/i, '.webp') + parsed.search + parsed.hash;
+      }
+    } catch (error) {}
+
+    if (/^(?:\.\/)?assets\//i.test(source)) {
+      return source.replace(/\.png(?=([?#]|$))/i, '.webp');
+    }
+    return source;
+  }
+
+  function setImageSafely(image, imageUrl, alt) {
+    if (!image) return;
+    if (alt) image.alt = alt;
+    if (!imageUrl) return;
+
+    var candidate = normalizeCatalogImageUrl(imageUrl);
+    var fallback = image.getAttribute('src') || '';
+    if (!candidate || candidate === fallback) return;
+
+    // Не підміняємо справне статичне фото, доки нове фото з CMS не завантажилося.
+    // Так помилка або застаріле посилання в Directus більше не створить пусту картку.
+    var probe = new Image();
+    probe.onload = function () {
+      image.src = candidate;
+    };
+    probe.onerror = function () {
+      if (fallback) image.src = fallback;
+    };
+    probe.src = candidate;
   }
 
   function datasheetUrl(product) {
@@ -129,10 +171,7 @@
     }
     if (paragraph && description) paragraph.textContent = description;
     if (price) price.textContent = formatPrice(product);
-    if (image && imageUrl) {
-      image.src = imageUrl;
-      image.alt = name || image.alt;
-    }
+    setImageSafely(image, imageUrl, name || (image && image.alt));
     var sheet = Array.prototype.find.call(card.querySelectorAll('a[href]'), function (link) {
       return /datasheet|паспорт|технічн/i.test(link.textContent + ' ' + link.href);
     });
@@ -156,10 +195,7 @@
     if (description && description.tagName === 'P') {
       description.textContent = value(product, ['description', 'short_description'], description.textContent);
     }
-    if (image && imageUrl) {
-      image.src = imageUrl;
-      image.alt = name || image.alt;
-    }
+    setImageSafely(image, imageUrl, name || (image && image.alt));
     var sheetUrl = datasheetUrl(product);
     if (sheetUrl) {
       document.querySelectorAll('a[href]').forEach(function (link) {
@@ -212,7 +248,7 @@
     var id = productId(product);
     var name = productName(product);
     var page = productPage(product) || ('directus-product.html?id=' + encodeURIComponent(product.id));
-    var image = productImage(product) || 'assets/station.webp';
+    var image = productImage(product);
     var description = String(value(product, ['short_description', 'description'], '')).trim();
     var sheet = datasheetUrl(product);
     var card = document.createElement('article');
@@ -224,8 +260,9 @@
       '<div class="product-body"><span class="badge"></span><h3><a></a></h3><p></p>' +
       '<div class="price-row"><strong></strong></div>' +
       '<div class="actions"><a class="btn primary">В кошик</a><a class="btn ghost">Детальніше</a></div></div>';
-    card.querySelector('img').src = image;
-    card.querySelector('img').alt = name;
+    var cardImage = card.querySelector('img');
+    cardImage.src = 'assets/station.webp';
+    setImageSafely(cardImage, image, name);
     card.querySelector('.badge').textContent =
       product.power_w ? product.power_w + ' Вт' : (product.power_kw ? product.power_kw + ' кВт' : category);
     card.querySelector('h3 a').href = page;

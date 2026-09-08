@@ -6,6 +6,7 @@ const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith('.html'));
 const missing = [];
 const schemaErrors = [];
 const canonicalErrors = [];
+const missingSourceImages = [];
 let productSchemas = 0;
 
 function localTarget(raw) {
@@ -13,6 +14,20 @@ function localTarget(raw) {
   const clean = decodeURIComponent(raw.split('#')[0].split('?')[0]);
   if (!clean) return null;
   return path.join(root, clean.replace(/^\//, ''));
+}
+
+const sourceFiles = fs.readdirSync(root).filter((name) => /\.(?:html|js)$/i.test(name));
+for (const file of sourceFiles) {
+  const source = fs.readFileSync(path.join(root, file), 'utf8');
+  for (const match of source.matchAll(/["']([^"']*[a-z0-9_-]+\.(?:avif|gif|jpe?g|png|svg|webp))(?:[?#][^"']*)?["']/gi)) {
+    const reference = match[1];
+    if (/^(?:https?:)?\/\//i.test(reference) || reference.includes('${')) continue;
+    const clean = reference.replace(/^\.\//, '').replace(/^\//, '');
+    const target = clean.includes('/') ? path.join(root, clean) : path.join(root, 'assets', clean);
+    if (!fs.existsSync(target) && !fs.existsSync(path.join(root, clean))) {
+      missingSourceImages.push(`${file} -> ${reference}`);
+    }
+  }
 }
 
 for (const file of htmlFiles) {
@@ -49,8 +64,9 @@ const result = {
   sitemapUrls: sitemapUrls.length,
   missingSitemapPages,
   missingLocalResources: [...new Set(missing)].sort(),
+  missingSourceImages: [...new Set(missingSourceImages)].sort(),
   missingCartJsReference: htmlFiles.some((file) => fs.readFileSync(path.join(root, file), 'utf8').includes('cart.js'))
 };
 
 console.log(JSON.stringify(result, null, 2));
-if (canonicalErrors.length || schemaErrors.length || missingSitemapPages.length || missing.length || result.missingCartJsReference) process.exitCode = 1;
+if (canonicalErrors.length || schemaErrors.length || missingSitemapPages.length || missing.length || missingSourceImages.length || result.missingCartJsReference) process.exitCode = 1;

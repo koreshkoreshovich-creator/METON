@@ -1,6 +1,27 @@
 (function () {
   'use strict';
 
+  // The complete inverter range lives on the hybrid/grid pages. Keep those
+  // destinations visible in every copy of the shared Equipment menu.
+  document.querySelectorAll('.equipment-menu > .menu-branch').forEach(function (branch) {
+    var mainLink = branch.querySelector(':scope > a');
+    var submenu = branch.querySelector(':scope > .submenu');
+    if (!mainLink || !submenu || !/інвертор/i.test(mainLink.textContent)) return;
+
+    var destinations = [
+      ['inverters-hybrid.html', 'Гібридні інвертори — весь каталог'],
+      ['inverters-grid.html', 'Мережеві інвертори — весь каталог']
+    ];
+    destinations.reverse().forEach(function (destination) {
+      if (submenu.querySelector('a[href="' + destination[0] + '"]')) return;
+      var link = document.createElement('a');
+      link.href = destination[0];
+      link.textContent = destination[1];
+      submenu.insertBefore(link, submenu.firstChild);
+    });
+    mainLink.href = 'inverters-hybrid.html';
+  });
+
   document.querySelectorAll('[data-account-link]').forEach(function (element) {
     if (element.textContent.trim() === 'Unnamed user') {
       element.textContent = 'Увійти';

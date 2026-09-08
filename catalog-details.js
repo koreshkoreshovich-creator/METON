@@ -2,7 +2,7 @@
   'use strict';
   if (document.querySelector('.product-card, .detail, .product-detail')) {
     var directusScript = document.createElement('script');
-    directusScript.src = 'directus-catalog.js';
+    directusScript.src = 'directus-catalog.js?v=20260908-1';
     directusScript.async = true;
     document.head.appendChild(directusScript);
   }
