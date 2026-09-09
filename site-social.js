@@ -9,15 +9,15 @@
     if (!mainLink || !submenu || !/інвертор/i.test(mainLink.textContent)) return;
 
     var destinations = [
-      ['inverters-hybrid.html', 'Гібридні інвертори — весь каталог'],
-      ['inverters-grid.html', 'Мережеві інвертори — весь каталог']
+      ['inverters-hybrid.html', 'Гібридні інвертори'],
+      ['inverters-grid.html', 'Мережеві інвертори']
     ];
-    destinations.reverse().forEach(function (destination) {
-      if (submenu.querySelector('a[href="' + destination[0] + '"]')) return;
+    submenu.replaceChildren();
+    destinations.forEach(function (destination) {
       var link = document.createElement('a');
       link.href = destination[0];
       link.textContent = destination[1];
-      submenu.insertBefore(link, submenu.firstChild);
+      submenu.appendChild(link);
     });
     mainLink.href = 'inverters-hybrid.html';
   });
