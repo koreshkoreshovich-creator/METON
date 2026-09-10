@@ -1,0 +1,43 @@
+﻿battery	battery-deye-se-f16	Акумуляторна батарея SE-F16-С Deye (LiFePO4 51,2V 314Ah 16.0 kWh)	NO_DATASHEET	product-battery-deye-se-f16.html
+battery	battery-deye-se-f5-pro-c	Акумулятор Deye SE-F5 Pro-C LiFePO4 5,12 кВт·год	https://deye.com/wp-content/uploads/2026/06/deye-se-f5-pro-series_brochure_20260618v1.0.pdf	product-battery-deye-se-f5-pro-c.html
+battery	battery-deye-se-g5	Акумуляторна батарея DEYE SE-G5.1 Pro-B LiFePO4 LV 51.2v 100AH 5.12kWh	NO_DATASHEET	product-battery-deye-se-g5.html
+battery	battery-litime-12v-100ah	Акумулятор 12V 100Ah LiFePO4	NO_DATASHEET	product-battery-litime-12v-100ah.html
+battery	battery-lp-24v-100ah	Акумулятор LP LiFePO4 для ДБЖ 24V (25,6V) - 100 Ah (2560Wh) (Smart BMS 100А) с BT пластик	NO_DATASHEET	product-battery-lp-24v-100ah.html
+battery	battery-lp-24v-200ah	Акумулятор LP LiFePO4 для ДБЖ 24V (25,6V) - 200 Ah (5120Wh) (Smart BMS 100А) с BT пластик	NO_DATASHEET	product-battery-lp-24v-200ah.html
+battery	battery-pylontech-us2000c	Акумуляторна батарея Pylontech US2000C 2.4 kW LifePO4	NO_DATASHEET	product-battery-pylontech-us2000c.html
+battery	battery-pylontech-us3000c	Акумуляторна батарея Pylontech US3000C 3 kW LifePO4	NO_DATASHEET	product-battery-pylontech-us3000c.html
+battery	battery-pylontech-us5000	Акумуляторна батарея Pylontech US5000 5 kW LifePO4	NO_DATASHEET	product-battery-pylontech-us5000.html
+inverter	deye-10k-3p	Гібридний інвертор Deye SUN-10K-SG04LP3-EU 10kW, 3Ф, 48V	technical-deye-10k-3p.html	product-deye-10k-3p.html
+inverter	deye-10k-lp1	Гібридний інвертор Deye SUN-10K-SG02 LP1-EU-AM3	technical-deye-10k-lp1.html	product-deye-10k-lp1.html
+inverter	deye-12k-3p	Гібридний інвертор Deye SUN-12K-SG04LP3-EU 12kW, 3Ф, 48v	technical-deye-12k-3p.html	product-deye-12k-3p.html
+inverter	deye-12k-lp1	Гібридний інвертор Deye SUN-12K-SG02 LP1-EU-AM3	technical-deye-12k-lp1.html	product-deye-12k-lp1.html
+inverter	deye-15k-3p	Гібридний інвертор Deye SUN-15K-SG01HP3-EU-AM2	technical-deye-15k-3p.html	product-deye-15k-3p.html
+inverter	deye-20k-3p	Гібридний інвертор Deye SUN-20K-SG01HP3-EU-AM2	technical-deye-20k-3p.html	product-deye-20k-3p.html
+inverter	deye-25k-3p	Гібридний інвертор Deye SUN-25K-SG01HP3-EU-AM2	technical-deye-25k-3p.html	product-deye-25k-3p.html
+inverter	deye-30k-3p	ГІБРИДНИЙ ІНВЕРТОР SUN-30K-SG01HP3-EU-BM3 DEYE WIFI (30 KW, 3 ФАЗИ, 3 MPPT)	technical-deye-30k-3p.html	product-deye-30k-3p.html
+inverter	deye-50k-3p	Гібридний сонячний інвертор Deye SUN-50K-SG01HP3-EU-BM3	technical-deye-50k-3p.html	product-deye-50k-3p.html
+inverter	deye-5k-1p	Гібридний інвертор Deye SUN-5K-SG03LP1-EU 5kW, 1Ф, 48V	https://de.deyeinverter.com/deyeinverter/2024/05/23/%E5%8D%95%E7%9B%B8%E5%82%A8%E8%83%BD%E4%BD%8E%E5%8E%8B%E4%B8%89%E8%B7%AF%E7%BB%84%E4%B8%B2%E5%BC%8F%E9%80%86%E5%8F%98%E5%99%A8sun-3.6-5k-sg03lp1-eu-may-2024.pdf	product-deye-5k-1p.html
+inverter	deye-6k-1p	Гібридний інвертор Deye SUN-6k-SG05LP1-EU 6kW, 1ф , 48V	technical-deye-6k-1p.html	product-deye-6k-1p.html
+inverter	deye-80k-3p	Гібридний інвертор Deye SUN-80K-SG02HP3-EU-EM6	https://de.deyeinverter.com/deyeinverter/2026/03/18/BDatasheetSUN-60-80K-SG02HP3-EU-EM620260316de.pdf	product-deye-80k-3p.html
+inverter	deye-8k-1p	Гібридний інвертор Deye SUN-8K-SG01LP1-EU 8kW, 1Ф, 48V	technical-deye-8k-1p.html	product-deye-8k-1p.html
+panel	panel-aiko-440	Сонячна панель AIKO A440-MAH54Mb 440Вт	https://www.coenergia.com/Apps/WebObjects/Coenergia.woa/wa/downloadFile?path=2b214eb8c047850a4b756c53991aa1c6	product-panel-aiko-440.html
+panel	panel-leapton-620	Сонячна панель Leapton LP182*210-M-66-NB-620W Bifacial Fiberglass N-type 620Вт	datasheets/panel-leapton-620.pdf	product-panel-leapton-620.html
+panel	panel-leapton-710	Сонячна панель Leapton LP210*210-M-66-NB-710W	datasheets/panel-leapton-710.pdf	product-panel-leapton-710.html
+panel	panel-longi-410	Сонячна панель Longi Solar LR5-54HIH-410M	https://www.solarproof.com.au/datasheets/panel_datasheet_longi-lr5hih-datasheet.pdf	product-panel-longi-410.html
+panel	panel-longi-425-807	Сонячна панель Longi Solar LR5-54HTH-425M	https://device.report/m/60bde1079c423790c1821bcd521b9fad7635d7b7e6f328ff2d35433bb0b951b7.pdf	product-panel-longi-425-807.html
+panel	panel-longi-425	Сонячна панель Longi Solar LR5-54HTH-425M	https://device.report/m/60bde1079c423790c1821bcd521b9fad7635d7b7e6f328ff2d35433bb0b951b7.pdf	product-panel-longi-425.html
+panel	panel-longi-435	Сонячна панель Longi Solar LR5-54HTH-435M, 435Вт	https://device.report/m/60bde1079c423790c1821bcd521b9fad7635d7b7e6f328ff2d35433bb0b951b7.pdf	product-panel-longi-435.html
+panel	panel-longi-580	Сонячна панель Longi Solar LR5-72HTH-580M	https://www.sig.energy/wp-content/uploads/2025/01/longi-lr5-72hth-565-585-35f-datasheet-ua.pdf	product-panel-longi-580.html
+panel	panel-longi-590	Сонячна панель Longi Solar LR7-72HTH-590M	datasheets/panel-longi-620.pdf	product-panel-longi-590.html
+panel	panel-longi-620	Сонячна панель Longi Solar LR7-72HTH-620M	datasheets/panel-longi-620.pdf	product-panel-longi-620.html
+panel	panel-longi-bifacial-610	Сонячна панель Longi Solar LR8-66HGD-610M Bifacial	datasheets/panel-longi-bifacial-610.pdf	product-panel-longi-bifacial-610.html
+panel	panel-longi-bifacial-650	Сонячна панель Longi Solar LR7-72HVD-650M Bifacial	https://static.longi.com/LR_7_72_HVD_640_665_M_30_30_and_15_Scientist_BGV_03_20250313_EN_aaafec27e2.pdf	product-panel-longi-bifacial-650.html
+panel	panel-tongwei-435	Сонячна панель Tongwei TWMND-54HB435W	https://device.report/m/32914cad0a81fa95b31b9c924c08a6de9ae1518c18032bc4335e7de0afd1368d.pdf	product-panel-tongwei-435.html
+panel	panel-tongwei-610	Сонячна панель TONGWEI TWMNH-66HS610 610Вт N-type	https://solar-energy.com.ua/content/files/specifkacja-tongwei_twmnh_66hs610_datasheet_ua-90228469.pdf	product-panel-tongwei-610.html
+panel	panel-tongwei-bifacial-625	Сонячна панель TongWei TWMNH-66HD625W N-type Bifacial 625Вт	datasheets/panel-tongwei-bifacial-625.pdf	product-panel-tongwei-bifacial-625.html
+panel	panel-tongwei-bifacial-630	Сонячна панель TongWei TWMNH-66HD630W N-type Bifacial 630Вт	datasheets/panel-tongwei-bifacial-630.pdf	product-panel-tongwei-bifacial-630.html
+panel	panel-trina-610	Сонячна панель Trina Solar TSM-NE19R 610M	datasheets/panel-trina-610.pdf	product-panel-trina-610.html
+inverter	solis-10k	Мережевий інвертор Solis S5-GR3P10K	https://www.solisinverters.com/uploads/file/S5-GR3P%283-20%29K-Global-Flyer-V3%2C8.pdf	product-solis-10k.html
+inverter	solis-15k	Мережевий інвертор Solis S5-GR3P15K	https://www.solisinverters.com/uploads/file/S5-GR3P%283-20%29K-Global-Flyer-V3%2C8.pdf	product-solis-15k.html
+inverter	solis-20k	Мережевий інвертор Solis S5-GR3P20K	https://www.solisinverters.com/uploads/file/S5-GR3P%283-20%29K-Global-Flyer-V3%2C8.pdf	product-solis-20k.html
+inverter	solis-30k	Мережевий інвертор Solis-30K-5G	https://www.solisinverters.com/uploads/file/S5-GC%2825-40%29K-UK-Flyer-V2%2C1.pdf	product-solis-30k.html

@@ -279,3 +279,12 @@
   script.setAttribute('data-meton-catalog', 'true');
   document.head.appendChild(script);
 })();
+
+(function () {
+  if (document.querySelector('script[data-meton-pricing]')) return;
+  var script = document.createElement('script');
+  script.src = 'catalog-pricing.js?v=20260910-1';
+  script.defer = true;
+  script.setAttribute('data-meton-pricing', 'true');
+  document.head.appendChild(script);
+})();

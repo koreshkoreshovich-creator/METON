@@ -53,7 +53,11 @@ function saveConfiguration_(data) {
 }
 
 function saveLead_(data) {
-  if (!data.name || !validPhone_(data.phone)) throw new Error('Некоректний контакт');
+  if (!validName_(data.name) || !validPhone_(data.phone)) throw new Error('Некоректний контакт');
+  if (!data.monthlyConsumptionKwh && !data.systemKw && !(data.customerQuestions || []).length) throw new Error('Заявка без змістовного запиту');
+  const leadCache=CacheService.getScriptCache(),leadKey='ai-lead-'+digits_(data.phone);
+  if (leadCache.get(leadKey)) throw new Error('Повторна заявка');
+  leadCache.put(leadKey,'1',300);
   const id=data.leadId || ('AI-'+Date.now().toString(36).toUpperCase());
   const summary=[
     `Споживання: ${data.monthlyConsumptionKwh || 'не вказано'} кВт·год/міс.`,
@@ -61,7 +65,11 @@ function saveLead_(data) {
     `Інвертор: ${data.inverter || 'уточнити'}`,
     `Панелі: ${data.panels || 'уточнити'}`,
     `Резерв: ${data.reserve === true ? 'потрібен' : data.reserve === false ? 'не потрібен' : 'уточнити'}`,
-    `Питання: ${(data.customerQuestions || []).join('; ') || 'немає'}`
+    `Питання: ${(data.customerQuestions || []).join('; ') || 'немає'}`,
+    `Сторінка: ${data.pageUrl || 'не вказано'}`,
+    '',
+    'Діалог:',
+    String(data.conversationTranscript || 'не збережено').slice(0,2500)
   ].join('\n');
   append_([id,new Date(),'Нове',data.name,data.phone,'',summary,1,0,'AI-консультація','Телефон',data.source || 'AI-консультант METON']);
   sendTelegram_('🤖 Новий AI-лід',{orderId:id,name:data.name,phone:data.phone,city:'',comment:''},summary);
@@ -193,8 +201,7 @@ function listTelegramChatIds() {
     const message=update.message || update.channel_post || update.edited_message;
     if (!message || !message.chat) return;
     const chat=message.chat;
-    chats[chat.id]={
-      id:chat.id,
+    chats[chat.id]={      id:chat.id,
       type:chat.type,
       name:chat.title || [chat.first_name,chat.last_name].filter(Boolean).join(' ') || chat.username || 'Без назви'
     };
@@ -205,7 +212,18 @@ function listTelegramChatIds() {
   return found;
 }
 
-function validPhone_(value){ return /^\+?[0-9\s()\-]{10,20}$/.test(String(value || '')); }
+function validPhone_(value){
+  let digits=digits_(value);
+  if (digits.length===10 && digits[0]==='0') digits='38'+digits;
+  if (!/^380(?:39|50|63|66|67|68|73|75|77|89|91|92|93|94|95|96|97|98|99)\d{7}$/.test(digits)) return false;
+  const subscriber=digits.slice(5);
+  return !/^(\d)\1{6}$/.test(subscriber) && subscriber!=='1234567' && subscriber!=='7654321';
+}
+function validName_(value){
+  const name=String(value || '').trim();
+  if (!/^[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]{2,30}(?:\s+[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]{2,30}){0,2}$/.test(name)) return false;
+  return !/(ху[йяєи]|п[іи]зд|бля|[єе]б[аеи]|сук[аи]|мудак|деб[іи]л|ідіот|гандон|хуйло)/i.test(name);
+}
 function digits_(value){ return String(value || '').replace(/\D/g,''); }
 function safeCell_(value){
   if (value instanceof Date || typeof value === 'number') return value;

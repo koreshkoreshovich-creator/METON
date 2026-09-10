@@ -2038,6 +2038,7 @@ checkoutForm.addEventListener('submit', async function(event){
 addFromUrl();
 renderCart();
 loadLiveCatalog().then(function(){
+  if (window.METON_PRICING) window.METON_PRICING.applyProductMap(productMap);
   renderCart();
 });
 </script><footer class="footer">

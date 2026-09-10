@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var UAH_PER_USD = 44.88;
+  var UAH_PER_USD = 44.6462;
   var UAH = '\u0433\u0440\u043d';
   var DASH = '\u2013';
   var PRICE_SELECTOR = [
