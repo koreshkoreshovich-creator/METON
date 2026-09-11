@@ -292,6 +292,10 @@
       if (card) updateCard(card, product);
     });
     window.dispatchEvent(new CustomEvent('meton:catalog-ready', { detail: products }));
+    document.dispatchEvent(new CustomEvent('directus:catalog-applied', { detail: products }));
+    if (window.METON_PRICING && typeof window.METON_PRICING.apply === 'function') {
+      window.METON_PRICING.apply();
+    }
   }
 
   fetch(PRODUCTS_URL + '&_=' + Date.now(), {

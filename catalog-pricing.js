@@ -118,7 +118,10 @@
     card.classList.add('is-unavailable');
     card.querySelectorAll('.old-price').forEach(function (oldPrice) { oldPrice.remove(); });
     var price = card.querySelector('.price-row strong,.price,.card-price,[data-product-price]');
-    if (price) { price.removeAttribute('data-meton-usd'); price.textContent = 'Немає в наявності'; }
+    if (price) {
+      price.removeAttribute('data-meton-usd');
+      if (price.textContent.trim() !== 'Немає в наявності') price.textContent = 'Немає в наявності';
+    }
     card.querySelectorAll('a[href*="cart.html?add="]').forEach(function (link) { link.remove(); });
     var badge = card.querySelector('.badge');
     if (badge && !/немає в наявності/i.test(badge.textContent)) badge.textContent = 'Немає в наявності';
@@ -127,9 +130,9 @@
   function setMadeToOrder(card) {
     card.hidden = false;
     var price = card.querySelector('.price-row strong,.price,.card-price,[data-product-price]');
-    if (price) price.textContent = 'Під замовлення';
+    if (price && price.textContent.trim() !== 'Під замовлення') price.textContent = 'Під замовлення';
     var badge = card.querySelector('.badge,.stock-badge');
-    if (badge) badge.textContent = 'Під замовлення';
+    if (badge && badge.textContent.trim() !== 'Під замовлення') badge.textContent = 'Під замовлення';
     card.querySelectorAll('a[href*="cart.html"], .add-to-cart').forEach(function (link) { link.remove(); });
   }
 
@@ -178,7 +181,7 @@
     var name = heading ? heading.textContent : '';
     if (unavailable.has(id)) {
       var price = document.querySelector('.detail-price,.product-detail .price');
-      if (price) price.textContent = 'Немає в наявності';
+      if (price && price.textContent.trim() !== 'Немає в наявності') price.textContent = 'Немає в наявності';
       document.querySelectorAll('a[href*="cart.html?add="]').forEach(function (link) { link.remove(); });
       return;
     }
@@ -231,6 +234,27 @@
   window.METON_PRICING = {rate:RATE, prices:prices, applyProductMap:applyProductMap, apply:apply};
   apply();
   window.addEventListener('meton:catalog-ready', function () { window.setTimeout(apply, 0); });
+  document.addEventListener('directus:catalog-applied', function () { window.setTimeout(apply, 0); });
+
+  // Directus and the local fallback fill the catalog asynchronously. Re-apply the
+  // approved price list whenever a card or price node is replaced later on.
+  var applyQueued = false;
+  var observer = new MutationObserver(function (mutations) {
+    var catalogChanged = mutations.some(function (mutation) {
+      if (mutation.type !== 'childList') return false;
+      var target = mutation.target && mutation.target.nodeType === 1 ? mutation.target : null;
+      return Boolean(target && target.closest && target.closest(
+        '.product-grid,.product-card,.detail,.product-detail'
+      ));
+    });
+    if (!catalogChanged || applyQueued) return;
+    applyQueued = true;
+    window.setTimeout(function () {
+      applyQueued = false;
+      apply();
+    }, 0);
+  });
+  if (document.body) observer.observe(document.body, {childList:true, subtree:true});
   var attempts = 0;
   var timer = window.setInterval(function () { apply(); if (++attempts >= 12) window.clearInterval(timer); }, 500);
 })();

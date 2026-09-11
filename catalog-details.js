@@ -1,10 +1,27 @@
 (function () {
   'use strict';
   if (document.querySelector('.product-card, .detail, .product-detail')) {
-    var directusScript = document.createElement('script');
-    directusScript.src = 'directus-catalog.js?v=20260908-1';
-    directusScript.async = true;
-    document.head.appendChild(directusScript);
+    var loadDirectus = function () {
+      if (document.querySelector('script[data-meton-directus]')) return;
+      var directusScript = document.createElement('script');
+      directusScript.src = 'directus-catalog.js?v=20260910-2';
+      directusScript.async = true;
+      directusScript.setAttribute('data-meton-directus', 'true');
+      document.head.appendChild(directusScript);
+    };
+    var pricingScript = document.querySelector('script[data-meton-pricing]');
+    if (window.METON_PRICING) {
+      loadDirectus();
+    } else if (pricingScript) {
+      pricingScript.addEventListener('load', loadDirectus, { once: true });
+    } else {
+      pricingScript = document.createElement('script');
+      pricingScript.src = 'catalog-pricing.js?v=20260910-2';
+      pricingScript.async = true;
+      pricingScript.setAttribute('data-meton-pricing', 'true');
+      pricingScript.addEventListener('load', loadDirectus, { once: true });
+      document.head.appendChild(pricingScript);
+    }
   }
   if (/equipment-detail\.html$/i.test(location.pathname)) return;
 
